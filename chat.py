@@ -82,7 +82,7 @@ def index():
 
 @app.route('/landing')
 def landing():
-    return render_template('landing.html')
+    return render_template('layout.html')
 
 
 
