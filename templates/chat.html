@@ -1,0 +1,20 @@
+<!-- chat.html -->
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="chat-container">
+    <div id="chat-box">
+        {% for exchange in messages %}
+            <div class="chat-message {{ exchange.role }}">
+                <strong>{{ exchange.role.capitalize() }}:</strong>
+                <!-- Apply the markdown_bold filter -->
+                <p>{{ exchange.text | replace("\n", "<br>") | safe }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <form action="{{ url_for('chat') }}" method="post">
+        <input type="text" name="message" id="message-input" placeholder="Type your message here..." required>
+        <button type="submit">Send</button>
+    </form>
+</div>
+{% endblock %}

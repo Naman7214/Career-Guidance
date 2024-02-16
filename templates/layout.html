@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuidoAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    body {
+      font-family: 'Lato', sans-serif;
+    }
+    .image-container {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+    }
+    /* Added animation styles */
+    @keyframes floatAnimation {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    .animated-mascot {
+      animation: floatAnimation 3s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+  <div class="flex flex-col h-screen">
+    <nav class="flex justify-between items-center px-10 py-4">
+      <div class="text-4xl font-bold"></div>
+      <div class="space-x-4">
+        <a href="#" class="hover:underline">About Us</a>
+        <a href="#" class="hover:underline">FAQ</a>
+        <a href="#" class="px-6 py-2 border rounded">Sign in</a>
+      </div>
+    </nav>
+
+    <div class="flex-grow grid grid-cols-2 items-center">
+      <div class="px-10 space-y-6">
+        <h1 class="text-5xl font-bold" style="background-image: linear-gradient(to right, #4299E1, #FFCD37); -webkit-background-clip: text; color: transparent;">Guido - The Compass</h1>
+        <p class="text-2xl font-bold">With Guido find the path to your career!</p>
+        <p class="text-lg">Chat to start planning, shaping and more with Guido AI</p>
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28 mr-4"><a href="{{ url_for('signup') }}">Sign in</a></button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28"><a href="{{ url_for('login') }}">Log in</a></button>               
+
+      </div>
+      <div class="image-container"> <!-- Modified class -->
+        <img src="../static/mascot.png" alt="Guido-the compass" class="rounded-lg shadow-lg h-96 w-96 animated-mascot"> <!-- Added animation class -->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
