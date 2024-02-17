@@ -1,14 +1,147 @@
-<!-- signup.html -->
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #131314;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container-wrapper {
+            position: relative;
+        }
+        .container {
+            background-color: #232121;
+            padding: 40px; /* Increased padding for more height */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border: 2px solid #007bff; /* Blue border color */
+            animation: borderAnimation 5s linear infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 250px;
+            margin-top: 10px;
+        }
+        .container h2 {
+            margin-top: 0;
+            text-align: center;
+            color: white;
+        }
+        .container p {
+            color: white;
+            margin-top: 10px;
+        }
+        .container p a {
+            color: #fff; /* Anchor text color */
+            text-decoration: none; /* Remove underline */
+        }
+        .container p a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+        .container input[type="text"],
+        .container input[type="password"],
+        .container input[type="submit"] {
+            width: 100% ;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #000;
+            border:2px solid #fff;
+            color: #fff; /* Text color */
+        }
+        .container input[type="text"]::placeholder,
+        .container input[type="password"]::placeholder {
+            color: #ffffff; /* Placeholder color */
+        }
+        .container input[type="submit"] {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        @keyframes borderAnimation {
+            0% {
+                border-color: #8dc4ff;
+            }
+            25% {
+                border-color: #4f7bff;
+            }
+            50% {
+                border-color: #2c00dd;
+            }
+            75% {
+                border-color: #4f7bff;
+            }
+            100% {
+                border-color: #8dc4ff;
+            }
+        }
+        .guido-text {
+            position: absolute;
+            top: -60px; /* Adjusted top position for spacing */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px; /* Increased font size */
+            color: transparent;
+            background: linear-gradient(to right, #007bff, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1; /* Ensure the text is rendered above the container */
+        }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper">
+        <div class="guido-text"><a href="/">GuidoAI</a></div>
+        <div class="container">
+            <h2>Sign in</h2>
+            <form method="post" action="/signup" onsubmit="return checkPassword(this)">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Enter your Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm your Password" required>
+                <input type="submit" value="Login">
+            </form>
+            
+            <p>Already have an account? <a href="/login">Login now</a></p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function checkPassword(form) {
+        var password1 = form.password.value;
+        var password2 = form.confirm_password.value;
 
-{% block content %}
-    <h2>Sign Up</h2>
-    <form method="post" action="{{ url_for('signup') }}">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <input type="submit" value="Sign Up">
-    </form>
-    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
-{% endblock %}
+        if (password1 == '') {
+            alert("Please enter Password");
+            return false;
+        } else if (password2 == '') {
+            alert("Please enter confirm password");
+            return false;
+        } else if (password1 != password2) {
+            alert("Passwords did not match: Please try again...");
+            return false;
+        } else {
+            alert("Password Match: Welcome to our website!");
+            return true; // Proceed with form submission
+        }
+    }
+</script>
+
+</html>

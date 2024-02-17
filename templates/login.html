@@ -109,7 +109,7 @@
 </head>
 <body>
     <div class="container-wrapper">
-        <div class="guido-text">GuidoAI</div>
+        <div class="guido-text"><a href="/">GuidoAI</a></div>
         <div class="container">
             <h2>Login</h2>
             <form method="post" action={{ url_for('login') }}>
@@ -117,7 +117,7 @@
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login">
             </form>
-            <p>Don't have an account? <a href="register.html">Register now</a></p>
+            <p>Don't have an account? <a href="/signup">Register now</a></p>
         </div>
     </div>
 </body>

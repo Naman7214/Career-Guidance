@@ -48,10 +48,12 @@
         <h1 class="text-5xl font-bold" style="background-image: linear-gradient(to right, #4299E1, #FFCD37); -webkit-background-clip: text; color: transparent;">Guido - The Compass</h1>
         <p class="text-2xl font-bold">With Guido find the path to your career!</p>
         <p class="text-lg">Chat to start planning, shaping and more with Guido AI</p>
-
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28 mr-4"><a href="{{ url_for('signup') }}">Sign in</a></button>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28"><a href="{{ url_for('login') }}">Log in</a></button>               
-
+        {% if 'username' not in session %}
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28 mr-4"><a href="{{ url_for('signup') }}">Sign in</a></button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28"><a href="{{ url_for('login') }}">Log in</a></button>               
+        {% else %}
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-full w-30"><a href="{{ url_for('chat') }}">Continue with the chat</a></button>               
+        {% endif %}
       </div>
       <div class="image-container"> <!-- Modified class -->
         <img src="../static/mascot.png" alt="Guido-the compass" class="rounded-lg shadow-lg h-96 w-96 animated-mascot"> <!-- Added animation class -->
