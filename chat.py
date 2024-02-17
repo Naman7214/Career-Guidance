@@ -91,6 +91,7 @@ def chat():
         return redirect(url_for('login'))
     
     updated_history = []
+    user_message_skipped = False
 
     username = session['username']
     
@@ -101,23 +102,35 @@ def chat():
         initial_prompt = prompt[0]
         session['response'], history = send_chat(initial_prompt, [])
         session['history'] = history
-        updated_history = [{"text": part, "role": item['role']} for item in history for part in item['parts']]
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
         save_user_history(username, history)
         # session['history'] = get_user_history(username)
 
     else:
         history = session['history']
-        updated_history = [{"text": part, "role": item['role']} for item in history for part in item['parts']]
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        
 
     if request.method == 'POST':
+        user_message_skipped = False
         user_message = request.form['message']
         response, history = send_chat(user_message, history)
         session['response'] = response
         session['history'] = history
-        updated_history = [{"text": part, "role": item['role']} for item in history for part in item['parts']]
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
         save_user_history(username, history)
         # session['history'] = get_user_history(username)
 
+    print(updated_history)
     
     return render_template('chat.html', messages=updated_history)
 
