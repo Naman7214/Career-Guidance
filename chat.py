@@ -80,7 +80,6 @@ def index():
 
 @app.route('/landing')
 def landing():
-    print(session)
     return render_template('layout.html')
 
 
@@ -149,7 +148,6 @@ def login():
         # For simplicity, let's assume any non-empty username is valid
         if username:
             session['username'] = username
-            print(session)
             return redirect(url_for('chat'))
     
     return render_template('login.html')

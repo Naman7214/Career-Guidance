@@ -17,7 +17,6 @@
       justify-content: center; /* Center horizontally */
       align-items: center; /* Center vertically */
     }
-    /* Added animation styles */
     @keyframes floatAnimation {
       0%, 100% {
         transform: translateY(0);
@@ -43,8 +42,8 @@
       </div>
     </nav>
 
-    <div class="flex-grow grid grid-cols-2 items-center">
-      <div class="px-10 space-y-6">
+    <div class="flex-grow flex items-center justify-center">
+      <div class="space-y-6 mr-10"> <!-- Adjusted for closer positioning -->
         <h1 class="text-5xl font-bold" style="background-image: linear-gradient(to right, #4299E1, #FFCD37); -webkit-background-clip: text; color: transparent;">Guido - The Compass</h1>
         <p class="text-2xl font-bold">With Guido find the path to your career!</p>
         <p class="text-lg">Chat to start planning, shaping and more with Guido AI</p>
@@ -54,9 +53,10 @@
         {% else %}
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-full w-30"><a href="{{ url_for('chat') }}">Continue with the chat</a></button>               
         {% endif %}
+
       </div>
-      <div class="image-container"> <!-- Modified class -->
-        <img src="../static/mascot.png" alt="Guido-the compass" class="rounded-lg shadow-lg h-96 w-96 animated-mascot"> <!-- Added animation class -->
+      <div class="image-container">
+        <img src="../static/mascot.png" alt="Guido-the compass" class="rounded-lg shadow-lg h-96 w-96 animated-mascot">
       </div>
     </div>
   </div>
