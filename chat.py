@@ -31,7 +31,6 @@ def save_user_history(username, history):
 
 def get_user_history(username):
     document = user_history.find_one({"username": username})
-    # print(type(document['history']))
     return document['history'] if document else []
 
 def generate_user_id():
@@ -45,6 +44,7 @@ prompt = [
     Ask minimum of 10 questions and maximum 15 before suggesting the user any of the career path and that too only one question at a time in order to better understand the user.
     Also the questions should not be marked with number when being asked to user.
     If any of the response from the user is unrelated to given context, don't answer those questions and instead request them to be more focused on the current conversation.
+    Don't write any sort of code for user, don't answer any general apptitude type question for the user.
     1. Gather Information
     2. Analyze Responses
     3. Provide Insights
@@ -59,7 +59,6 @@ prompt = [
     start coversation with some greetings.
 """
 ]
-
 def send_chat(message, history):
     model = genai.GenerativeModel('gemini-pro')
     
@@ -71,7 +70,6 @@ def send_chat(message, history):
     history.append({'role': 'model',
                     'parts': [response.text]})
     
-    print("generated")
 
     return response.text, history
 
@@ -98,10 +96,8 @@ def chat():
     
     if 'history' not in session:
         session['history'] = get_user_history(username)
-        print("history fetched!!")
 
     if session['history'] == []:
-        print("into intial block")
         initial_prompt = prompt[0]
         session['response'], history = send_chat(initial_prompt, [])
         session['history'] = history
@@ -111,11 +107,9 @@ def chat():
 
     else:
         history = session['history']
-        print(history)
         updated_history = [{"text": part, "role": item['role']} for item in history for part in item['parts']]
 
     if request.method == 'POST':
-        print("wtf")
         user_message = request.form['message']
         response, history = send_chat(user_message, history)
         session['response'] = response
