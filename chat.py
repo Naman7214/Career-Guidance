@@ -78,6 +78,10 @@ def index():
     session.clear()
     return redirect(url_for('landing'))
 
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
+
 @app.route('/landing')
 def landing():
     return render_template('layout.html')

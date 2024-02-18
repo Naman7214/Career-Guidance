@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
+    <style>
+        .uploaddiv {
+            border: 4px solid #007bff;
+            /* Blue border color */
+            animation: borderAnimation 5s linear infinite;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                border-color: #8dc4ff;
+            }
+
+            25% {
+                border-color: rgb(56 189 248);
+                ;
+            }
+
+            50% {
+                border-color: #2c00dd;
+            }
+
+            75% {
+                border-color: rgb(56 189 248);
+                ;
+            }
+
+            100% {
+                border-color: #8dc4ff;
+            }
+        }
+
+        .guido-text {
+            position: absolute;
+            top: 4em;
+            left: 16.5em;
+            /* transform: translateX(-50%); */
+            font-size: 40px;
+            /* Increased font size */
+            color: transparent;
+            background: linear-gradient(to right, #007bff, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+            /* Ensure the text is rendered above the container */
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1c1e26;
+        }
+
+        .preloader {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preloader__box {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .preloader__box span {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            border: 2px solid #fff;
+            pointer-events: none;
+            animation: preloader 1.5s linear infinite;
+        }
+
+        .preloader__box span:nth-of-type(1) {
+            border-radius: 48% 52% 68% 32%/46% 40% 60% 54%;
+            box-shadow: 0px 0px 10px 0px rgba(136, 7, 126, 0.8), inset 0px 0px 10px 0px rgba(136, 7, 126, 0.8);
+        }
+
+        .preloader__box span:nth-of-type(2) {
+            animation-direction: reverse;
+            border-radius: 27% 73% 64% 36%/69% 39% 61% 31%;
+            box-shadow: 0px 0px 10px 0px rgba(251, 184, 53, 0.5), inset 0px 0px 10px 0px rgba(251, 184, 53, 0.5);
+        }
+
+        .preloader__box span:nth-of-type(3) {
+            animation-duration: 3s;
+            border-radius: 58% 42% 30% 70%/38% 59% 41% 62%;
+            box-shadow: 0px 0px 10px 0px rgba(253, 100, 67, 0.7), inset 0px 0px 10px 0px rgba(253, 100, 67, 0.7);
+        }
+
+        @keyframes preloader {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blinking-text {
+            animation: blink 2s linear infinite;
+            color: rgb(136, 7, 59);
+            /* Neon purple base color */
+            text-shadow:
+                0 0 5px rgb(227, 68, 132),
+                0 0 10px rgb(227, 68, 132),
+                0 0 20px rgb(227, 68, 132),
+                0 0 40px rgb(227, 68, 132),
+                0 0 80px rgb(227, 68, 132),
+                0 0 120px rgb(227, 68, 132);
+            /* Glow effect */
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-900 h-screen overflow-hidden">
+    <div class="guido-text" id="heading"><a href="/">GuidoAI</a></div>
+    <div class="flex items-center justify-center h-full" id="boxx">
+        <!-- Mascot div -->
+        <div class="mascot" style="position: absolute; left: 50%; transform: translateX(-135%) translateY(-5%);">
+            <img src="../static/mascot1.png" alt="GuidoAI" style="height: 100%; object-fit: cover;">
+        </div>
+
+        <!-- Upload div -->
+        <div class="bg-zinc-800 p-6 rounded shadow-lg w-1/3 uploaddiv" style="margin-left: -5%; z-index: 10;">
+            <div class="border-dashed border-2 border-gray-200 p-6 rounded flex flex-col items-center justify-center"
+                id="drop-zone">
+                <p class="text-gray-500">Drop your Resume</p>
+                <p class="text-sm text-gray-500">Or</p>
+                <button class="bg-sky-400 text-white font-bold py-2 px-4 rounded mt-2" id="file-upload-btn">Browse your
+                    Resume</button>
+                <input type="file" id="file-upload" style="display:none" accept=".jpg, .jpeg"
+                    onchange="handleFiles(this.files)">
+            </div>
+            <div id="file-upload-status" class="mt-4">
+                <!-- Files upload status will be displayed here -->
+            </div>
+            <button class="bg-sky-400 w-full text-white font-bold py-2 px-4 rounded mt-4 upload-resume-btn">Upload
+                Resume</button>
+        </div>
+    </div>
+    <div class="preloader" id="globalLoader">
+        <div class="preloader__box">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <p id="blinkingText" class="blinking-text text-white text-center mt-4"></p>
+    </div>
+    <script>
+        document.getElementById('file-upload-btn').addEventListener('click', function () {
+            document.getElementById('file-upload').click();
+        });
+
+        const dropZone = document.getElementById('drop-zone');
+        dropZone.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.dataTransfer.dropEffect = 'copy';
+        });
+
+        dropZone.addEventListener('drop', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        let fileSelected = false;
+
+        document.getElementById('file-upload').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                fileSelected = true;
+            }
+        });
+
+        // Listen for clicks on the Upload Resume button
+        document.querySelector('.upload-resume-btn').addEventListener('click', function () {
+            if (!fileSelected) {
+                alert('Please select a file to upload.');
+                return;
+            }
+            showLoader(); // Show the loader
+
+            // Simulate file upload for 10 seconds
+            setTimeout(function () {
+                hideLoader(); // Hide the loader
+                window.location.href = "/nextPage.html"; // Redirect to another page
+            }, 15000); // 10 seconds delay for the simulated upload process
+        });
+
+
+        function handleFiles(files) {
+            const statusContainer = document.getElementById('file-upload-status');
+            statusContainer.innerHTML = ''; // Clear previous upload statuses
+
+            // Check if only one file is selected
+            if (files.length > 1) {
+                alert('Only one file can be uploaded!');
+                return;
+            }
+
+            const file = files[0]; // Access the single selected file
+
+            // Validate file type (adjust as needed)
+            if (!file.type.match('image/jpeg')) {
+                alert('Only JPG files are allowed!');
+                return;
+            }
+
+            const fileId = `file-${Date.now()}`; // Create unique file ID
+            const fileName = document.createElement('p');
+            fileName.textContent = file.name;
+            fileName.className = "text-white";
+
+            const fileRemoveIcon = document.createElement('i');
+            fileRemoveIcon.className = "fas fa-times text-gray-400 cursor-pointer";
+            fileRemoveIcon.onclick = function () { removeFile(fileId); };
+
+            const progressBarContainer = document.createElement('div');
+            progressBarContainer.className = "bg-gray-200 rounded h-2";
+
+            const progressBar = document.createElement('div');
+            progressBar.className = "bg-sky-400 h-2 rounded";
+            progressBar.style.width = '0%'; // Initial progress bar width
+
+            progressBarContainer.appendChild(progressBar);
+
+            const fileStatus = document.createElement('div');
+            fileStatus.className = 'flex justify-between items-center py-2';
+            fileStatus.id = fileId;
+            fileStatus.appendChild(fileName);
+            fileStatus.appendChild(fileRemoveIcon);
+
+            statusContainer.appendChild(fileStatus);
+            statusContainer.appendChild(progressBarContainer);
+
+            // Dummy function to simulate upload progress
+            simulateUploadProgress(progressBar);
+        }
+
+
+
+        const quotes = [
+            "Uploading your resume...",
+            "Analysing your intrests",
+            "GuidoAI is generating a report!",
+            "Almost there...",
+            "Please wait while we process your file..."
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function showLoader() {
+            document.getElementById('globalLoader').style.display = 'flex';
+            document.getElementById('boxx').style.display = 'none';
+            document.getElementById('heading').style.display = 'none';
+            cycleQuotes();
+
+        }
+
+        function hideLoader() {
+            document.getElementById('globalLoader').style.display = 'none';
+        }
+
+        function cycleQuotes() {
+            const blinkingText = document.getElementById('blinkingText');
+            blinkingText.textContent = quotes[currentQuoteIndex];
+
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length; // Move to next quote, loop back to start
+
+            setTimeout(() => {
+                if (document.getElementById('globalLoader').style.display === 'flex') { // Only cycle quotes if loader is visible
+                    cycleQuotes();
+                }
+            }, 3000); // Change quote every 2 seconds
+        }
+
+
+        function simulateUploadProgress(progressBar) {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = `${progress}%`;
+                if (progress >= 100) clearInterval(interval);
+            }, 500); // Simulate upload progress
+        }
+
+        function removeFile(fileId) {
+            const fileElement = document.getElementById(fileId);
+            fileElement.nextElementSibling.remove(); // Remove progress bar container
+            fileElement.remove(); // Remove file status
+            fileSelected = false;
+            document.getElementById('file-upload-btn').disabled = false;
+        }
+    </script>
+
+</body>
+
+</html>
