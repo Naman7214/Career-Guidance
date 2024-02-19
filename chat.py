@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, flash, jsonify
+from werkzeug.utils import secure_filename
+import os
 from pymongo import MongoClient
 import google.generativeai as genai
 import textwrap
@@ -11,10 +13,20 @@ GOOGLE_API_KEY = "AIzaSyA6Ga8yGLeMc7pCali3x8Hj3Itjk6ihAmQ"
 app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
 genai.configure(api_key=GOOGLE_API_KEY)
 
+
+
 # Connect to MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 db = client['career1']
 user_history = db['user_history']
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 
@@ -169,6 +181,24 @@ def signup():
 
     return render_template('signup.html')
 
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    if request.method == 'POST':
+        file = request.files['file']
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            username = session.get('username', 'default_user')
+            filename = f"{username}_cv.{filename.rsplit('.', 1)[1].lower()}"  # Format as username_cv.extension
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('landing'))
+    return jsonify({'status': 'success', 'message': 'File uploaded successfully'}), 200
 
 
 @app.route('/logout')
