@@ -82,7 +82,7 @@ prompt1 =[
 3. Skills/Technical Skills (3rd Highest Priority)
 
 Keep in mind that resumes can vary greatly in structure and terminology. Employ advanced pattern recognition to identify relevant information, considering synonyms and variations of the above-listed terms. Adapt to the format in which the data is presented, whether it's bullet points, paragraphs, or lists.
-
+NOTE: If the given image does not appear to be a resume that is you can't obtain any text which can be validated with context to resume or anything similar, ask the user to upload a Valid  Resume.
 ### Specific Instructions:
 
 - **Synonym Recognition**: Actively look for variations and synonyms of the key terms to ensure comprehensive data extraction.
@@ -120,21 +120,28 @@ def send_chat(message, history):
 def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')
     resume = PIL.Image.open(file_path)
-    response = GuidoAI.generate_content([prompt1[0],resume])
-    # return boldify(response.text)
-    return response.text
+    response = GuidoAI.generate_content([prompt1[0],resume],
+        generation_config=genai.types.GenerationConfig(
+        # Only one candidate for now.
+        candidate_count=1,
+        max_output_tokens=400,
+        temperature=1.0))
+    print(response.text)
+    return boldify(response.text)
+    # return response.text
 
 
 def boldify(text):
-    bold = False
+    # Split the text by "**" to isolate sections to be bolded
+    parts = text.split("**")
     new_text = ""
-    for word in text.split("**"):
-        if bold:
-            new_text += f"<b>{word}"
-        else:
-            new_text += f"</b>{word}"
-        bold = not bold
-    return new_text.replace("<b>", "", 1).rsplit("</b>", 1)[0]  
+    # Iterate over the parts and apply bold formatting to every second element
+    for i, part in enumerate(parts):
+        if i % 2 == 1:  # This means the part should be bolded
+            new_text += f"<b>{part}</b>"
+        else:  # This part should not be bolded
+            new_text += part
+    return new_text
 
 
 
