@@ -156,7 +156,6 @@ def boldify(text):
 
 @app.route('/')
 def index():
-    session.clear()
     return redirect(url_for('landing'))
 
 @app.route('/resume')
@@ -257,7 +256,7 @@ def login():
         # For simplicity, let's assume any non-empty username is valid
         if username:
             session['username'] = username
-            return redirect(url_for('chat'))
+            return redirect(url_for('options'))
     
     return render_template('login.html')
 
@@ -320,6 +319,13 @@ def report():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+
+@app.route('/options')
+def options():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    return render_template('options.html')
 
 
 

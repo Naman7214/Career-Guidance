@@ -9,19 +9,22 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #151414;
             color: #333;
         }
         .container {
+            
             max-width: 800px;
-            margin: auto;
-            background: white;
+            margin: 25px auto ;
+            background: #232121;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid #007bff; /* Blue border color */
+            animation: borderAnimation 5s linear infinite; 
         }
         h1 {
-            color: #333;
+            color: #ffff;
             text-align: center;
         }
         .report-content {
@@ -47,6 +50,25 @@
         a:hover {
             background-color: #0056b3;
         }
+
+        @keyframes borderAnimation {
+            0% {
+                border-color: #8dc4ff;
+            }
+            25% {
+                border-color: #4f7bff;
+            }
+            50% {
+                border-color: #2c00dd;
+            }
+            75% {
+                border-color: #4f7bff;
+            }
+            100% {
+                border-color: #8dc4ff;
+            }
+        }
+
     </style>
 </head>
 <body>

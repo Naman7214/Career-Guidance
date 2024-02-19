@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #151414;
+            color: #333;
+            position: relative; /* Ensures relative positioning within body */
+        }
+        .container {
+            max-width: 800px;
+            margin: 60px auto 25px; /* Increased top margin to accommodate guido-text */
+            background: #232121;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid #007bff;
+            animation: borderAnimation 5s linear infinite;
+            position: relative; /* Added for positioning context */
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .option {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .option:hover {
+            background-color: #0056b3;
+        }
+        @keyframes borderAnimation {
+            0% { border-color: #8dc4ff; }
+            25% { border-color: #4f7bff; }
+            50% { border-color: #2c00dd; }
+            75% { border-color: #4f7bff; }
+            100% { border-color: #8dc4ff; }
+        }
+        .guido-text {
+            position: fixed; /* Changed to fixed to make it viewport-relative */
+            top: 10px; /* Adjusted to ensure it stays within view */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: transparent;
+            background: linear-gradient(to right, #007bff, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="guido-text"><a href="/" >GuidoAI</a></div> <!-- Ensured link inherits color and no underline -->
+    <div class="container">
+        <h1>Choose Your Path</h1>
+        <div class="options">
+            <a class = "option" href="{{ url_for('chat') }}">Continue to Chat</a>
+            <a class = "option" href="{{ url_for('resume') }}">Continue to Resume Analysis</a>
+        </div>
+    </div>
+</body>
+</html>
