@@ -121,7 +121,20 @@ def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')
     resume = PIL.Image.open(file_path)
     response = GuidoAI.generate_content([prompt1[0],resume])
+    # return boldify(response.text)
     return response.text
+
+
+def boldify(text):
+    bold = False
+    new_text = ""
+    for word in text.split("**"):
+        if bold:
+            new_text += f"<b>{word}"
+        else:
+            new_text += f"</b>{word}"
+        bold = not bold
+    return new_text.replace("<b>", "", 1).rsplit("</b>", 1)[0]  
 
 
 
