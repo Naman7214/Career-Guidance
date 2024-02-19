@@ -7,6 +7,7 @@ import textwrap
 import pathlib
 import json
 import uuid
+import PIL.Image
 
 app = Flask(__name__)
 GOOGLE_API_KEY = "AIzaSyA6Ga8yGLeMc7pCali3x8Hj3Itjk6ihAmQ"
@@ -71,6 +72,36 @@ prompt = [
     start coversation with some greetings.
 """
 ]
+
+prompt1 =[
+    """
+    You are an expert system specialized in analyzing student resumes to provide meaningful insights and tailored suggestions for improvement. Given the diverse formats of resumes, your task involves intelligently parsing and understanding information from the following key sections, ranked by their importance:
+
+1. Work Experience (Highest Priority)
+2. Projects (2nd Highest Priority)
+3. Skills/Technical Skills (3rd Highest Priority)
+
+Keep in mind that resumes can vary greatly in structure and terminology. Employ advanced pattern recognition to identify relevant information, considering synonyms and variations of the above-listed terms. Adapt to the format in which the data is presented, whether it's bullet points, paragraphs, or lists.
+
+### Specific Instructions:
+
+- **Synonym Recognition**: Actively look for variations and synonyms of the key terms to ensure comprehensive data extraction.
+- **Format Adaptation**: Analyze the resume's layout to adjust your parsing strategy, ensuring that no critical information is overlooked due to unconventional formatting.
+- **Conditional Recommendations**: Only provide recommendations when necessary, focusing on areas that truly require improvement based on the priority levels.
+
+### Desired Output Format:
+- **Gaps Identified**: Clearly list any gaps or areas lacking sufficient detail in each priority section.
+- **Recommendations**: For each identified gap, offer specific, actionable advice on how the student can enhance their resume. Detail the significance of your suggestions and how they align with the student's career objectives or the job market demands.
+
+**Example for Synonym Recognition**:
+- Work Experience might also be listed as "Professional Experience," "Career History," or "Job Background."
+- Projects could be under "Project Experience," "Portfolio," or "Key Projects."
+- Skills/Technical Skills might be found as "Competencies," "Technical Proficiency," or "Professional Skills."
+
+**Note**: Tailor your analysis to the unique context of each resume, providing personalized and precise feedback that empowers students to optimize their resumes effectively.
+"""
+]
+
 def send_chat(message, history):
     model = genai.GenerativeModel('gemini-pro')
     
@@ -85,6 +116,16 @@ def send_chat(message, history):
 
     return response.text, history
 
+
+def resume_report(file_path):
+    GuidoAI = genai.GenerativeModel('gemini-pro-vision')
+    resume = PIL.Image.open(file_path)
+    response = GuidoAI.generate_content([prompt1[0],resume])
+    return response.text
+
+
+
+
 @app.route('/')
 def index():
     session.clear()
@@ -92,6 +133,9 @@ def index():
 
 @app.route('/resume')
 def resume():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
     return render_template('resume.html')
 
 @app.route('/landing')
@@ -184,6 +228,9 @@ def signup():
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
@@ -195,11 +242,30 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             username = session.get('username', 'default_user')
-            filename = f"{username}_cv.{filename.rsplit('.', 1)[1].lower()}"  # Format as username_cv.extension
+            filename = f"{username}_cv.{filename.rsplit('.', 1)[1].lower()}"  
+            print("saving")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('landing'))
+            print("saved")
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            print(file_path)
+            print("Opening")
+            with open(file_path, 'rb') as file:
+                resume = file.read()
+            print("Opened")
+            report = resume_report(file_path)
+            print(report)
+            session['report'] = report
+            return redirect(url_for('report'))
     return jsonify({'status': 'success', 'message': 'File uploaded successfully'}), 200
 
+
+
+@app.route('/report')
+def report():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    report = session.get('report','Unknown')
+    return render_template('report.html',report=report)
 
 @app.route('/logout')
 def logout():
