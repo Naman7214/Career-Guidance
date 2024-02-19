@@ -33,11 +33,16 @@ def allowed_file(filename):
 
 
 def save_user_history(username, history):
-    user_history.update_one(
-        {"username": username},
-        {"$set": {"history": history}},
-        upsert=True
-    )
+    try:
+        # Use $set to update the history field for the user
+        update_result = user_history.update_one(
+            {"username": username},
+            {"$set": {"history": history}},
+            upsert=True
+        )
+        print(f"Updated {update_result.matched_count} documents.")
+    except Exception as e:
+        print(f"An error occurred while updating user history: {e}")
 
 
 
@@ -116,6 +121,25 @@ def send_chat(message, history):
 
     return response.text, history
 
+@app.route('/chat_ajax', methods=['POST'])
+def chat_ajax():
+    if 'username' not in session:
+        return jsonify({'status': 'error', 'message': 'User not logged in'}), 403
+    
+    username = session.get('username')
+    data = request.get_json()
+    user_message = data.get('message', '')
+
+    if not user_message:
+        return jsonify({'status': 'error', 'message': 'No message provided'}), 400
+    
+    # Assume `send_chat` function processes the message and updates `session['history']`
+    response, history = send_chat(user_message, session.get('history', []))
+
+    session['history'] = history  # Save updated history in session
+    save_user_history(username,history)
+
+    return jsonify({'status': 'success', 'response': response}), 200
 
 def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')

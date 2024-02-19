@@ -188,7 +188,7 @@
                 <li>Dhanashri Sunil Patil</li>
                 <li>Dhanashri Sunil Patil</li>
                 <li>Dhanashri Sunil Patil</li>
-                
+
             </ul>
         </div>
         <div id="chatarea">
@@ -210,6 +210,43 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent the form from submitting the traditional way
+                const messageInput = document.getElementById('message-input');
+                const message = messageInput.value.trim(); // Trim the message to remove leading/trailing whitespace
+                const chatBox = document.getElementById('chat-box');
+
+                if (message) { // Only proceed if the message is not empty
+                    // Append the user message to the chat immediately
+                    chatBox.innerHTML += '<div class="chat-message user"><strong>User:</strong><p>' + message + '</p></div>';
+                    messageInput.value = ''; // Clear the input right after sending
+
+                    // AJAX request to send the message
+                    fetch('{{ url_for("chat_ajax") }}', {
+                        method: 'POST',
+                        body: JSON.stringify({ 'message': message }),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Append the bot response to the chat
+                            chatBox.innerHTML += '<div class="chat-message model"><strong>Bot:</strong><p>' + data.response + '</p></div>';
+                            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom to show the latest message
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            });
+        });
+    </script>
+
+
 </body>
 
 
