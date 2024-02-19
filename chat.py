@@ -120,12 +120,14 @@ def send_chat(message, history):
 def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')
     resume = PIL.Image.open(file_path)
-    response = GuidoAI.generate_content([prompt1[0],resume],
-        generation_config=genai.types.GenerationConfig(
-        # Only one candidate for now.
-        candidate_count=1,
-        max_output_tokens=400,
-        temperature=1.0))
+    response = GuidoAI.generate_content([prompt1[0],resume]
+        #                                 ,
+        # generation_config=genai.types.GenerationConfig(
+        # # Only one candidate for now.
+        # candidate_count=1,
+        # max_output_tokens=400,
+        # temperature=1.0)
+                                        )
     print(response.text)
     return boldify(response.text)
     # return response.text
