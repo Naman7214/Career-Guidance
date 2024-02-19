@@ -116,30 +116,12 @@ def send_chat(message, history):
     response = model.generate_content(history)
 
     history.append({'role': 'model',
-                    'parts': [response.text]})
+                    'parts': [boldify(response.text)]})
     
 
-    return response.text, history
+    return boldify(response.text), history
 
-@app.route('/chat_ajax', methods=['POST'])
-def chat_ajax():
-    if 'username' not in session:
-        return jsonify({'status': 'error', 'message': 'User not logged in'}), 403
-    
-    username = session.get('username')
-    data = request.get_json()
-    user_message = data.get('message', '')
 
-    if not user_message:
-        return jsonify({'status': 'error', 'message': 'No message provided'}), 400
-    
-    # Assume `send_chat` function processes the message and updates `session['history']`
-    response, history = send_chat(user_message, session.get('history', []))
-
-    session['history'] = history  # Save updated history in session
-    save_user_history(username,history)
-
-    return jsonify({'status': 'success', 'response': response}), 200
 
 def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')
@@ -240,6 +222,27 @@ def chat():
     
     return render_template('chat.html', messages=updated_history)
 
+
+
+@app.route('/chat_ajax', methods=['POST'])
+def chat_ajax():
+    if 'username' not in session:
+        return jsonify({'status': 'error', 'message': 'User not logged in'}), 403
+    
+    username = session.get('username')
+    data = request.get_json()
+    user_message = data.get('message', '')
+
+    if not user_message:
+        return jsonify({'status': 'error', 'message': 'No message provided'}), 400
+    
+    # Assume `send_chat` function processes the message and updates `session['history']`
+    response, history = send_chat(user_message, session.get('history', []))
+
+    session['history'] = history  # Save updated history in session
+    save_user_history(username,history)
+
+    return jsonify({'status': 'success', 'response': response}), 200
 
 
 
