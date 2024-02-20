@@ -156,7 +156,7 @@ def boldify(text):
 
 @app.route('/')
 def index():
-    return redirect(url_for('landing'))
+    return render_template('layout.html')
 
 @app.route('/resume')
 def resume():
@@ -164,12 +164,6 @@ def resume():
         return redirect(url_for('login'))
     
     return render_template('resume.html')
-
-@app.route('/landing')
-def landing():
-    return render_template('layout.html')
-
-
 
 
 @app.route('/chat', methods=['GET', 'POST'])

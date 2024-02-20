@@ -29,7 +29,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 250px;
+            height: 325px;
             margin-top: 10px;
         }
         .container h2 {
@@ -105,9 +105,29 @@
             -webkit-text-fill-color: transparent;
             z-index: 1; /* Ensure the text is rendered above the container */
         }
+        .mobile-message {
+            display: none;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container, .container-wrapper, .guido-text {
+                display: none; /* Hide main content on small screens */
+            }
+            .mobile-message {
+                display: block; /* Show mobile message */
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="mobile-message">
+        Application currently available only on PC
+    </div>
     <div class="container-wrapper">
         <div class="guido-text"><a href="/">GuidoAI</a></div>
         <div class="container">
