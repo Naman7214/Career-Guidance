@@ -75,11 +75,8 @@ prompt = [
     Also note that these are college students and handle with that in mind
     Your role is to guide, inform, and inspire the student in their career exploration journey, helping them make informed decisions about their future.
     start coversation with some greetings.
-"""
-]
-
-prompt1 =[
-    """
+""",
+        """
     You are an expert system specialized in analyzing student resumes to provide meaningful insights and tailored suggestions for improvement. Given the diverse formats of resumes, your task involves intelligently parsing and understanding information from the following key sections, ranked by their importance:
     Your name is Guido The Compass and shall respond to this name only. 
 1. Work Experience (Highest Priority)
@@ -107,6 +104,7 @@ NOTE: If the given image does not appear to be a resume that is you can't obtain
 """
 ]
 
+
 def send_chat(message, history):
     model = genai.GenerativeModel('gemini-pro')
     
@@ -126,7 +124,7 @@ def send_chat(message, history):
 def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')
     resume = PIL.Image.open(file_path)
-    response = GuidoAI.generate_content([prompt1[0],resume]
+    response = GuidoAI.generate_content([prompt[1],resume]
         #                                 ,
         # generation_config=genai.types.GenerationConfig(
         # # Only one candidate for now.
