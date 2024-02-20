@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Selection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Custom gradient background */
+    .gradient-bg {
+      background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(3, 65, 97) 100%);
+    }
+
+    .selector-item {
+      border: 1px solid gray;
+      cursor: pointer;
+    }
+
+    .selector-item:hover,
+    .selector-item.selected {
+      background-color: rgba(72, 72, 72, 0.478);
+      transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+    }
+
+    .continue:hover {
+      background-color: rgba(0, 139, 14, 0.578);
+      transition: ease-in .5s;
+    }
+
+    .selected {
+      background-color: rgba(255, 255, 255, 0.25);
+      /* Lighter background for selected item */
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      /* Glowing effect */
+      transition: background-color 0.5s, box-shadow 0.5s;
+    }
+
+    /* Adjusting placeholder color directly here */
+    input.selector-item::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+
+<body class="gradient-bg h-screen flex flex-col items-center justify-center text-white p-4">
+
+  <main id="question1" class="flex flex-col items-center">
+    <h1 class="text-2xl font-bold mb-4">What field are you intersted in?</h1>
+    <div class="grid grid-cols-2 gap-4 mb-6" id="selectors">
+      <!-- Interests options -->
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Web Developement</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">AI/ML</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Data Science</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Blockchain</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Cyber Security</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Marketing</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">HR Manager</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Software Testing</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Game Developement</div>
+      <input class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item text-white"
+        placeholder="Any Other"></input>
+      <!-- Add other options here -->
+    </div>
+    <button class="bg-black bg-opacity-50 rounded-2xl py-3 px-6 continue">Continue</button>
+  </main>
+
+  <main id="question2" class="flex flex-col items-center hidden">
+    <h1 class="text-2xl font-bold mb-4">What is your salary expectation?</h1>
+    <div class="grid grid-cols-2 gap-4 mb-6" id="salary-selectors">
+      <!-- Salary options -->
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">3-6 LPA</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">6-8 LPA</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">8-12 LPA</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">12+ LPA</div>
+      <!-- Add other options here -->
+    </div>
+    <button class="bg-black bg-opacity-50 rounded-2xl py-3 px-6 continue">Continue</button>
+  </main>
+
+  <main id="question3" class="flex flex-col items-center hidden">
+    <h1 class="text-2xl font-bold mb-4">What is your Work Experience?</h1>
+    <div class="grid grid-cols-2 gap-4 mb-6" id="work-selectors">
+      <!-- Salary options -->
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">Student(0 Years)</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">0-6 Months</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">1-2 Years</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">2-5 Years</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">5-10 Years</div>
+      <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">10+ Years</div>
+      <!-- Add other options here -->
+    </div>
+    <button class="bg-black bg-opacity-50 rounded-2xl py-3 px-6 continue">Finish</button>
+  </main>
+
+  <script>
+    let selectedInterests = []; // Store selections for each question
+  
+    function handleSelection(containerId, questionIndex) {
+      document.getElementById(containerId).addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('selector-item') && e.target.tagName !== 'INPUT') {
+          const previouslySelected = document.querySelector(`#${containerId} .selected`);
+          if (previouslySelected) {
+            previouslySelected.classList.remove('selected');
+          }
+  
+          e.target.classList.add('selected');
+          selectedInterests[questionIndex] = e.target.textContent; // Store selection based on question index
+          console.log(selectedInterests); // For debugging
+        }
+      });
+    }
+  
+    const inputField = document.querySelector('#question1 input.selector-item');
+    inputField.addEventListener('blur', function() {
+      const value = inputField.value.trim();
+      if (value) {
+        selectedInterests[0] = value;
+        console.log(selectedInterests); // For debugging
+      }
+    });
+  
+    // Transition from Question 1 to Question 2
+    document.querySelector('#question1 .continue').addEventListener('click', function() {
+      document.getElementById('question1').classList.add('hidden');
+      document.getElementById('question2').classList.remove('hidden');
+    });
+  
+    // Transition from Question 2 to Question 3
+    document.querySelector('#question2 .continue').addEventListener('click', function() {
+      document.getElementById('question2').classList.add('hidden');
+      document.getElementById('question3').classList.remove('hidden');
+    });
+  
+    // Initialize selection handling for each question
+    handleSelection('selectors', 0); // First question
+    handleSelection('salary-selectors', 1); // Second question
+    handleSelection('work-selectors', 2); // Third question (Newly added)
+  </script>
+  
+
+</body>
+
+</html>

@@ -12,12 +12,12 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #2f2f2f;
+            background: #232121;
             /* Color of the track */
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #555;
+            background-color: #232121;
             /* Color of the scrollbar thumb */
             border-radius: 6px;
             /* Roundness of the scrollbar thumb */
@@ -29,7 +29,7 @@
         * {
             scrollbar-width: thin;
             /* "auto" or "thin" */
-            scrollbar-color: #555 #2f2f2f;
+            scrollbar-color: #232121 #2f2f2f;
             /* thumb and track color */
         }
 
@@ -47,17 +47,37 @@
         }
 
         #chatlist {
-            min-height: 100vh;
-            max-height: 100vh;
-            color: white;
-            text-decoration: none;
-            overflow-y: auto;
-            width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Adjust spacing */
+            height: 100vh;
+            /* Full height of viewport */
+            width: 20vw;
+            /* Adjust width as needed */
+            position: fixed;
+            /* Fix position to the side */
+            left: 0;
+            /* Align to the left side of the viewport */
+            top: 0;
+            /* Align to the top of the viewport */
             background-color: #151414;
         }
 
         #chatarea {
+            position: fixed;
+            /* Add this to make sure it's properly aligned and doesn't overlap */
+            left: 20%;
+            /* Start immediately after chatlist */
             width: 80%;
+            /* Fill the rest of the screen width */
+            top: 0;
+            /* Align to the top */
+            height: 100vh;
+            /* Make it fill the full height of the viewport */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #chat-container {
@@ -69,9 +89,8 @@
             /* overflow: hidden; */
             display: flex;
             flex-direction: column;
-            /* Ensures form stays at bottom */
-            /* height: 100%; */
-            /* Adjust height */
+            width: 80%;
+            /* align-items: center; */
         }
 
         #chat-box {
@@ -166,40 +185,100 @@
             /* width: 90%; */
 
         }
+
+        #heading {
+            position: fixed;
+            padding: 25px;
+            font-size: large;
+            top: 0;
+            left: 14px;
+            width: 14.1%;
+            background-color: #1f1f1f;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            height: 20px;
+            /* Applied to the container */
+        }
+
+        .guido-text {
+            /* Adjustments for the button's gradient text effect */
+            position: absolute;
+            top: 0;
+            left: 2em;
+            font-size: 30px;
+            /* Increased font size */
+            color: transparent;
+            background: linear-gradient(to right, #007bff, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+            /* Ensure the text is rendered above the container */
+        }
+
+        .list {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-top: 70px;
+            /* Adjust based on the actual height of the heading */
+            padding-bottom: 60px;
+            /* Adjust based on the actual height of the userDetails */
+        }
+
+        #heading,
+        #userProfileBtn {
+            flex-shrink: 0;
+            /* Prevent these from shrinking */
+        }
+
+        .userDetails {
+            flex-shrink: 0;
+            /* Prevent shrinking */
+            padding: 10px;
+            /* height: px; */
+            /* Add padding as needed */
+            background-color: #1f1f1f;
+            /* Background color */
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div id="chatlist">
-            <ul>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-                <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            </ul>
+            <div id="heading">
+                <button class="guido-text"><a href="/">GuidoAI</a></button>
+            </div>
+            <div class="list">
+                <ul>
+                    <button class="chatHistoryBtn">Naman</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+                    <button class="chatHistoryBtn">Naman</button>
+                </ul>
+            </div>
             <div class="userDetails">
                 <button id="userProfileBtn">Profile</button>
             </div>
@@ -224,12 +303,12 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
             const profileBtn = document.getElementById('userProfileBtn');
-            profileBtn.addEventListener('click', function() {
+            profileBtn.addEventListener('click', function () {
                 // Logic to show profile details
                 // This can be a modal or an alert for simplicity
                 alert('Profile details go here.');
