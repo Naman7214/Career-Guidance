@@ -91,7 +91,10 @@
       <div class="bg-black bg-opacity-20 rounded-2xl py-2 px-4 selector-item">10+ Years</div>
       <!-- Add other options here -->
     </div>
+    <form method = 'post' action ="/skills">
+      <input  name="data" id ="data"  type="text" style="display: none;">
     <button class="bg-black bg-opacity-50 rounded-2xl py-3 px-6 continue">Finish</button>
+    </form>
   </main>
 
   <script>
@@ -131,6 +134,12 @@
     document.querySelector('#question2 .continue').addEventListener('click', function() {
       document.getElementById('question2').classList.add('hidden');
       document.getElementById('question3').classList.remove('hidden');
+    });
+
+    document.querySelector('#question3 .continue').addEventListener('click', function(event) {
+      const inputField = document.querySelector('#data');
+      inputField.value = JSON.stringify(selectedInterests); // Serialize array to JSON string
+      document.querySelector('form').submit();
     });
   
     // Initialize selection handling for each question

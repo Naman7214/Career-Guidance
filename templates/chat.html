@@ -469,10 +469,13 @@
           })
             .then((response) => response.json())
             .then((data) => {
-              // Append the bot response to the chat
+              // Process the bot's response to replace newline characters with <br /> tags
+              let processedResponse = data.response.replace(/\n/g, "<br />");
+            
+              // Append the processed bot response to the chat
               chatBox.innerHTML +=
                 '<div class="chat-message Guido" ><strong style="color:white">Guido:</strong><p>' +
-                data.response +
+                processedResponse +
                 "</p></div>";
               chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom to show the latest message
             })
