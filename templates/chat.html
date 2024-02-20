@@ -1,479 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Interface</title>
-    <style>
-        ::-webkit-scrollbar {
-          width: 12px;
-          /* Width of the scrollbar */
-        }
 
-        ::-webkit-scrollbar-track {
-          background: #232121;
-          /* Color of the track */
-        }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Interface</title>
+  <style>
+    ::-webkit-scrollbar {
+      width: 12px;
+      /* Width of the scrollbar */
+    }
 
-        ::-webkit-scrollbar-thumb {
-          background-color: #232121;
-          /* Color of the scrollbar thumb */
-          border-radius: 6px;
-          /* Roundness of the scrollbar thumb */
-          border: 3px solid #2f2f2f;
-          /* Creates a border around the thumb */
-        }
+    ::-webkit-scrollbar-track {
+      background: #232121;
+      /* Color of the track */
+    }
 
-        /* Firefox scrollbar styles */
-        * {
-          scrollbar-width: thin;
-          /* "auto" or "thin" */
-          scrollbar-color: #232121 #2f2f2f;
-          /* thumb and track color */
-        }
+    ::-webkit-scrollbar-thumb {
+      background-color: #232121;
+      /* Color of the scrollbar thumb */
+      border-radius: 6px;
+      /* Roundness of the scrollbar thumb */
+      border: 3px solid #2f2f2f;
+      /* Creates a border around the thumb */
+    }
 
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          background-color: #232121;
-        }
+    /* Firefox scrollbar styles */
+    * {
+      scrollbar-width: thin;
+      /* "auto" or "thin" */
+      scrollbar-color: #232121 #2f2f2f;
+      /* thumb and track color */
+    }
 
-        .container {
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #232121;
+    }
 
-        #chatlist {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          /* Adjust spacing */
-          height: 100vh;
-          /* Full height of viewport */
-          width: 20vw;
-          /* Adjust width as needed */
-          position: fixed;
-          /* Fix position to the side */
-          left: 0;
-          /* Align to the left side of the viewport */
-          top: 0;
-          /* Align to the top of the viewport */
-          background-color: #151414;
-        }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
 
-        #chatarea {
-          position: fixed;
-          /* Add this to make sure it's properly aligned and doesn't overlap */
-          left: 20%;
-          /* Start immediately after chatlist */
-          width: 80%;
-          /* Fill the rest of the screen width */
-          top: 0;
-          /* Align to the top */
-          height: 100vh;
-          /* Make it fill the full height of the viewport */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+    #chatlist {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* Adjust spacing */
+      height: 100vh;
+      /* Full height of viewport */
+      width: 20vw;
+      /* Adjust width as needed */
+      position: fixed;
+      /* Fix position to the side */
+      left: 0;
+      /* Align to the left side of the viewport */
+      top: 0;
+      /* Align to the top of the viewport */
+      background-color: #151414;
+    }
 
-        #chat-container {
-          min-height: 99.8vh;
-          max-height: 99.8vh;
-          background-color: #232121;
-          /* border: 1px solid #ddd; */
-          /* border-radius: 5px; */
-          /* overflow: hidden; */
-          display: flex;
-          flex-direction: column;
-          width: 80%;
-          /* align-items: center; */
-        }
+    #chatarea {
+      position: fixed;
+      /* Add this to make sure it's properly aligned and doesn't overlap */
+      left: 20%;
+      /* Start immediately after chatlist */
+      width: 80%;
+      /* Fill the rest of the screen width */
+      top: 0;
+      /* Align to the top */
+      height: 100vh;
+      /* Make it fill the full height of the viewport */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        #chat-box {
-          overflow-y: auto;
-          padding: 20px;
-          /* border-bottom: 1px solid #ddd; */
-          /* flex-grow: 1; */
-          /* Allows chat box to fill available space */
-        }
+    #chat-container {
+      min-height: 99.8vh;
+      max-height: 99.8vh;
+      background-color: #232121;
+      /* border: 1px solid #ddd; */
+      /* border-radius: 5px; */
+      /* overflow: hidden; */
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      /* align-items: center; */
+    }
 
-        .chat-message {
-          display: flex;
-          justify-content: flex-start;
-          /* Default alignment */
-          padding: 10px;
-          margin-bottom: 10px;
-          border-radius: 5px;
-        }
+    #chat-box {
+      overflow-y: auto;
+      padding: 20px;
+      /* border-bottom: 1px solid #ddd; */
+      /* flex-grow: 1; */
+      /* Allows chat box to fill available space */
+    }
 
-        .you {
-          justify-content: flex-end;
-        }
+    .chat-message {
+      display: flex;
+      justify-content: flex-start;
+      /* Default alignment */
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
 
-        .you p,
-        .Guido p {
-          display: inline-block;
-          padding: 10px;
-          border-radius: 10px;
-          max-width: 80%;
-          /* Prevents messages from stretching too wide */
-        }
+    .you {
+      justify-content: flex-end;
+    }
 
-        .you p {
-          background-color: #dcf8c6;
-        }
+    .you p,
+    .Guido p {
+      display: inline-block;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 80%;
+      /* Prevents messages from stretching too wide */
+    }
 
-        .Guido p {
-          background-color: #eaeaea;
-        }
+    .you p {
+      background-color: #dcf8c6;
+    }
 
-        form {
-          display: flex;
-          padding: 10px;
-        }
+    .Guido p {
+      background-color: #eaeaea;
+    }
 
-        input[type="text"] {
-          flex: 1;
-          padding: 10px;
-          margin-right: 10px;
-          border: 1px solid #ddd;
-          border-radius: 5px;
-        }
+    form {
+      position: absolute;
+      display: flex;
+      padding: 10px;
+      bottom: 0;
+      width: 77%;
+      margin-top: 10px;
+    }
 
-        button {
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          background-color: #007bff;
-          color: white;
-          cursor: pointer;
-        }
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
 
-        button:hover {
-          background-color: #0056b3;
-        }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
 
-        .chatHistoryBtn {
-          margin: 3px;
-          background-color: #2f2f2f;
-          width: 90%;
-        }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-        ul {
-          margin: 0;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
+    .chatHistoryBtn {
+      margin: 3px;
+      background-color: #2f2f2f;
+      width: 90%;
+    }
 
-        #userProfileBtn {
-          position: fixed;
-          padding: 25px;
-          font-size: large;
-          bottom: 0;
-          left: 14px;
-          width: 17.4%;
-          /* margin: 3px; */
-          background-color: #1f1f1f;
-          /* width: 90%; */
-        }
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        #heading {
-          position: fixed;
-          padding: 25px;
-          font-size: large;
-          top: 0;
-          left: 14px;
-          width: 14.1%;
-          background-color: #1f1f1f;
-          border-bottom-left-radius: 5px;
-          border-bottom-right-radius: 5px;
-          height: 20px;
-          /* Applied to the container */
-        }
+    #userProfileBtn {
+      position: fixed;
+      padding: 20px;
+      font-size: large;
+      bottom: 0;
+      left: 14px;
+      width: 17.4%;
+      /* margin: 3px; */
+      background-color: #1f1f1f;
+      /* width: 90%; */
+    }
 
-        .guido-text {
-          /* Adjustments for the button's gradient text effect */
-          position: absolute;
-          top: 0;
-          left: 2em;
-          font-size: 30px;
-          /* Increased font size */
-          color: transparent;
-          background: linear-gradient(to right, #007bff, #ffd700);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          z-index: 1;
-          /* Ensure the text is rendered above the container */
-        }
+    #heading {
+      position: fixed;
+      padding: 25px;
+      font-size: large;
+      top: 0;
+      left: 14px;
+      width: 14.1%;
+      background-color: #1f1f1f;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      height: 20px;
+      /* Applied to the container */
+    }
 
-        .list {
-          overflow-y: auto;
-          flex-grow: 1;
-          padding-top: 70px;
-          /* Adjust based on the actual height of the heading */
-          padding-bottom: 60px;
-          /* Adjust based on the actual height of the userDetails */
-        }
+    .guido-text {
+      /* Adjustments for the button's gradient text effect */
+      position: absolute;
+      top: 0;
+      left: 2em;
+      font-size: 30px;
+      /* Increased font size */
+      color: transparent;
+      background: linear-gradient(to right, #007bff, #ffd700);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 1;
+      /* Ensure the text is rendered above the container */
+    }
 
-        #heading,
-        #userProfileBtn {
-          flex-shrink: 0;
-          /* Prevent these from shrinking */
-        }
+    .list {
+      overflow-y: auto;
+      flex-grow: 1;
+      padding-top: 70px;
+      /* Adjust based on the actual height of the heading */
+      padding-bottom: 60px;
+      /* Adjust based on the actual height of the userDetails */
+    }
 
-        .userDetails {
-          flex-shrink: 0;
-          /* Prevent shrinking */
-          padding: 10px;
-          /* height: px; */
-          /* Add padding as needed */
-          background-color: #1f1f1f;
-          /* Background color */
-        }
-        .modal {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Sit on top */
-          padding-top: 100px; /* Location of the box */
-          left: 0;
-          top: 0;
-          width: 100%; /* Full width */
-          height: 100%; /* Full height */
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgb(0, 0, 0); /* Fallback color */
-          background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-        }
+    #heading,
+    #userProfileBtn {
+      flex-shrink: 0;
+      /* Prevent these from shrinking */
+    }
 
-        /* Modal Content */
-        .modal-content {
-          margin: auto;
-          background-color: #232121;
-          padding: 40px;
-          border-radius: 8px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          width: 300px;
-          border: 2px solid #ffff;
-          display: flex;
-          flex-direction: column;
-          /*align-items: center; /* Center content horizontally */
-          height: 250px;
-          margin-top: 50px; /* Add margin to the top */
-        }
-        
+    .userDetails {
+      flex-shrink: 0;
+      /* Prevent shrinking */
+      padding: 10px;
+      /* height: px; */
+      /* Add padding as needed */
+      background-color: #1f1f1f;
+      /* Background color */
+    }
+
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      margin: auto;
+      background-color: #232121;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      border: 2px solid #ffff;
+      display: flex;
+      flex-direction: column;
+      /*align-items: center; /* Center content horizontally */
+      height: 250px;
+      margin-top: 50px;
+      /* Add margin to the top */
+    }
 
 
-        /* The Close Button */
-        .close {
-          color: #aaaaaa;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-          text-align: right;
-        }
 
-        .close:hover,
-        .close:focus {
-          color: #000;
-          text-decoration: none;
-          cursor: pointer;
-        }
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: right;
+    }
 
-        @keyframes borderAnimation {
-          0% {
-              border-color: #8dc4ff;
-          }
-          25% {
-              border-color: #4f7bff;
-          }
-          50% {
-              border-color: #2c00dd;
-          }
-          75% {
-              border-color: #4f7bff;
-          }
-          100% {
-              border-color: #8dc4ff;
-          }
-        }
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-          .logout-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: blue; /* Red color for the button */
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            align-items: center;
+    @keyframes borderAnimation {
+      0% {
+        border-color: #8dc4ff;
+      }
 
-        }
+      25% {
+        border-color: #4f7bff;
+      }
 
-        .logout-btn:hover {
-            background-color: blue; /* Lighter red color on hover */
-        }
-    </style>
-  </head>
+      50% {
+        border-color: #2c00dd;
+      }
 
-  <body>
-    <div class="container">
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p style="color: white">{{session['username']}}</p>
-          <!-- Logout button -->
-          <button class="logout-btn" onclick = "logout()">Logout</button>
-        </div>
-      </div>
-      <div id="chatlist">
-        <div id="heading">
-          <button class="guido-text"><a href="/">GuidoAI</a></button>
-        </div>
-        <div class="list">
-          <ul>
-            <button class="chatHistoryBtn">Naman</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
-            <button class="chatHistoryBtn">Naman</button>
-          </ul>
-        </div>
-        <div class="userDetails">
-          <button id="userProfileBtn">Profile</button>
-        </div>
-      </div>
-      <div id="chatarea">
-        <div id="chat-container">
-          <div id="chat-box">
-            {% for exchange in messages %}
-            <div
-              class="chat-message {% if exchange.role == 'user' %}you{% else %}Guido{% endif %}"
-            >
-              <strong style="color: white"
-                >{% if exchange.role == 'user' %}You{% else %}Guido{% endif
-                %}:</strong
-              >
-              <!-- Apply the markdown_bold filter -->
-              <p>{{ exchange.text | replace("\n", "<br />") | safe }}</p>
-            </div>
-            {% endfor %}
-          </div>
-          <form action="{{ url_for('chat') }}" method="post">
-            <input
-              type="text"
-              name="message"
-              id="message-input"
-              placeholder="Type your message here..."
-              required
-            />
-            <button type="submit">Send</button>
-          </form>
-        </div>
+      75% {
+        border-color: #4f7bff;
+      }
+
+      100% {
+        border-color: #8dc4ff;
+      }
+    }
+
+    .logout-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: blue;
+      /* Red color for the button */
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      align-items: center;
+
+    }
+
+    .logout-btn:hover {
+      background-color: blue;
+      /* Lighter red color on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p style="color: white">{{session['username']}}</p>
+        <!-- Logout button -->
+        <button class="logout-btn" onclick="logout()">Logout</button>
       </div>
     </div>
+    <div id="chatlist">
+      <div id="heading">
+        <button class="guido-text"><a href="/">GuidoAI</a></button>
+      </div>
+      <div class="list">
+        <ul>
+          <button class="chatHistoryBtn">Naman</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Dhanashri Sunil Patil</button>
+          <button class="chatHistoryBtn">Naman</button>
+        </ul>
+      </div>
+      <button id="userProfileBtn">Profile</button>
+      <!-- <div class="userDetails">
+        </div> -->
+    </div>
+    <div id="chatarea">
+      <div id="chat-container">
+        <div id="chat-box">
+          {% for exchange in messages %}
+          <div class="chat-message {% if exchange.role == 'user' %}you{% else %}Guido{% endif %}">
+            <strong style="color: white">{% if exchange.role == 'user' %}You{% else %}Guido{% endif
+              %}:</strong>
+            <!-- Apply the markdown_bold filter -->
+            <p>{{ exchange.text | replace("\n", "<br />") | safe }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <form action="{{ url_for('chat') }}" method="post">
+          <input type="text" name="message" id="message-input" placeholder="Type your message here..." required />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var btn = document.getElementById("userProfileBtn");
-        var modal = document.getElementById("myModal");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var btn = document.getElementById("userProfileBtn");
+      var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
+      // Get the button that opens the modal
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal
-        btn.onclick = function () {
-          modal.style.display = "block";
-        };
+      // When the user clicks the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
           modal.style.display = "none";
-        };
+        }
+      };
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        };
+      const chatBox = document.getElementById("chat-box");
+      chatBox.scrollTop = chatBox.scrollHeight;
 
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the form from submitting the traditional way
+        const messageInput = document.getElementById("message-input");
+        const message = messageInput.value.trim(); // Trim the message to remove leading/trailing whitespace
         const chatBox = document.getElementById("chat-box");
-        chatBox.scrollTop = chatBox.scrollHeight;
 
-        const form = document.querySelector("form");
-        form.addEventListener("submit", function (e) {
-          e.preventDefault(); // Prevent the form from submitting the traditional way
-          const messageInput = document.getElementById("message-input");
-          const message = messageInput.value.trim(); // Trim the message to remove leading/trailing whitespace
-          const chatBox = document.getElementById("chat-box");
+        if (message) {
+          // Only proceed if the message is not empty
+          // Append the user message to the chat immediately
+          chatBox.innerHTML +=
+            '<div class="chat-message you" ><strong style="color:white">You:</strong><p>' +
+            message +
+            "</p></div>";
+          messageInput.value = ""; // Clear the input right after sending
 
-          if (message) {
-            // Only proceed if the message is not empty
-            // Append the user message to the chat immediately
-            chatBox.innerHTML +=
-              '<div class="chat-message you" ><strong style="color:white">You:</strong><p>' +
-              message +
-              "</p></div>";
-            messageInput.value = ""; // Clear the input right after sending
-
-            // AJAX request to send the message
-            fetch('{{ url_for("chat_ajax") }}', {
-              method: "POST",
-              body: JSON.stringify({ message: message }),
-              headers: {
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest",
-              },
+          // AJAX request to send the message
+          fetch('{{ url_for("chat_ajax") }}', {
+            method: "POST",
+            body: JSON.stringify({ message: message }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Append the bot response to the chat
+              chatBox.innerHTML +=
+                '<div class="chat-message Guido" ><strong style="color:white">Guido:</strong><p>' +
+                data.response +
+                "</p></div>";
+              chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom to show the latest message
             })
-              .then((response) => response.json())
-              .then((data) => {
-                // Append the bot response to the chat
-                chatBox.innerHTML +=
-                  '<div class="chat-message Guido" ><strong style="color:white">Guido:</strong><p>' +
-                  data.response +
-                  "</p></div>";
-                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom to show the latest message
-              })
-              .catch((error) => console.error("Error:", error));
-          }
+            .catch((error) => console.error("Error:", error));
+        }
 
-          // Scroll the chat box to the bottom as soon as the page loads
-          chatBox.scrollTop = chatBox.scrollHeight;
-        });
+        // Scroll the chat box to the bottom as soon as the page loads
+        chatBox.scrollTop = chatBox.scrollHeight;
       });
-     function logout(){
-        window.location.href = "/logout"
-      }
-    </script>
-  </body>
+    });
+    function logout() {
+      window.location.href = "/logout"
+    }
+  </script>
+</body>
+
 </html>

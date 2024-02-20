@@ -15,11 +15,12 @@ app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 uri = "mongodb+srv://Grimoires:aaPX19MOAMjkCa2I@guidodb.saqygc9.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(uri)
+db = client['GuidoDB']
 
 # Connect to MongoDB
 # client = MongoClient('mongodb://localhost:27017/')
-client = MongoClient(uri)
-db = client['GuidoDB']
+# db = client['career1']
 user_history = db['user_history']
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
