@@ -81,7 +81,7 @@ prompt = [
 prompt1 =[
     """
     You are an expert system specialized in analyzing student resumes to provide meaningful insights and tailored suggestions for improvement. Given the diverse formats of resumes, your task involves intelligently parsing and understanding information from the following key sections, ranked by their importance:
-
+    Your name is Guido The Compass and shall respond to this name only. 
 1. Work Experience (Highest Priority)
 2. Projects (2nd Highest Priority)
 3. Skills/Technical Skills (3rd Highest Priority)
@@ -182,13 +182,11 @@ def chat():
 
     username = session['username']
     
-    if 'history' not in session:
-        session['history'] = get_user_history(username)
+    history = get_user_history(username)
 
-    if session['history'] == []:
+    if history == []:
         initial_prompt = prompt[0]
         session['response'], history = send_chat(initial_prompt, [])
-        session['history'] = history
         updated_history = [{"text": part, "role": item['role']}
                        for item in history
                        for part in item['parts']
@@ -197,7 +195,6 @@ def chat():
         # session['history'] = get_user_history(username)
 
     else:
-        history = session['history']
         updated_history = [{"text": part, "role": item['role']}
                        for item in history
                        for part in item['parts']
@@ -209,7 +206,6 @@ def chat():
         user_message = request.form['message']
         response, history = send_chat(user_message, history)
         session['response'] = response
-        session['history'] = history
         updated_history = [{"text": part, "role": item['role']}
                        for item in history
                        for part in item['parts']
@@ -231,14 +227,13 @@ def chat_ajax():
     username = session.get('username')
     data = request.get_json()
     user_message = data.get('message', '')
-
+    history = get_user_history(username)
     if not user_message:
         return jsonify({'status': 'error', 'message': 'No message provided'}), 400
     
     # Assume `send_chat` function processes the message and updates `session['history']`
-    response, history = send_chat(user_message, session.get('history', []))
-
-    session['history'] = history  # Save updated history in session
+    response, history = send_chat(user_message,history)
+  
     save_user_history(username,history)
 
     return jsonify({'status': 'success', 'response': response}), 200
