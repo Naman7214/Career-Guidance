@@ -34,21 +34,21 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+def boldify(text):
+    # Split the text by "**" to isolate sections to be bolded
+    parts = text.split("**")
+    new_text = ""
+    # Iterate over the parts and apply bold formatting to every second element
+    for i, part in enumerate(parts):
+        if i % 2 == 1:  # This means the part should be bolded
+            new_text += f"<b>{part}</b>"
+        else:  # This part should not be bolded
+            new_text += part
+    return new_text
 
-
-
-def save_user_history(chat_id, username, history):
-    try:
-        update_result = user_history.update_one(
-            {"chat_id": chat_id},
-            {"$set": {"username": username, "history": history}},
-            upsert=True
-        )
-        print(f"Updated {update_result.matched_count} documents.")
-    except Exception as e:
-        print(f"An error occurred while updating user history: {e}")
-
-
+def generate_chat_id():
+    id = str(uuid.uuid4())
+    return id
 
 def register(username,password):
     if users.find_one({"username": username}):
@@ -63,7 +63,6 @@ def register(username,password):
 
     return True
 
-
 def user_login(username,password):
     user = users.find_one({"username": username})
 
@@ -75,12 +74,20 @@ def user_login(username,password):
     else:
         return False
 
-
+def save_user_history(chat_id, username, history):
+    try:
+        update_result = user_history.update_one(
+            {"chat_id": chat_id},
+            {"$set": {"username": username, "history": history}},
+            upsert=True
+        )
+        print(f"Updated {update_result.matched_count} documents.")
+    except Exception as e:
+        print(f"An error occurred while updating user history: {e}")
 
 def get_user_history(chat_id):
     document = user_history.find_one({"chat_id": chat_id})
     return document['history'] if document else []
-
 
 def create_chat(username, chat_id):
     try:
@@ -99,14 +106,7 @@ def get_chat_ids(username):
         print(f"An error occurred while retrieving chat IDs: {e}")
         return []
 
-
-def generate_user_id():
-    id = str(uuid.uuid4())
-    return id
-
-
 def getPromptForChat():
-
 
 
     prompt = [
@@ -135,8 +135,6 @@ def getPromptForChat():
     ]
 
     return prompt
-
-
 
 def getPromptForResume():
 
@@ -181,7 +179,6 @@ def getPromptForResume():
 
     return prompt
 
-
 def send_chat(message, history):
     model = genai.GenerativeModel('gemini-pro')
     
@@ -196,36 +193,16 @@ def send_chat(message, history):
 
     return boldify(response.text), history
 
-
-
 def resume_report(file_path):
     GuidoAI = genai.GenerativeModel('gemini-pro-vision')
     resume = PIL.Image.open(file_path)
     prompt = getPromptForResume()
-    response = GuidoAI.generate_content([prompt[0],resume]
-        #                                 ,
-        # generation_config=genai.types.GenerationConfig(
-        # # Only one candidate for now.
-        # candidate_count=1,
-        # max_output_tokens=400,
-        # temperature=1.0)
-                                        )
+    response = GuidoAI.generate_content([prompt[0],resume])
     print(response.text)
     return boldify(response.text)
     # return response.text
 
 
-def boldify(text):
-    # Split the text by "**" to isolate sections to be bolded
-    parts = text.split("**")
-    new_text = ""
-    # Iterate over the parts and apply bold formatting to every second element
-    for i, part in enumerate(parts):
-        if i % 2 == 1:  # This means the part should be bolded
-            new_text += f"<b>{part}</b>"
-        else:  # This part should not be bolded
-            new_text += part
-    return new_text
 
 
 
@@ -234,120 +211,19 @@ def boldify(text):
 def index():
     return render_template('layout.html')
 
-@app.route('/resume')
-def resume():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    
-    return render_template('resume.html')
 
-@app.route('/new_chat', methods = ['GET','POST'])
-def new_chat():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    
-    username = session.get('username')
-    history = []
-    chat_id = generate_user_id()
-    save_user_history(chat_id, username, history)
-    session['chat_id'] = chat_id
-    # return redirect(url_for('chating'))
-    return jsonify({'success': True})
-
-
-@app.route('/chat_id', methods = ['GET','POST'])
-def chat_id():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    
-    data = request.json
-    chat_id = data.get('chat_id')
-    session['chat_id'] = chat_id
-    # return redirect(url_for('chating'))
-    return jsonify({'message': 'Success'})
-
-
-@app.route('/chating', methods = ['GET','POST'])
-def chating():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    
-    updated_history = []
-    user_message_skipped = False
-
-    username = session['username']
-    chat_id = session.get('chat_id')
-    # chat_id = generate_user_id()
-    # create_chat(username,chat_id)
-    chats = get_chat_ids(username)
-    # session['chats'] = chats
-    history = get_user_history(chat_id)
-
-    if history == []:
-        prompt = getPromptForChat()
-        initial_prompt = prompt[0]
-        session['response'], history = send_chat(initial_prompt, [])
-        updated_history = [{"text": part, "role": item['role']}
-                       for item in history
-                       for part in item['parts']
-                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
-        save_user_history(session['chat_id'],username, history)
-
-    else:
-        updated_history = [{"text": part, "role": item['role']}
-                       for item in history
-                       for part in item['parts']
-                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
-        
-
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
     if request.method == 'POST':
-        user_message_skipped = False
-        user_message = request.form['message']
-        response, history = send_chat(user_message, history)
-        session['response'] = response
-        updated_history = [{"text": part, "role": item['role']}
-                       for item in history
-                       for part in item['parts']
-                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
-        save_user_history(session['chat_id'],username, history)
-    return render_template('chat.html', messages=updated_history, chats = chats)
+        username = request.form['username']
+        password = request.form['password']
+        
+        register(username,password)
 
-
-
-@app.route('/chat', methods=['GET', 'POST'])
-def chat():
-    if 'username' not in session:
+        # Redirect to the login page
         return redirect(url_for('login'))
 
-    username = session['username']
-    chats = get_chat_ids(username)
-    session['chats'] = chats
-
-
-    
-    return render_template('chat.html', chats = chats)
-
-
-
-@app.route('/chat_ajax', methods=['POST'])
-def chat_ajax():
-    if 'username' not in session:
-        return jsonify({'status': 'error', 'message': 'User not logged in'}), 403
-    
-    username = session.get('username')
-    data = request.get_json()
-    user_message = data.get('message', '')
-    history = get_user_history(session['chat_id'])
-    if not user_message:
-        return jsonify({'status': 'error', 'message': 'No message provided'}), 400
-    
-    # Assume `send_chat` function processes the message and updates `session['history']`
-    response, history = send_chat(user_message,history)
-  
-    save_user_history(session['chat_id'],username, history)
-    return jsonify({'status': 'success', 'response': response}), 200
-
-
+    return render_template('signup.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -365,18 +241,45 @@ def login():
     
     return render_template('login.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        
-        register(username,password)
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
-        # Redirect to the login page
+
+
+@app.route('/options')
+def options():
+    if 'username' not in session:
         return redirect(url_for('login'))
+    return render_template('options.html')
 
-    return render_template('signup.html')
+
+@app.route('/skills', methods = ['GET','POST'])
+def skills():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':   
+        data = request.form.get('data')
+        if data:
+            selected_interests = json.loads(data)  # Convert JSON string back to Python list
+            print(selected_interests)
+            session['interests'] = selected_interests
+            print(session['interests'][0])
+        return redirect(url_for('resume'))
+
+    return render_template('skillSelection.html')
+
+
+
+@app.route('/resume')
+def resume():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    return render_template('resume.html')
+
 
 
 @app.route('/upload', methods=['POST'])
@@ -420,35 +323,111 @@ def report():
     report = session.get('report','Unknown')
     return render_template('report.html',report=report)
 
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('login'))
 
 
-@app.route('/options')
-def options():
+
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
     if 'username' not in session:
         return redirect(url_for('login'))
-    return render_template('options.html')
 
-@app.route('/skills', methods = ['GET','POST'])
-def skills():
+    username = session['username']
+    chats = get_chat_ids(username)
+    session['chats'] = chats
+    
+    return render_template('chat.html', chats = chats)
+
+
+@app.route('/new_chat', methods = ['GET','POST'])
+def new_chat():
     if 'username' not in session:
         return redirect(url_for('login'))
     
-    if request.method == 'POST':   
-        data = request.form.get('data')
-        if data:
-            selected_interests = json.loads(data)  # Convert JSON string back to Python list
-            print(selected_interests)
-            session['interests'] = selected_interests
-            print(session['interests'][0])
-        return redirect(url_for('resume'))
+    username = session.get('username')
+    history = []
+    chat_id = generate_chat_id()
+    save_user_history(chat_id, username, history)
+    session['chat_id'] = chat_id
+    # return redirect(url_for('chating'))
+    return jsonify({'success': True})
 
 
-    return render_template('skillSelection.html')
+@app.route('/chat_id', methods = ['GET','POST'])
+def chat_id():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    data = request.json
+    chat_id = data.get('chat_id')
+    session['chat_id'] = chat_id
+    # return redirect(url_for('chating'))
+    return jsonify({'message': 'Success'})
 
+
+@app.route('/chating', methods = ['GET','POST'])
+def chating():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    updated_history = []
+    user_message_skipped = False
+
+    username = session['username']
+    chat_id = session.get('chat_id')
+    
+    chats = get_chat_ids(username)
+    history = get_user_history(chat_id)
+
+    if history == []:
+        prompt = getPromptForChat()
+        initial_prompt = prompt[0]
+        session['response'], history = send_chat(initial_prompt, [])
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        save_user_history(session['chat_id'],username, history)
+
+    else:
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        
+
+    if request.method == 'POST':
+        user_message_skipped = False
+        user_message = request.form['message']
+        response, history = send_chat(user_message, history)
+        session['response'] = response
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        save_user_history(session['chat_id'],username, history)
+    return render_template('chat.html', messages=updated_history, chats = chats)
+
+
+
+
+@app.route('/chat_ajax', methods=['POST'])
+def chat_ajax():
+    if 'username' not in session:
+        return jsonify({'status': 'error', 'message': 'User not logged in'}), 403
+    
+    username = session.get('username')
+    data = request.get_json()
+    user_message = data.get('message', '')
+    history = get_user_history(session['chat_id'])
+    if not user_message:
+        return jsonify({'status': 'error', 'message': 'No message provided'}), 400
+    
+    # Assume `send_chat` function processes the message and updates `session['history']`
+    response, history = send_chat(user_message,history)
+  
+    save_user_history(session['chat_id'],username, history)
+    return jsonify({'status': 'success', 'response': response}), 200
 
 
 if __name__ == '__main__':
