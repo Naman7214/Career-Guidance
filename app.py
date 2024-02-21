@@ -8,6 +8,8 @@ import pathlib
 import json
 import uuid
 import PIL.Image
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 
 app = Flask(__name__)
@@ -22,6 +24,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 client = MongoClient('mongodb://localhost:27017/')
 db = client['career1']
 user_history = db['user_history']
+users = db['users']
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
@@ -45,6 +48,32 @@ def save_user_history(chat_id, username, history):
     except Exception as e:
         print(f"An error occurred while updating user history: {e}")
 
+
+
+def register(username,password):
+    if users.find_one({"username": username}):
+        return "Username already exists"
+    
+    hashed_password = generate_password_hash(password)
+
+    users.insert_one({
+        "username": username,
+        "password": hashed_password
+    })
+
+    return True
+
+
+def user_login(username,password):
+    user = users.find_one({"username": username})
+
+    if user:
+        if check_password_hash(user['password'],password):
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 
@@ -327,9 +356,10 @@ def login():
         username = request.form['username']
         password = request.form['password']
         # Check if username and password match your authentication logic
+        Flag = user_login(username,password)
 
-        # For simplicity, let's assume any non-empty username is valid
-        if username:
+        if Flag is True:
+            print("Login Successfull!!")
             session['username'] = username
             return redirect(url_for('options'))
     
@@ -340,10 +370,8 @@ def signup():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        # Perform user signup logic here
-        history = []
-        chat_id = generate_user_id()
-        save_user_history(chat_id, username, history)
+        
+        register(username,password)
 
         # Redirect to the login page
         return redirect(url_for('login'))
