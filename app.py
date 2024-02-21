@@ -9,6 +9,7 @@ import json
 import uuid
 import PIL.Image
 
+
 app = Flask(__name__)
 GOOGLE_API_KEY = "AIzaSyA6Ga8yGLeMc7pCali3x8Hj3Itjk6ihAmQ"
 app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
@@ -211,9 +212,34 @@ def resume():
     
     return render_template('resume.html')
 
+@app.route('/new_chat', methods = ['GET','POST'])
+def new_chat():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    username = session.get('username')
+    history = []
+    chat_id = generate_user_id()
+    save_user_history(chat_id, username, history)
+    session['chat_id'] = chat_id
+    # return redirect(url_for('chating'))
+    return jsonify({'success': True})
 
-@app.route('/chat', methods=['GET', 'POST'])
-def chat():
+
+@app.route('/chat_id', methods = ['GET','POST'])
+def chat_id():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    data = request.json
+    chat_id = data.get('chat_id')
+    session['chat_id'] = chat_id
+    # return redirect(url_for('chating'))
+    return jsonify({'message': 'Success'})
+
+
+@app.route('/chating', methods = ['GET','POST'])
+def chating():
     if 'username' not in session:
         return redirect(url_for('login'))
     
@@ -221,13 +247,11 @@ def chat():
     user_message_skipped = False
 
     username = session['username']
-
-    chat_id = generate_user_id()
-    session['chat_id'] = chat_id
-
-    create_chat(username,chat_id)
+    chat_id = session.get('chat_id')
+    # chat_id = generate_user_id()
+    # create_chat(username,chat_id)
     chats = get_chat_ids(username)
-    print(chats)
+    # session['chats'] = chats
     history = get_user_history(chat_id)
 
     if history == []:
@@ -239,7 +263,6 @@ def chat():
                        for part in item['parts']
                        if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
         save_user_history(session['chat_id'],username, history)
-        # session['history'] = get_user_history(username)
 
     else:
         updated_history = [{"text": part, "role": item['role']}
@@ -258,11 +281,22 @@ def chat():
                        for part in item['parts']
                        if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
         save_user_history(session['chat_id'],username, history)
-        # session['history'] = get_user_history(username)
+    return render_template('chat.html', messages=updated_history, chats = chats)
 
-    print(updated_history)
+
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    username = session['username']
+    chats = get_chat_ids(username)
+    session['chats'] = chats
+
+
     
-    return render_template('chat.html', messages=updated_history)
+    return render_template('chat.html', chats = chats)
 
 
 
@@ -308,7 +342,8 @@ def signup():
         password = request.form['password']
         # Perform user signup logic here
         history = []
-        save_user_history(None, username, history)
+        chat_id = generate_user_id()
+        save_user_history(chat_id, username, history)
 
         # Redirect to the login page
         return redirect(url_for('login'))
