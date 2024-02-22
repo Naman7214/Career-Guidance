@@ -76,6 +76,12 @@
             -webkit-text-fill-color: transparent;
             z-index: 1;
         }
+        .flash-message {
+            color: #FF5733; /* Change this color as needed */
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
         /* Mobile message styles */
         .mobile-message {
             display: none;
@@ -106,6 +112,13 @@
         <div class="guido-text"><a href="/">GuidoAI</a></div>
         <div class="container">
             <h2>Login</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <form method="post">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>

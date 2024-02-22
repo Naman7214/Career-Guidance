@@ -242,6 +242,8 @@ def login():
             print("Login Successfull!!")
             session['username'] = username
             return redirect(url_for('options'))
+        else:
+            flash('Invalid username or password', 'error')
     
     return render_template('login.html')
 
