@@ -199,6 +199,9 @@
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       /* Applied to the container */
     }
 
@@ -327,7 +330,7 @@
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
-      background-color: blue;
+      background-color: rgb(255, 0, 0);
       /* Red color for the button */
       color: white;
       font-size: 16px;
@@ -338,7 +341,7 @@
     }
 
     .logout-btn:hover {
-      background-color: blue;
+      background-color: rgb(255, 0, 0);
       /* Lighter red color on hover */
     }
 
@@ -370,7 +373,7 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p style="color: white">{{session['username']}}</p>
+        <p style="color: white">Username: <b>{{session['username']}}</b></p>
         <!-- Logout button -->
         <button class="logout-btn" onclick="logout()">Logout</button>
       </div>

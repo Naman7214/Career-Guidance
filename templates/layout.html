@@ -41,7 +41,7 @@
       <div class="space-x-4">
         <a href="#" class="hover:underline">About Us</a>
         <a href="#" class="hover:underline">FAQ</a>
-        <a href="#" class="px-6 py-2 border rounded">Sign in</a>
+        <a href="/signup" class="px-6 py-2 border rounded">Sign up</a>
       </div>
     </nav>
 
@@ -51,7 +51,7 @@
         <p class="text-2xl font-bold">With Guido find the path to your career!</p>
         <p class="text-lg">Chat to start planning, shaping and more with Guido AI</p>
         {% if 'username' not in session %}
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28 mr-4"><a href="{{ url_for('signup') }}">Sign in</a></button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28 mr-4"><a href="{{ url_for('signup') }}">Sign up</a></button>
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-28"><a href="{{ url_for('login') }}">Log in</a></button>               
         {% else %}
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-full w-30"><a href="{{ url_for('options') }}">Continue to GuidoAI</a></button>               
