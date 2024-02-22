@@ -9,6 +9,8 @@ import json
 import uuid
 import PIL.Image
 from werkzeug.security import generate_password_hash, check_password_hash
+import logging
+
 
 
 
@@ -16,6 +18,8 @@ app = Flask(__name__)
 GOOGLE_API_KEY = "AIzaSyA6Ga8yGLeMc7pCali3x8Hj3Itjk6ihAmQ"
 app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
 genai.configure(api_key=GOOGLE_API_KEY)
+logging.basicConfig(filename='app.log', level=logging.INFO,
+                    format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 
 # uri = "mongodb+srv://Grimoires:aaPX19MOAMjkCa2I@guidodb.saqygc9.mongodb.net/?retryWrites=true&w=majority"
 # client = MongoClient(uri)
