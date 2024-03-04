@@ -361,6 +361,22 @@ def skills():
 
     return render_template('skillSelection.html')
 
+@app.route('/mock_option', methods = ['GET','POST'])
+def mock_option():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':   
+        data = request.form.get('data')
+        if data:
+            selected_interests = json.loads(data)  # Convert JSON string back to Python list
+            print(selected_interests)
+            session['interests'] = selected_interests
+            print(session['interests'][0])
+        return redirect(url_for('mock_chat'))
+
+    return render_template('mock_selection.html')
+
 
 
 @app.route('/resume')
