@@ -300,6 +300,27 @@
             background-color: #0a072f;
             transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
         }
+
+        .you {
+            justify-content: flex-end;
+          }
+      
+          .you p,
+          .Guido p {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            /* Prevents messages from stretching too wide */
+          }
+      
+          .you p {
+            background-color: #dcf8c6;
+          }
+      
+          .Guido p {
+            background-color: #eaeaea;
+          }
     </style>
 </head>
 
@@ -343,7 +364,7 @@
                     </div>
                     {% endfor %}
                 </div>
-                <form action="{{ url_for('chat') }}" method="post">
+                <form action="{{ url_for('mock_chat') }}" method="post">
                     <input type="text" name="message" id="message-input" placeholder="Type your message here..."
                         required />
                     <button type="submit">Send</button>
@@ -398,7 +419,7 @@
                     messageInput.value = ""; // Clear the input right after sending
 
                     // AJAX request to send the message
-                    fetch('{{ url_for("chat_ajax") }}', {
+                    fetch('{{ url_for("mock_chat_ajax") }}', {
                         method: "POST",
                         body: JSON.stringify({ message: message }),
                         headers: {
@@ -440,7 +461,7 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        window.location.href = '/chating'; // Redirect to the chating route
+                        window.location.href = '/mock_interview'; // Redirect to the chating route
                     } else {
                         throw new Error('Network response was not ok.');
                     }
@@ -450,7 +471,7 @@
                 });
         }
         document.getElementById('newChat').addEventListener('click', function () {
-            fetch('/new_chat', {
+            fetch('/new_mock_chat', {
                 method: 'POST', // Assuming you want to keep it as a POST request
                 headers: {
                     'Content-Type': 'application/json',
@@ -460,7 +481,7 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        window.location.href = '/chating'; // Redirect to the chating route on success
+                        window.location.href = '/mock_interview'; // Redirect to the chating route on success
                     } else {
                         throw new Error('Network response was not ok.');
                     }

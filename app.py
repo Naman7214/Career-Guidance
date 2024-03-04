@@ -18,8 +18,8 @@ app = Flask(__name__)
 GOOGLE_API_KEY = "AIzaSyA6Ga8yGLeMc7pCali3x8Hj3Itjk6ihAmQ"
 app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
 genai.configure(api_key=GOOGLE_API_KEY)
-logging.basicConfig(filename='app.log', level=logging.INFO,
-                    format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
+# logging.basicConfig(filename='app.log', level=logging.INFO,
+#                     format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 
 # uri = "mongodb+srv://Grimoires:aaPX19MOAMjkCa2I@guidodb.saqygc9.mongodb.net/?retryWrites=true&w=majority"
 # client = MongoClient(uri)
@@ -89,6 +89,22 @@ def save_user_history(chat_id, username, history):
         print(f"Updated {update_result.matched_count} documents.")
     except Exception as e:
         print(f"An error occurred while updating user history: {e}")
+
+
+def save_user_mock_history(chat_id, username, history):
+    try:
+        update_result = user_mock_history.update_one(
+            {"chat_id": chat_id},
+            {"$set": {"username": username, "mock_history": history}},
+            upsert=True
+        )
+        print(f"Updated {update_result.matched_count} documents.")
+    except Exception as e:
+        print(f"An error occurred while updating user history: {e}")
+
+
+
+
 
 def get_user_history(chat_id):
     document = user_history.find_one({"chat_id": chat_id})
@@ -233,12 +249,22 @@ Provide constructive feedback on their performance, highlighting strengths and s
 
 Remember to maintain a professional and realistic tone throughout the interview, adapting follow-up questions based on the candidate's responses. Aim to create a positive and beneficial experience for the student to help them prepare for actual job interviews.
 
+Also don't give response in following format:
+
+[Interviewer]: "Welcome [Candidate Name], I'm GuidoAI, the interviewer for today's practice session. Thank you for taking the time to be here."
+
+[Interviewer]: Good morning/afternoon [candidate's name]. My name is GuidoAI, and I'll be your interviewer today. Thank you for taking the time to come in and interview with us.
+
+[Interviewer]: Can you tell me a little bit about your background, education, and any relevant certifications you have?
+
+
+Don't start with this "[Interviewer]:" don't include this.
 
 
 """
     ]
 
-
+    return prompt
 
 
 def send_chat(message, history):
@@ -308,7 +334,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 
 
@@ -402,6 +428,19 @@ def chat():
     
     return render_template('chat.html', chats = chats)
 
+@app.route('/mock_chat', methods=['GET', 'POST'])
+def mock_chat():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    username = session['username']
+    chats = get_mock_chat_ids(username)
+    print("Into Mock_chat")
+    print(chats)
+    session['chats'] = chats
+    
+    return render_template('mockChat.html', chats = chats)
+
 
 @app.route('/new_chat', methods = ['GET','POST'])
 def new_chat():
@@ -415,6 +454,22 @@ def new_chat():
     session['chat_id'] = chat_id
     # return redirect(url_for('chating'))
     return jsonify({'success': True})
+
+@app.route('/new_mock_chat', methods = ['GET','POST'])
+def new_mock_chat():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    username = session.get('username')
+    history = []
+    chat_id = generate_chat_id()
+    print("Into New Chat")
+    print(chat_id)
+    save_user_mock_history(chat_id, username, history)
+    session['chat_id'] = chat_id
+    # return redirect(url_for('chating'))
+    return jsonify({'success': True})
+
 
 
 @app.route('/chat_id', methods = ['GET','POST'])
@@ -494,7 +549,7 @@ def chat_ajax():
     return jsonify({'status': 'success', 'response': response}), 200
 
 
-@app.route('/mock_interview', methods = ['POST'])
+@app.route('/mock_interview', methods = ['GET','POST'])
 def mock_interview():
     if 'username' not in session:
         return redirect(url_for('login'))
@@ -503,8 +558,9 @@ def mock_interview():
 
     username = session['username']
     chat_id = session.get('chat_id')
-    
+    print(chat_id)
     chats = get_mock_chat_ids(username)
+    print(chats)
     history = get_user_mock_history(chat_id)
 
     if history == []:
@@ -515,7 +571,7 @@ def mock_interview():
                        for item in history
                        for part in item['parts']
                        if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
-        save_user_history(session['chat_id'],username, history)
+        save_user_mock_history(session['chat_id'],username, history)
 
     else:
         updated_history = [{"text": part, "role": item['role']}
@@ -525,6 +581,7 @@ def mock_interview():
         
 
     if request.method == 'POST':
+        print("Hello")
         user_message_skipped = False
         user_message = request.form['message']
         response, history = send_chat(user_message, history)
@@ -533,10 +590,30 @@ def mock_interview():
                        for item in history
                        for part in item['parts']
                        if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
-        save_user_history(session['chat_id'],username, history)
-    return render_template('chat.html', messages=updated_history, chats = chats)
+        save_user_mock_history(session['chat_id'],username, history)
+    return render_template('mockChat.html', messages=updated_history, chats = chats)
 
+
+
+@app.route('/mock_chat_ajax', methods=['POST'])
+def mock_chat_ajax():
+    if 'username' not in session:
+        return jsonify({'status': 'error', 'message': 'User not logged in'}), 403
     
+    username = session.get('username')
+    data = request.get_json()
+    user_message = data.get('message', '')
+    history = get_user_mock_history(session['chat_id'])
+    if not user_message:
+        return jsonify({'status': 'error', 'message': 'No message provided'}), 400
+    
+    # Assume `send_chat` function processes the message and updates `session['history']`
+    response, history = send_chat(user_message,history)
+  
+    save_user_mock_history(session['chat_id'],username, history)
+    return jsonify({'status': 'success', 'response': response}), 200
+
+
 
 
 
