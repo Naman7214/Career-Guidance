@@ -27,6 +27,7 @@ logging.basicConfig(filename='app.log', level=logging.INFO,
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client['career1']
+user_mock_history = db['user_mock_history']
 user_history = db['user_history']
 users = db['users']
 UPLOAD_FOLDER = 'uploads'
@@ -45,7 +46,7 @@ def boldify(text):
     # Iterate over the parts and apply bold formatting to every second element
     for i, part in enumerate(parts):
         if i % 2 == 1:  # This means the part should be bolded
-            new_text += f"<b>{part}</b>"
+            new_text += f"<b>{part}</b><hr>"
         else:  # This part should not be bolded
             new_text += part
     return new_text
@@ -93,6 +94,10 @@ def get_user_history(chat_id):
     document = user_history.find_one({"chat_id": chat_id})
     return document['history'] if document else []
 
+def get_user_mock_history(chat_id):
+    document  = user_mock_history.find_one({"chat_id" : chat_id})
+    return document['mock_history'] if document else []
+
 def create_chat(username, chat_id):
     try:
        history = []
@@ -109,6 +114,16 @@ def get_chat_ids(username):
     except Exception as e:
         print(f"An error occurred while retrieving chat IDs: {e}")
         return []
+
+def get_mock_chat_ids(username):
+    try:
+        documents = user_mock_history.find({"username": username}, {"chat_id": 1})
+        chat_ids = [document["chat_id"] for document in documents]
+        return chat_ids
+    except Exception as e:
+        print(f"An error occurred while retrieving chat IDs: {e}")
+        return []
+
 
 def getPromptForChat():
 
@@ -182,6 +197,49 @@ def getPromptForResume():
     ]
 
     return prompt
+
+def getPromptForMock():
+
+
+    prompt = [
+        """
+
+You name is GuidoAI who is a  mock interviewer conducting a practice session for a student applying for a Machine learning Engineer and Candidate Expects a salary in range of 8-12lpa . Your goal is to simulate a realistic interview experience and ask a series of relevant questions. Please focus on assessing the candidate's qualifications, experience, problem-solving skills, and interpersonal abilities.
+            Also ask only One question at a time to me.
+            Also perform certain negotiation with candidate and make a fake offer at the end to conclude the interview.
+            You are only allowed to ask a max 10 questions.
+1. Start by greeting the candidate and introducing yourself as the interviewer.
+
+2. Inquire about the candidate's background, education, and any relevant certifications.
+
+3. Ask about their previous work experience and how it relates to the job they are applying for.
+
+4. Explore the candidate's technical skills and problem-solving abilities by posing scenario-based questions or challenges related to the job.
+
+5. Assess their understanding of the company and the industry, as well as their motivation for applying.
+
+6. Inquire about teamwork and communication skills by asking about past experiences collaborating with colleagues or leading projects.
+
+8. Ask the candidate to provide examples of challenges they've faced in the past and how they overcame them.
+
+9. Gauge their adaptability and ability to learn quickly by posing hypothetical situations or asking about their experiences in fast-paced environments.
+
+10. Allow the candidate to ask questions about the company or the role at the end of the interview.
+
+Above are the points which you have to keep in mind.
+Also note that this is an Chatbot like interface so proceed with respect to that.
+
+Provide constructive feedback on their performance, highlighting strengths and suggesting areas for improvement.
+
+Remember to maintain a professional and realistic tone throughout the interview, adapting follow-up questions based on the candidate's responses. Aim to create a positive and beneficial experience for the student to help them prepare for actual job interviews.
+
+
+
+"""
+    ]
+
+
+
 
 def send_chat(message, history):
     model = genai.GenerativeModel('gemini-pro')
@@ -434,6 +492,52 @@ def chat_ajax():
   
     save_user_history(session['chat_id'],username, history)
     return jsonify({'status': 'success', 'response': response}), 200
+
+
+@app.route('/mock_interview', methods = ['POST'])
+def mock_interview():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    updated_history = []
+    user_message_skipped = False
+
+    username = session['username']
+    chat_id = session.get('chat_id')
+    
+    chats = get_mock_chat_ids(username)
+    history = get_user_mock_history(chat_id)
+
+    if history == []:
+        prompt = getPromptForMock()
+        initial_prompt = prompt[0]
+        session['response'], history = send_chat(initial_prompt, [])
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        save_user_history(session['chat_id'],username, history)
+
+    else:
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        
+
+    if request.method == 'POST':
+        user_message_skipped = False
+        user_message = request.form['message']
+        response, history = send_chat(user_message, history)
+        session['response'] = response
+        updated_history = [{"text": part, "role": item['role']}
+                       for item in history
+                       for part in item['parts']
+                       if not (item['role'] == 'user' and not user_message_skipped and (user_message_skipped := True))]
+        save_user_history(session['chat_id'],username, history)
+    return render_template('chat.html', messages=updated_history, chats = chats)
+
+    
+
 
 
 if __name__ == '__main__':
