@@ -218,9 +218,9 @@ def getPromptForMock():
 
 
     prompt = [
-        """
+        f"""
 
-You name is GuidoAI who is a  mock interviewer conducting a practice session for a student applying for a Machine learning Engineer and Candidate Expects a salary in range of 8-12lpa . Your goal is to simulate a realistic interview experience and ask a series of relevant questions. Please focus on assessing the candidate's qualifications, experience, problem-solving skills, and interpersonal abilities.
+You name is GuidoAI who is a  mock interviewer conducting a practice session for a student applying for a {session['job_pref'][0]} and Candidate Expects a salary in range of {session['job_pref'][1]} . Your goal is to simulate a realistic interview experience and ask a series of relevant questions. Please focus on assessing the candidate's qualifications, experience, problem-solving skills, and interpersonal abilities.
             Also ask only One question at a time to me.
             Also perform certain negotiation with candidate and make a fake offer at the end to conclude the interview.
             You are only allowed to ask a max 10 questions.
@@ -369,9 +369,9 @@ def mock_option():
     if request.method == 'POST':   
         data = request.form.get('data')
         if data:
-            selected_interests = json.loads(data)  # Convert JSON string back to Python list
-            print(selected_interests)
-            session['interests'] = selected_interests
+            job_pref = json.loads(data)  # Convert JSON string back to Python list
+            print(job_pref)
+            session['job_pref'] = job_pref
             print(session['interests'][0])
         return redirect(url_for('mock_chat'))
 
