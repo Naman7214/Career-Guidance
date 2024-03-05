@@ -372,7 +372,7 @@ def mock_option():
             job_pref = json.loads(data)  # Convert JSON string back to Python list
             print(job_pref)
             session['job_pref'] = job_pref
-            print(session['interests'][0])
+            print(session['job_pref'][0])
         return redirect(url_for('mock_chat'))
 
     return render_template('mock_selection.html')
