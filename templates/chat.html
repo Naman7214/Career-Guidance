@@ -386,8 +386,12 @@
       .deleteChatLink {
         margin-left: 10px; /* Adjust the margin between the button and the anchor tag as needed */
       }
-      .deleteChatLink:hover {
-        height : 30px;
+      .deletechat{
+        height : 20px;
+      }
+      .deletechat:hover {
+        height : 25px;
+        cursor : pointer;
         transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
       }
     </style>
@@ -417,7 +421,7 @@
             <li>
               <button class="chatHistoryBtn" value="{{ chat }}" onclick="sendChatIdToServer('{{ chat }}')">Chat {{ loop.index }}</button>
               <a  onclick = "sendChatId('{{chat}}')" class="deleteChatLink" onclick="deleteChat(event)">
-                <img src="../static/delete.png" alt="delete" height="20px"/>
+                <img class = "deletechat"src="../static/delete.png" alt="delete" />
               </a>
             </li>
             {% endfor %}
