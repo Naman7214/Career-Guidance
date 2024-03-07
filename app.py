@@ -140,6 +140,12 @@ def get_mock_chat_ids(username):
         print(f"An error occurred while retrieving chat IDs: {e}")
         return []
 
+def delete_chat_history(chat_id):
+    result = user_history.delete_one({'chat_id': chat_id})
+    if result.deleted_count == 1:
+        return f"Deleted Sucessfully"
+    else:
+        return f"Not deleted Sucessfully or the file does not exists"
 
 def getPromptForChat():
 
@@ -486,6 +492,15 @@ def new_mock_chat():
     # return redirect(url_for('chating'))
     return jsonify({'success': True})
 
+@app.route('/delete_chat' , methods = ['GET', 'POST'])
+def delete_chat():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    chat_id  = session['chat_id']
+    session.pop('chat_id')
+    delete_chat_history(chat_id)
+    print("Deleted Chat ID:" +  chat_id)
+    return redirect(url_for('chat'))
 
 
 @app.route('/chat_id', methods = ['GET','POST'])
