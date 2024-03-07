@@ -386,6 +386,10 @@
       .deleteChatLink {
         margin-left: 10px; /* Adjust the margin between the button and the anchor tag as needed */
       }
+      .deleteChatLink:hover {
+        height : 30px;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+      }
     </style>
   </head>
 
@@ -412,7 +416,7 @@
             {% for chat in chats %}
             <li>
               <button class="chatHistoryBtn" value="{{ chat }}" onclick="sendChatIdToServer('{{ chat }}')">Chat {{ loop.index }}</button>
-              <a href="/delete_chat" class="deleteChatLink" onclick="deleteChat(event)">
+              <a  onclick = "sendChatId('{{chat}}')" class="deleteChatLink" onclick="deleteChat(event)">
                 <img src="../static/delete.png" alt="delete" height="20px"/>
               </a>
             </li>
@@ -478,6 +482,30 @@
               console.error("Error:", error);
             });
         }
+      
+
+        function sendChatId(chatId) {
+          console.log(chatId);
+          fetch("/delete_chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest",
+            },
+            body: JSON.stringify({ chat_id: chatId }), // Make sure this matches the key expected on the server
+          })
+            .then((response) => {
+              if (response.ok) {
+                window.location.href = "/chating"; // Redirect to the chating route
+              } else {
+                throw new Error("Network response was not ok.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+
       document.addEventListener("DOMContentLoaded", function () {
         var btn = document.getElementById("userProfileBtn");
         var modal = document.getElementById("myModal");
