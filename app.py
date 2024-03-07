@@ -492,17 +492,6 @@ def new_mock_chat():
     # return redirect(url_for('chating'))
     return jsonify({'success': True})
 
-# @app.route('/delete_chat' , methods = ['GET', 'POST'])
-# def delete_chat():
-#     if 'username' not in session:
-#         return redirect(url_for('login'))
-#     chat_id  = session['chat_id']
-#     session.pop('chat_id')
-#     delete_chat_history(chat_id)
-#     print("Deleted Chat ID:" +  chat_id)
-#     return redirect(url_for('chat'))
-
-
 @app.route('/delete_chat' , methods = ['GET', 'POST'])
 def delete_chat():
     if 'username' not in session:
