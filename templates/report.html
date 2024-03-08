@@ -1,87 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Analysis Report</title>
+    <title>Grid Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        ::-webkit-scrollbar {
+            width: 12px;
+            /* Width of the scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #c3ebf8;
+            /* Color of the track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #474747;
+            /* Color of the scrollbar thumb */
+            border-radius: 6px;
+            /* Roundness of the scrollbar thumb */
+            border: 3px solid #474747;
+            /* Creates a border around the thumb */
+        }
+
+        /* Firefox scrollbar styles */
+        * {
+            scrollbar-width: thin;
+            /* "auto" or "thin" */
+            scrollbar-color: #232121 #2f2f2f;
+            /* thumb and track color */
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #151414;
-            color: #333;
+            /* background-color: #1c1e26; */
         }
+
         .container {
-            
-            max-width: 800px;
-            margin: 25px auto ;
-            background: #232121;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border: 3px solid #007bff; /* Blue border color */
-            animation: borderAnimation 5s linear infinite; 
-        }
-        h1 {
-            color: #ffff;
-            text-align: center;
-        }
-        .report-content {
-            background-color: #e7e7e7;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            border-left: 4px solid #007bff;
-        }
-        p {
-            line-height: 1.6;
-        }
-        a {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            background-color: #0056b3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            min-width: 100vw;
+            background-color: #1c1e26;
+
         }
 
         @keyframes borderAnimation {
             0% {
                 border-color: #8dc4ff;
             }
+
             25% {
                 border-color: #4f7bff;
             }
+
             50% {
                 border-color: #2c00dd;
             }
+
             75% {
                 border-color: #4f7bff;
             }
+
             100% {
                 border-color: #8dc4ff;
             }
         }
 
+
+        .grid {
+            max-width: 1100px;
+            margin: 25px auto;
+            /* background: #232121; */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 3px solid #007bff;
+            background-color: #c3ebf8;
+            /* Blue border color */
+            overflow-y: auto;
+            /* Make the grid items scrollable vertically */
+            max-height: 90vh;
+            animation: borderAnimation 5s linear infinite;
+        }
+
+        .grid>div {
+            transition: background-color 0.3s;
+        }
+
+        .grid>div:hover {
+            background-color: #baffdd;
+            border-radius: 8px;
+            border: 3px solid #007bff;
+            animation: borderAnimation 5s linear infinite;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+            /* transform: rotateX('-90deg'); */
+            transform: scale3d(1.05, 1.05, 1);
+
+        }
+
+        .grid>div>h2,
+        .grid>div>h3,
+        .grid>div>b:first-of-type {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+
+        /* .projects > ul > li:not(:last-child) {
+            font-weight: bold;
+        } */
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Resume Analysis Report</h1>
-        {% if report != 'Unknown' %}
-            <div class="report-content">
-                {{ report | replace("\n", "<br>") | safe }}
-            </div>
-        {% else %}
+        <div class="grid grid-cols-2 gap-4">
+            {% if report != 'Unknown' %}
+
+            {{ report | safe }}
+
+            {% else %}
             <p>The report could not be generated or is not available.</p>
-        {% endif %}
-        <a href="{{ url_for('resume') }}">Go Back</a>
+            {% endif %}
+            <!-- <div class="bg-gray-200 p-4">Div 1 </div>
+            <div class="bg-gray-200 p-4">Div 2</div>
+            <div class="bg-gray-200 p-4">Div 3</div>
+            <div class="bg-gray-200 p-4">Div 4</div>
+            <div class="bg-gray-200 p-4 col-span-2">Div 5</div> -->
+        </div>
     </div>
+    <script>
+        console.group("%c Developers Information", 'color: red; font-size: 22px;');
+        console.log('%c This is our Career Guidance Chatbot - GuidoAI', 'color: green; font-size: 18px;');
+        console.log('%c We are team Grimoires!!', 'color: blue; font-size: 16px;');
+        console.groupEnd();
+
+        console.group("%c Team members:", 'color: yellow; font-size: 22px')
+        console.log("%c Dhanashri Patil", 'color: orange; font-size: 16px')
+        console.log("%c Isha Velankar", 'color: orange; font-size: 16px')
+        console.log("%c Naman Agnihotri", 'color: orange; font-size: 16px')
+        console.log("%c Harshvardan Grandhi", 'color: orange; font-size: 16px')
+        console.groupEnd();
+
+
+
+
+
+
+    </script>
 </body>
+
 </html>

@@ -190,9 +190,9 @@ def getPromptForResume():
 
     Your analysis must prioritize information extraction from these sections, considering their importance and the user's specified interests:
 
-    1. Work Experience (Highest Priority)
-    2. Projects (2nd Highest Priority)
-    3. Skills/Technical Skills (3rd Highest Priority)
+    1. Work Experience (Highest Priority - wrap the summary within <div class="workExperience"></div>)
+    2. Projects (2nd Highest Priority - wrap the summary in form of list(ul and li) within <div class="projects"></div>)
+    3. Skills/Technical Skills (3rd Highest Priority - wrap the summary within <div class="skills"></div>)
 
     Given the diverse resume formats, deploy advanced pattern recognition to identify relevant information, including synonyms and format variations. If a resume does not contain recognizable sections or information pertinent to professional qualifications, kindly request a valid resume upload.
 
@@ -206,15 +206,17 @@ def getPromptForResume():
 
     ### Desired Output Format:
 
-    - **Gaps Identified**: Enumerate any gaps or areas that lack detail in each priority section, specifically noting discrepancies between the resume content and the user's career objectives or market demands.
+    - **Gaps Identified(wrap the summary within <div class="gapsIdentified"></div>)**: Enumerate any gaps or areas that lack detail in each priority section, specifically noting discrepancies between the resume content and the user's career objectives or market demands.
 
-    - **Tailored Recommendations**: Provide specific, actionable advice for each identified gap. Explain the relevance of your suggestions to the user's interests and career goals, emphasizing how improvements could enhance job market competitiveness.
+    - **Tailored Recommendations(wrap the summary in form of list(ul and li) within <div class="tailoredRecommendations col-span-2"></div>)**: Provide specific, actionable advice for each identified gap. Explain the relevance of your suggestions to the user's interests and career goals, emphasizing how improvements could enhance job market competitiveness.
 
     **Example for Synonym Recognition**:
     - 'Projects' might also appear as 'Portfolio Highlights' or 'Major Projects.'
     - 'Skills/Technical Skills' could be listed under 'Expertise,' 'Technical Capabilities,' or 'Skill Set.'
 
     Tailor your feedback to each resume's unique content, offering personalized and precise suggestions that empower students to effectively optimize their resumes in line with their career aspirations.
+    NOTE: you must always generate the content for Work Experience, Projects, Skills/Technical Skills, Gaps Identified, Tailored Recommendations as mentioned above! And most important don't just resopond with the content as it is, make SUMMARY out of it and provide valuable feedback to the users
+
 """
     ]
 
