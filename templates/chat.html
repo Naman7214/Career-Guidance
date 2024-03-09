@@ -430,7 +430,7 @@
       </div>
       <div class="list">
         <ul>
-          <button id="newChat" onclick = "newChat()">New Chat</button>
+          <button id="newChat" onclick="newChat()">New Chat</button>
           {% for chat in chats %}
           <li>
             <button class="chatHistoryBtn" value="{{ chat }}" onclick="sendChatIdToServer('{{ chat }}')">Chat {{
@@ -509,6 +509,9 @@
       var currentChatButton = document.querySelector('.chatHistoryBtn[value="' + chatId + '"]');
       currentChatButton.classList.add('active');
     }
+    window.addEventListener("beforeunload", function () {
+      localStorage.removeItem('activeChat');
+    });
 
     // Check localStorage on page load
     document.addEventListener("DOMContentLoaded", function () {
@@ -656,28 +659,18 @@
         chatBox.scrollTop = chatBox.scrollHeight;
       });
 
+      console.group("%c Developers Information", 'color: red; font-size: 22px;');
+      console.log('%c This is our Career Guidance Chatbot - GuidoAI', 'color: green; font-size: 18px;');
+      console.log('%c We are team Grimoires!!', 'color: blue; font-size: 16px;');
+      console.groupEnd();
 
+      console.group("%c Team members:", 'color: yellow; font-size: 22px')
+      console.log("%c Dhanashri Patil", 'color: orange; font-size: 16px')
+      console.log("%c Isha Velankar", 'color: orange; font-size: 16px')
+      console.log("%c Naman Agnihotri", 'color: orange; font-size: 16px')
+      console.log("%c Harshvardan Grandhi", 'color: orange; font-size: 16px')
+      console.groupEnd();
 
-      // document.getElementById("newChat").addEventListener("click", function () {
-      //   console.log("New Chat button clicked");
-      //   fetch("/new_chat", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       "X-Requested-With": "XMLHttpRequest",
-      //     },
-      //   })
-      //     .then((response) => {
-      //       if (response.ok) {
-      //         window.location.href = "/chating";
-      //       } else {
-      //         throw new Error("Network response was not ok.");
-      //       }
-      //     })
-      //     .catch((error) => {
-      //       console.error("Error:", error);
-      //     });
-      // });
 
     });
   </script>
