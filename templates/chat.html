@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat Interface</title>
   <style>
@@ -84,6 +85,7 @@
     #chat-container {
       min-height: 99.8vh;
       max-height: 99.8vh;
+      width: 100%;
       background-color: #232121;
       /* border: 1px solid #ddd; */
       /* border-radius: 5px; */
@@ -144,6 +146,7 @@
     input[type="text"] {
       flex: 1;
       padding: 10px;
+      /* height: 20px; */
       margin-right: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
@@ -213,10 +216,10 @@
 
     #heading {
       position: fixed;
-      padding: 25px;
+      padding: 35px;
       font-size: large;
       top: 0;
-      left: 14px;
+      left: 39px;
       width: 14.1%;
       background-color: #1f1f1f;
       border-bottom-left-radius: 5px;
@@ -225,7 +228,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Applied to the container */
     }
 
     .list {
@@ -398,22 +400,29 @@
       background-color: #0056b3;
     }
 
-    #micBtn {
-      background-color: white;
-      padding: 2px;
-      border-radius: 50%;
-      margin-right: 3px;
-      margin-left: 0px;
-      cursor: pointer;
-    }
 
-    #micBtn:hover {
-      background-color: rgb(146, 145, 145);
+
+
+
+    /* Canvas */
+    #output {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      width: 125px;
+      /* Set the width */
+      /* display: none; */
+      height: 125px;
+      /* Set the height */
+      display: block
+        /* Ensure it's visible */
+
     }
   </style>
 </head>
 
 <body>
+  <canvas id="output"></canvas>
   <div class="container">
     <div id="myModal" class="modal">
       <!-- Modal content -->
@@ -462,39 +471,82 @@
         </div>
         <form action="{{ url_for('chat') }}" method="post">
           <input type="text" name="message" id="message-input" placeholder="Type your message here..." required />
-          <a id="micBtn" onclick="startSpeechRecog()"><img src="../static/mic.png" alt="Use Mic" height="30px"></a>
-          <button type="submit">Send</button>
+          <button type="button" id="startButton" class="btn btn-primary" style="margin-right: 3px;"><i
+              class="fas fa-microphone"></i></button>
+          <button type="button" id="stopButton" class="btn btn-danger" style="margin-right: 3px; display: none;"><i
+              class="fas fa-stop"></i></button>
+          <button type="submit" id="submit">Send</button>
         </form>
+
       </div>
     </div>
     {%endif%}
   </div>
+  <!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/meyda@5.0.8/dist/web/meyda.min.js'></script>
 
   <script>
-    let recognition;
-
-    startSpeechRecog = () => {
-      document.getElementById("message-input").innerHTML = "Listening voice...";
-
-      var action = document.getElementById('message-input');
-      recognition = new webkitSpeechRecognition();
-
-      // Set properties for continuous recognition
+    document.addEventListener('DOMContentLoaded', function () {
+      const startButton = document.getElementById('startButton');
+      const stopButton = document.getElementById('stopButton');
+      const outputDiv = document.getElementById('message-input');
+      const submitBtn = document.getElementById('submit');
+      const canvas = document.getElementById('output');
+      const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
       recognition.continuous = true;
-      recognition.interimResults = true;
+      recognition.lang = 'en-US';
 
-      recognition.onstart = () => {
-        action.value = "Listening..."; // Use 'value' to set the input field's value
-      }
-      recognition.onresult = (e) => {
-        var transcript = e.results[0][0].transcript;
-        action.value = transcript; // Set the input field's value
-        output.innerHTML = transcript;
-        output.classList.remove("hide");
-        action.innerHTML = "";
-      }
-      recognition.start();
-    }
+      let currentTranscript = '';
+
+      startButton.addEventListener('click', function () {
+        recognition.start();
+        startButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        startButton.style.display = "none";
+        stopButton.style.display = "block";
+        canvas.style.display = "block";
+      });
+
+      stopButton.addEventListener('click', function () {
+        recognition.stop();
+        startButton.innerHTML = '<i class="fas fa-microphone"></i>';
+
+        stopButton.style.display = "none";
+        startButton.style.display = "block";
+        canvas.style.display = "none";
+      });
+
+      recognition.onresult = function (event) {
+        const newTranscript = event.results[event.results.length - 1][0].transcript;
+        currentTranscript += newTranscript + ' ';
+        outputDiv.value = currentTranscript;
+      };
+
+      recognition.onspeechend = function () {
+        recognition.stop();
+        startButton.innerHTML = '<i class="fas fa-microphone"></i>';
+        startButton.disabled = false;
+      };
+
+      recognition.onerror = function (event) {
+        outputDiv.innerHTML = '<p>Error occurred, please try again.</p>';
+        recognition.stop();
+        startButton.innerHTML = '<i class="fas fa-microphone"></i>';
+        startButton.disabled = false;
+        stopButton.disabled = true;
+      };
+
+      submitBtn.addEventListener('click', function () {
+        currentTranscript = '';
+        recognition.stop();
+
+        stopButton.style.display = "none";
+        startButton.style.display = "block";
+
+        canvas.style.display = "none";
+      });
+    });
+
     function logout() {
       window.location.href = "/logout";
     }
@@ -542,6 +594,7 @@
         console.error("Error:", error);
       }
     }
+
 
 
 
@@ -673,6 +726,116 @@
 
 
     });
+
+
+
+    // CANVAS
+    const canvas = document.getElementById('output');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+    const submitBtn = document.getElementById('submit');
+
+    canvas.width = 125;
+    canvas.height = 125;
+    const ctx = canvas.getContext("2d");
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let raf;
+    let audioContext;
+    let stream;
+
+    const numberOfSides = 512;
+    const newSize = 50;
+    const newX = canvas.width - newSize - 10;
+    const newY = 60;
+    const lineWidth = 5;
+    const lineColor = "#fff";
+    const audioAmplifier = 70;
+    const backgroundColor = "#232121";
+
+    function draw(buffer) {
+      if (buffer === undefined || buffer === null) {
+        ctx.arc(newX, newY, newSize, 0, 2 * Math.PI);
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = lineWidth;
+        ctx.stroke();
+        return;
+      }
+
+      ctx.beginPath();
+
+      for (let i = 0; i < numberOfSides; i++) {
+        const audioValue = buffer[i] * audioAmplifier;
+        const cos = Math.cos((i * 2 * Math.PI) / numberOfSides);
+        const sin = Math.sin((i * 2 * Math.PI) / numberOfSides);
+        const x1 = newX + newSize * cos - audioValue;
+        const y1 = newY + newSize * sin + (i % 2 === 1 ? audioValue : 0);
+
+        if (i === 0) {
+          ctx.moveTo(x1, y1);
+        } else {
+          ctx.lineTo(x1, y1);
+        }
+      }
+
+      ctx.closePath();
+      ctx.strokeStyle = lineColor;
+      ctx.lineWidth = lineWidth;
+      ctx.stroke();
+    }
+
+
+    async function startMicrophone() {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            echoCancellation: false,
+          },
+        });
+  
+
+        if (audioContext) audioContext.close();
+        audioContext = new AudioContext({
+          latencyHint: "interactive",
+        });
+
+        const source = audioContext.createMediaStreamSource(stream);
+
+        const meyda = new Meyda.createMeydaAnalyzer({
+          audioContext,
+          source,
+          bufferSize: numberOfSides,
+          windowingFunction: "rect",
+        });
+
+        loop = (delta) => {
+          raf = requestAnimationFrame(loop);
+          ctx.fillStyle = backgroundColor;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          const buffer = meyda.get("buffer");
+          draw(buffer);
+        };
+
+        raf = requestAnimationFrame(loop);
+
+      } catch (err) {
+        console.error("Error accessing microphone:", err);
+      }
+    }
+
+    function stopMicrophone() {
+      if (stream && stream.getTracks) {
+        stream.getTracks().forEach(track => track.stop());
+      }
+      if (audioContext) {
+        audioContext.close();
+      }
+      cancelAnimationFrame(raf);
+      stream = null;
+    }
+
+    startButton.addEventListener('click', startMicrophone);
+    stopButton.addEventListener('click', stopMicrophone);
+    submitBtn.addEventListener('click', stopMicrophone);
   </script>
 </body>
 
