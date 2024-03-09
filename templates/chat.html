@@ -397,6 +397,17 @@
     .chatHistoryBtn.active {
       background-color: #0056b3;
     }
+    #micBtn{
+      background-color: white;
+      padding: 2px;
+      border-radius: 50%;
+      margin-right: 3px;
+      margin-left: 0px;
+      cursor: pointer;
+    }
+    #micBtn:hover{
+      background-color: rgb(146, 145, 145);
+    }
   </style>
 </head>
 
@@ -448,6 +459,7 @@
         </div>
         <form action="{{ url_for('chat') }}" method="post">
           <input type="text" name="message" id="message-input" placeholder="Type your message here..." required />
+          <a id="micBtn" onclick="startSpeechRecog()"><img src="../static/mic.png" alt="Use Mic" height="30px"></a>
           <button type="submit">Send</button>
         </form>
       </div>
@@ -455,6 +467,30 @@
   </div>
 
   <script>
+    let recognition;
+
+    startSpeechRecog = () => {
+      document.getElementById("message-input").innerHTML = "Listening voice...";
+
+      var action = document.getElementById('message-input');
+      recognition = new webkitSpeechRecognition();
+
+      // Set properties for continuous recognition
+      recognition.continuous = true;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        action.value = "Listening..."; // Use 'value' to set the input field's value
+      }
+      recognition.onresult = (e) => {
+        var transcript = e.results[0][0].transcript;
+        action.value = transcript; // Set the input field's value
+        output.innerHTML = transcript;
+        output.classList.remove("hide");
+        action.innerHTML = "";
+      }
+      recognition.start();
+    }
     function logout() {
       window.location.href = "/logout";
     }
