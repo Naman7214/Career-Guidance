@@ -397,7 +397,8 @@
     .chatHistoryBtn.active {
       background-color: #0056b3;
     }
-    #micBtn{
+
+    #micBtn {
       background-color: white;
       padding: 2px;
       border-radius: 50%;
@@ -405,7 +406,8 @@
       margin-left: 0px;
       cursor: pointer;
     }
-    #micBtn:hover{
+
+    #micBtn:hover {
       background-color: rgb(146, 145, 145);
     }
   </style>
@@ -428,7 +430,7 @@
       </div>
       <div class="list">
         <ul>
-          <button id="newChat">New Chat</button>
+          <button id="newChat" onclick = "newChat()">New Chat</button>
           {% for chat in chats %}
           <li>
             <button class="chatHistoryBtn" value="{{ chat }}" onclick="sendChatIdToServer('{{ chat }}')">Chat {{
@@ -444,6 +446,7 @@
       <button id="userProfileBtn">Profile</button>
       <!-- <div class="userDetails">
         </div> -->
+      {%if session['chat_id'] %}
     </div>
     <div id="chatarea">
       <div id="chat-container">
@@ -464,6 +467,7 @@
         </form>
       </div>
     </div>
+    {%endif%}
   </div>
 
   <script>
@@ -560,6 +564,27 @@
         });
     }
 
+    function newChat() {
+      console.log("New Chat button clicked");
+      fetch("/new_chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            window.location.href = "/chating";
+          } else {
+            throw new Error("Network response was not ok.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       var btn = document.getElementById("userProfileBtn");
       var modal = document.getElementById("myModal");
@@ -633,28 +658,27 @@
 
 
 
-      document
-        .getElementById("newChat")
-        .addEventListener("click", function () {
-          fetch("/new_chat", {
-            method: "POST", // Assuming you want to keep it as a POST request
-            headers: {
-              "Content-Type": "application/json",
-              "X-Requested-With": "XMLHttpRequest",
-            },
-            // Sending an empty body since you don't seem to need to send data
-          })
-            .then((response) => {
-              if (response.ok) {
-                window.location.href = "/chating"; // Redirect to the chating route on success
-              } else {
-                throw new Error("Network response was not ok.");
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        });
+      // document.getElementById("newChat").addEventListener("click", function () {
+      //   console.log("New Chat button clicked");
+      //   fetch("/new_chat", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       "X-Requested-With": "XMLHttpRequest",
+      //     },
+      //   })
+      //     .then((response) => {
+      //       if (response.ok) {
+      //         window.location.href = "/chating";
+      //       } else {
+      //         throw new Error("Network response was not ok.");
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       console.error("Error:", error);
+      //     });
+      // });
+
     });
   </script>
 </body>

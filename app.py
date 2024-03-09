@@ -305,6 +305,7 @@ def resume_report(file_path):
 
 @app.route('/')
 def index():
+    session.pop('chat_id', None)
     return render_template('layout.html')
 
 
