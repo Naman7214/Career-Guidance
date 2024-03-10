@@ -147,6 +147,16 @@ def delete_chat_history(chat_id):
     else:
         return f"Not deleted Sucessfully or the file does not exists"
 
+
+def delete_mock_chat_history(chat_id):
+    result = user_mock_history.delete_one({'chat_id': chat_id})
+    if result.deleted_count == 1:
+        return f"Deleted Sucessfully"
+    else:
+        return f"Not deleted Sucessfully or the file does not exists"
+
+
+
 def getPromptForChat():
 
 
@@ -507,7 +517,17 @@ def delete_chat():
     delete_chat_history(chat_id)
     return jsonify({'message': 'Success'})
 
+@app.route('/delete_mock_chat' , methods = ['GET', 'POST'])
+def delete_mock_chat():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    data = request.json
+    chat_id = data.get('chat_id')
+    if 'chat_id' in session:
+        session.pop('chat_id')
 
+    delete_mock_chat_history(chat_id)
+    return jsonify({'message': 'Success'})
     
 
 @app.route('/chat_id', methods = ['GET','POST'])
@@ -580,7 +600,6 @@ def chat_ajax():
     if not user_message:
         return jsonify({'status': 'error', 'message': 'No message provided'}), 400
     
-    # Assume `send_chat` function processes the message and updates `session['history']`
     response, history = send_chat(user_message,history)
   
     save_user_history(session['chat_id'],username, history)
