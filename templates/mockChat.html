@@ -127,7 +127,7 @@
     }
 
     .you p {
-      background-color: #dcf8c6;
+      background-color: #eaeaea;
     }
 
     .Guido p {
@@ -439,10 +439,10 @@
       </div>
       <div class="list">
         <ul>
-          <button id="newChat" onclick="newChat()">New Chat</button>
+          <button id="newChat" onclick="newChat()">New Interview</button>
           {% for chat in chats %}
           <li>
-            <button class="chatHistoryBtn" value="{{ chat }}" onclick="sendChatIdToServer('{{ chat }}')">Chat {{
+            <button class="chatHistoryBtn" value="{{ chat }}" onclick="sendChatIdToServer('{{ chat }}')">Interview {{
               loop.index
               }}</button>
             <a onclick="sendChatId('{{chat}}')" class="deleteChatLink" onclick="deleteChat(event)">
