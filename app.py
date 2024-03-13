@@ -10,6 +10,8 @@ import uuid
 import PIL.Image
 from werkzeug.security import generate_password_hash, check_password_hash
 import logging
+from gridfs import GridFS
+
 
 
 
@@ -27,6 +29,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client['career1']
+fs = GridFS(db)
 user_mock_history = db['user_mock_history']
 user_history = db['user_history']
 users = db['users']
@@ -155,6 +158,37 @@ def delete_mock_chat_history(chat_id):
     else:
         return f"Not deleted Sucessfully or the file does not exists"
 
+def store_pdfs(username, files):
+    file_ids = []
+
+    for file in files:
+        file_id = fs.put(file.stream, filename=f"{username}_cv.pdf")
+        file_ids.append(file_id)
+
+    db.mycol.update_one(
+        {'username': username},
+        {'$addToSet': {'pdf_file_ids': {'$each': file_ids}}},
+        upsert=True
+    )
+
+    print("PDF files stored with ids:", file_ids, "for username:", username)
+
+
+def retrieve_pdfs(username):
+    document = db.mycol.find_one({'username': username})
+
+    if document and 'pdf_file_ids' in document:
+        file_ids = document['pdf_file_ids']
+        for file_id in file_ids:
+            file_document = fs.get(file_id)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_cv.pdf')
+
+            with open(file_path, 'wb') as file:
+                file.write(file_document.read())
+        
+        print("PDF files retrieved and saved for username:", username)
+    else:
+        print("No PDF files found for username:", username)
 
 
 def getPromptForChat():
@@ -415,30 +449,29 @@ def upload_file():
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
+
     if request.method == 'POST':
         file = request.files['file']
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            username = session.get('username', 'default_user')
-            filename = f"{username}_cv.{filename.rsplit('.', 1)[1].lower()}"  
-            print("saving")
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print("saved")
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            print(file_path)
-            print("Opening")
-            with open(file_path, 'rb') as file:
-                resume = file.read()
-            print("Opened")
-            report = resume_report(file_path)
-            print(report)
-            session['report'] = report
-            return redirect(url_for('report'))
-    return jsonify({'status': 'success', 'message': 'File uploaded successfully'}), 200
 
+        if file and allowed_file(file.filename):
+            username = session.get('username', 'default_user')
+
+            # Call store_pdfs function to store the resume in MongoDB
+            store_pdfs(username, [file])
+
+            # Call retrieve_pdfs function to retrieve and save the resume in the uploads folder
+            retrieve_pdfs(username)
+
+            # Perform resume_report on the saved resume
+            report = resume_report(os.path.join(app.config['UPLOAD_FOLDER'], f"{username}_cv.pdf"))
+            session['report'] = report
+
+            return redirect(url_for('report'))
+
+    return jsonify({'status': 'success', 'message': 'File uploaded successfully'}), 200
 
 
 @app.route('/report')
