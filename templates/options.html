@@ -1,224 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Options Page</title>
-    <style>
-                body {
-                  font-family: Arial, sans-serif;
-                  margin: 50px 0;
-                  padding: 0;
-                  background-color: black;
-                  color: #333;
-                  position: relative;
-                  justify-content: flex-end;
-                }
-                .container {
-                  max-width: 400px;
-                  margin: 120px 60px 25px;
-                  background: #232121;
-                  padding: 20px;
-                  border-radius: 8px;
-                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                  border: 3px solid #007bff;
-                  animation: borderAnimation 5s linear infinite;
-                  position: relative;
-                  left: 700px;
-                  height: 500px;
-                }
-                h1 {
-                  color: #fff;
-                  text-align: center;
-                  margin-bottom: 40px;
-                  font-size: 36px;
-                }
 
-                .options {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: space-between;
-                  gap: 20px;
-                  padding-bottom: 20px;
-                  margin top: 30px;
-                }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Options Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px 0;
+      padding: 0;
+      background-color: black;
+      color: #333;
+      position: relative;
+      justify-content: flex-end;
+    }
 
-                .option {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background-color: #007bff;
-                  color: white;
-                  padding: 15px 30px;
-                  border-radius: 5px;
-                  text-decoration: none;
-                  font-weight: bold;
-                  width: 18rem;
-                  text-align: center;
-                  margin-bottom: 20px;
-                  cursor: pointer;
-                  transition: background-color 0.3s ease;
-                  font-size: 20px;
-                  font-family: "Roboto", sans-serif;
-                }
-                .option:hover {
-                  background-color: #0056b3;
-                  color: #fff;
-                  text-decoration: none;
-                }
+    .container {
+      max-width: 400px;
+      margin: 120px 60px 25px;
+      background: #232121;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 3px solid #007bff;
+      animation: borderAnimation 5s linear infinite;
+      position: relative;
+      left: 700px;
+      height: 500px;
+    }
 
-                .options-container {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: center;
-                  height: 100vh; /* Ensures container takes up full viewport height */
-                  padding: 20px;
-                }
-                @keyframes borderAnimation {
-                  0% {
-                    border-color: #8dc4ff;
-                  }
-                  25% {
-                    border-color: #4f7bff;
-                  }
-                  50% {
-                    border-color: #2c00dd;
-                  }
-                  75% {
-                    border-color: #4f7bff;
-                  }
-                  100% {
-                    border-color: #8dc4ff;
-                  }
-                }
-                .guido-text {
-                  position: fixed; /* Changed to fixed to make it viewport-relative */
-                  top: 10px; /* Adjusted to ensure it stays within view */
-                  left: 50%;
-                  transform: translateX(-50%);
-                  font-size: 40px;
-                  color: transparent;
-                  background: linear-gradient(to right, #007bff, #ffd700);
-                  background-clip: text;
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  z-index: 1;
-                }
-                .logout {
-                  position: absolute;
-                  top: -100px;
-                  right: 10px;
-                }
-                .logout a {
-                  font-size: large;
-                  background-color: rgba(255, 0, 0, 0);
-                  color: white;
-                  border: 2px solid white;
-                  border-radius: 5px;
-                  padding: 5px;
-                  text-decoration: none;
-                }
-                .logout a:hover {
-                  background-color: #fff;
-                  color: black;
-                  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
-                }
+    h1 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
 
-                .image-container-background {
-                  position: absolute;
-                  left: 100px;
-                  bottom: -50px;
-                  margin: 60px 60px 25px;
-                  height: 600px;
-                  width: 600px;
-                  background-color: black;
-                  border-radius: 8px;
-                  overflow: hidden;
-                }
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      margin top: 30px;
+    }
 
-                .image-container {
-                  height: 100%;
-                }
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      width: 18rem;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+    }
 
-                .cartoon-image {
-                  width: 100%;
-                  height: 100%; /* Adjusted to fit the container height */
-                  border-radius: 8px;
-                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                  animation: borderAnimation 5s linear infinite;
-                }
+    .option:hover {
+      background-color: #0056b3;
+      color: #fff;
+      text-decoration: none;
+    }
 
-                img:hover {
-                    animation: shake 0.5s;
-                    animation-iteration-count: infinite;
-                }
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /* Ensures container takes up full viewport height */
+      padding: 20px;
+    }
 
-                @keyframes shake {
-                    0% { transform: translate(1px, 1px) rotate(0deg); }
-                    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-                    20% { transform: translate(-3px, 0px) rotate(1deg); }
-                    30% { transform: translate(3px, 2px) rotate(0deg); }
-                    40% { transform: translate(1px, -1px) rotate(1deg); }
-                    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-                    60% { transform: translate(-3px, 1px) rotate(0deg); }
-                    70% { transform: translate(3px, 1px) rotate(-1deg); }
-                    80% { transform: translate(-1px, -1px) rotate(1deg); }
-                    90% { transform: translate(1px, 2px) rotate(0deg); }
-                    100% { transform: translate(1px, -2px) rotate(-1deg); }
-                }
-
-                .animated-mascot {
-        animation: floatAnimation 3s cubic-bezier(0.28, 0.84, 0.42, 1) infinite, borderAnimation 5s linear infinite;
+    @keyframes borderAnimation {
+      0% {
+        border-color: #8dc4ff;
       }
 
-              @keyframes floatAnimation {
-              0%, 100% {
-                transform: translateY(0);
-              }
-              50% {
-                transform: translateY(-20px);
-              }
-            }
-    </style>
-  </head>
-  <body>
-    <div class="guido-text"><a href="/">GuidoAI</a></div>
-    <!-- Ensured link inherits color and no underline -->
-    <div class="logout">
-      <a href="/logout">Logout</a>
-    </div>
-    <div class="container">
-      <h1>Choose Your Path</h1>
-      <div class="options">
-        <a class="option" href="{{ url_for('chat') }}">Continue to Chat</a>
-        <a class="option" href="{{ url_for('skills') }}">Continue to Resume Analysis</a>
-        <a class="option" href="{{ url_for('mock_option') }}">Continue to Mock Interview</a>
-      </div>
-    </div>
-    <div class="image-container-background">
-      <div class="image-container">
-        <img
-          class="cartoon-image rounded-lg shadow-lg h-96 w-96 animated-mascot"
-          src="/static/cartoon1.jpg"
-          alt="Cartoon"
-        />
-      </div>
-    </div>
-    <script>
-      console.group("%c Developers Information", 'color: red; font-size: 22px;');
-      console.log('%c This is our Career Guidance Chatbot - GuidoAI', 'color: green; font-size: 18px;');
-      console.log('%c We are team Grimoires!!', 'color: blue; font-size: 16px;');
-      console.groupEnd();
+      25% {
+        border-color: #4f7bff;
+      }
 
-      console.group("%c Team members:", 'color: yellow; font-size: 22px')
-      console.log("%c Dhanashri Patil", 'color: orange; font-size: 16px')
-      console.log("%c Isha Velankar", 'color: orange; font-size: 16px')
-      console.log("%c Naman Agnihotri", 'color: orange; font-size: 16px')
-      console.log("%c Harshvardan Grandhi", 'color: orange; font-size: 16px')
-      console.groupEnd();
-    </script>
-  </body>
+      50% {
+        border-color: #2c00dd;
+      }
+
+      75% {
+        border-color: #4f7bff;
+      }
+
+      100% {
+        border-color: #8dc4ff;
+      }
+    }
+
+    .guido-text {
+      position: fixed;
+      /* Changed to fixed to make it viewport-relative */
+      top: 10px;
+      /* Adjusted to ensure it stays within view */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 40px;
+      color: transparent;
+      background: linear-gradient(to right, #007bff, #ffd700);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 1;
+    }
+
+    .logout {
+      position: absolute;
+      top: -100px;
+      right: 10px;
+    }
+
+    .logout a {
+      font-size: large;
+      background-color: rgba(255, 0, 0, 0);
+      color: white;
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 5px;
+      text-decoration: none;
+    }
+
+    .logout a:hover {
+      background-color: #fff;
+      color: black;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    }
+
+    .image-container-background {
+      position: absolute;
+      left: 100px;
+      bottom: 0px;
+      margin: 60px 60px 25px;
+      height: 600px;
+      width: 600px;
+      background-color: black;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+
+    .image-container {
+      height: 100%;
+    }
+
+    .cartoon-image {
+      height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    
+
+    .animated-mascot {
+      animation: floatAnimation 3s cubic-bezier(0.28, 0.84, 0.42, 1) infinite, borderAnimation 5s linear infinite;
+    }
+
+    @keyframes floatAnimation {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="guido-text"><a href="/">GuidoAI</a></div>
+  <!-- Ensured link inherits color and no underline -->
+  <div class="logout">
+    <a href="/logout">Logout</a>
+  </div>
+  <div class="container">
+    <h1>Choose Your Path</h1>
+    <div class="options">
+      <a class="option" href="{{ url_for('chat') }}">Continue to Chat</a>
+      <a class="option" href="{{ url_for('skills') }}">Continue to Resume Analysis</a>
+      <a class="option" href="{{ url_for('mock_option') }}">Continue to Mock Interview</a>
+    </div>
+  </div>
+  <div class="image-container-background">
+    <div class="image-container animated-mascot">
+      <img class="cartoon-image" src="/static/mascot3.png" alt="Cartoon" />
+    </div>
+  </div>
+  <script>
+    console.group("%c Developers Information", 'color: red; font-size: 22px;');
+    console.log('%c This is our Career Guidance Chatbot - GuidoAI', 'color: green; font-size: 18px;');
+    console.log('%c We are team Grimoires!!', 'color: blue; font-size: 16px;');
+    console.groupEnd();
+
+    console.group("%c Team members:", 'color: yellow; font-size: 22px')
+    console.log("%c Dhanashri Patil", 'color: orange; font-size: 16px')
+    console.log("%c Isha Velankar", 'color: orange; font-size: 16px')
+    console.log("%c Naman Agnihotri", 'color: orange; font-size: 16px')
+    console.log("%c Harshvardan Grandhi", 'color: orange; font-size: 16px')
+    console.groupEnd();
+  </script>
+</body>
+
 </html>
 z
