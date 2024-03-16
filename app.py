@@ -11,13 +11,14 @@ import PIL.Image
 from werkzeug.security import generate_password_hash, check_password_hash
 import logging
 from gridfs import GridFS
-
+from io import BytesIO
+from PIL import Image
 
 
 
 
 app = Flask(__name__)
-GOOGLE_API_KEY = "AIzaSyA6Ga8yGLeMc7pCali3x8Hj3Itjk6ihAmQ"
+GOOGLE_API_KEY = "AIzaSyCVKshD7_8qSRge-0Zs2-gFlTaIGXrFNB0"
 app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
 genai.configure(api_key=GOOGLE_API_KEY)
 # logging.basicConfig(filename='app.log', level=logging.INFO,
@@ -158,38 +159,60 @@ def delete_mock_chat_history(chat_id):
     else:
         return f"Not deleted Sucessfully or the file does not exists"
 
-def store_pdfs(username, files):
+def store_documents(username, files):
     file_ids = []
 
     for file in files:
-        file_id = fs.put(file.stream, filename=f"{username}_cv.pdf")
-        file_ids.append(file_id)
+        content_type = file.content_type
+        if content_type.startswith('image'):
+            # If it's an image, store it directly
+            image_id = fs.put(file.stream, content_type=content_type)
+            file_ids.append(image_id)
+        else:
+            # Convert non-image documents to JPG format before storing
+            image_stream = convert_to_jpg(file.stream)
+            image_id = fs.put(image_stream, content_type='image/jpeg')
+            file_ids.append(image_id)
 
     db.mycol.update_one(
         {'username': username},
-        {'$addToSet': {'pdf_file_ids': {'$each': file_ids}}},
+        {'$addToSet': {'document_file_ids': {'$each': file_ids}}},
         upsert=True
     )
 
-    print("PDF files stored with ids:", file_ids, "for username:", username)
+    print("Files stored with ids:", file_ids, "for username:", username)
 
 
-def retrieve_pdfs(username):
+def retrieve_documents(username):
     document = db.mycol.find_one({'username': username})
 
-    if document and 'pdf_file_ids' in document:
-        file_ids = document['pdf_file_ids']
+    if document and 'document_file_ids' in document:
+        file_ids = document['document_file_ids']
         for file_id in file_ids:
             file_document = fs.get(file_id)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_cv.pdf')
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_document.jpg')
 
-            with open(file_path, 'wb') as file:
-                file.write(file_document.read())
+            # Convert document to JPG format
+            convert_and_save_as_jpg(file_document, file_path)
         
-        print("PDF files retrieved and saved for username:", username)
+        print("Files retrieved and saved as JPG for username:", username)
     else:
-        print("No PDF files found for username:", username)
+        print("No files found for username:", username)
 
+
+def convert_to_jpg(source_stream):
+    # Convert the non-image document to JPG format
+    image = Image.open(source_stream)
+    output_stream = BytesIO()
+    image.save(output_stream, format='JPEG')
+    output_stream.seek(0)
+    return output_stream
+
+
+def convert_and_save_as_jpg(source_document, destination_path):
+    # Convert and save the document as JPG
+    image = Image.open(BytesIO(source_document.read()))
+    image.save(destination_path, format='JPEG')
 
 def getPromptForChat():
 
@@ -452,27 +475,27 @@ def upload_file():
         return redirect(request.url)
 
     if request.method == 'POST':
-        file = request.files['file']
-        if file.filename == '':
+        files = request.files.getlist('file')
+        if not files:
             flash('No selected file')
             return redirect(request.url)
 
-        if file and allowed_file(file.filename):
-            username = session.get('username', 'default_user')
+        username = session.get('username', 'default_user')
 
-            # Call store_pdfs function to store the resume in MongoDB
-            store_pdfs(username, [file])
+        # Call store_documents function to store the documents in MongoDB
+        store_documents(username, files)
 
-            # Call retrieve_pdfs function to retrieve and save the resume in the uploads folder
-            retrieve_pdfs(username)
+        # Call retrieve_documents function to retrieve and save the documents in the uploads folder
+        retrieve_documents(username)
 
-            # Perform resume_report on the saved resume
-            report = resume_report(os.path.join(app.config['UPLOAD_FOLDER'], f"{username}_cv.pdf"))
-            session['report'] = report
+        # Perform resume_report on the saved resume
+        report = resume_report(os.path.join(app.config['UPLOAD_FOLDER'], f"{username}_document.jpg"))
+        session['report'] = report
 
-            return redirect(url_for('report'))
+        return redirect(url_for('report'))
 
     return jsonify({'status': 'success', 'message': 'File uploaded successfully'}), 200
+
 
 
 @app.route('/report')
