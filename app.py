@@ -212,6 +212,11 @@ def convert_to_jpg(source_stream):
 def convert_and_save_as_jpg(source_document, destination_path):
     # Convert and save the document as JPG
     image = Image.open(BytesIO(source_document.read()))
+
+    # Convert RGBA to RGB if necessary
+    if image.mode == 'RGBA':
+        image = image.convert('RGB')
+
     image.save(destination_path, format='JPEG')
 
 def getPromptForChat():
@@ -255,11 +260,7 @@ def getPromptForResume():
     2. Salary Expectations : {session['interests'][1]}
     3. Job Experience : {session['interests'][2]}
 
-    Your analysis must prioritize information extraction from these sections, considering their importance and the user's specified interests:
-
-    1. Work Experience (Highest Priority - wrap the summary within <div class="workExperience"></div>)
-    2. Projects (2nd Highest Priority - wrap the summary in form of list(ul and li) within <div class="projects"></div>)
-    3. Skills/Technical Skills (3rd Highest Priority - wrap the summary within <div class="skills"></div>)
+    
 
     Given the diverse resume formats, deploy advanced pattern recognition to identify relevant information, including synonyms and format variations. If a resume does not contain recognizable sections or information pertinent to professional qualifications, kindly request a valid resume upload.
 
