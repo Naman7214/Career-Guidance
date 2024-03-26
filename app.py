@@ -17,6 +17,7 @@ import re
 from wand.image import Image as WandImage
 from wand.color import Color
 from flask import current_app
+import fitz
 
 
 
@@ -177,7 +178,7 @@ def store_documents(username, files):
 
     for file in files:
         content_type = file.content_type
-        if content_type.startswith('image'):
+        if content_type.startswith('image') and allowed_file(file.filename):
             try:
                 file.stream.seek(0)
                 image = Image.open(file.stream)
@@ -185,48 +186,44 @@ def store_documents(username, files):
                 image_id = fs.put(file.stream, content_type=content_type)
                 file_ids.append(image_id)
             except IOError as e:
-                print(f"Error processing image file: {e}")
+                current_app.logger.error(f"Error processing image file: {e}")
         elif content_type == 'application/pdf':
             try:
                 file.stream.seek(0)
-                with WandImage(file=file.stream, resolution=300) as pdf:
-                    pdf_images = []
-                    for i, page in enumerate(pdf.sequence):
-                        with WandImage(page) as img:
-                            img.format = 'png'
-                            pil_image = Image.open(BytesIO(img.make_blob('png')))
-                            pdf_images.append(pil_image)
+                pdf = fitz.open("pdf", file.stream.read())
+                pdf_images = []
+                for page_num in range(len(pdf)):
+                    page = pdf[page_num]
+                    pix = page.get_pixmap()
+                    img = Image.open(BytesIO(pix.tobytes("ppm")))
+                    pdf_images.append(img)
 
-                    # Combine images into one
-                    total_height = sum(i.height for i in pdf_images)
-                    max_width = max(i.width for i in pdf_images)
-                    combined_image = Image.new('RGB', (max_width, total_height))
+                # Combine images into one
+                total_height = sum(i.height for i in pdf_images)
+                max_width = max(i.width for i in pdf_images)
+                combined_image = Image.new('RGB', (max_width, total_height))
 
-                    y_offset = 0
-                    for img in pdf_images:
-                        combined_image.paste(img, (0, y_offset))
-                        y_offset += img.height
+                y_offset = 0
+                for img in pdf_images:
+                    combined_image.paste(img, (0, y_offset))
+                    y_offset += img.height
 
-                    # Save combined image to a byte stream and store in GridFS
-                    image_stream = BytesIO()
-                    combined_image.save(image_stream, format='PNG')
-                    image_stream.seek(0)
-                    image_id = fs.put(image_stream, content_type='image/png')
-                    file_ids.append(image_id)
+                # Save combined image to a byte stream and store in GridFS
+                image_stream = BytesIO()
+                combined_image.save(image_stream, format='PNG')
+                image_stream.seek(0)
+                image_id = fs.put(image_stream, content_type='image/png')
+                file_ids.append(image_id)
             except Exception as e:
-                print(f"Error processing PDF file: {e}")
+                current_app.logger.error(f"Error processing PDF file: {e}")
         else:
-            print(f"Unsupported file type: {content_type}")
+            current_app.logger.error(f"Unsupported file type: {content_type}")
 
     if file_ids:
-        db.mycol.update_one(
-            {'username': username},
-            {'$addToSet': {'document_file_ids': {'$each': file_ids}}},
-            upsert=True
-        )
-        print("Files stored with ids:", file_ids, "for username:", username)
+        # Optionally, update user document with new file_ids
+        current_app.logger.info(f"Files stored with ids: {file_ids} for username: {username}")
     else:
-        print("No valid files were provided.")
+        current_app.logger.error("No valid files were provided.")
 
 
 
