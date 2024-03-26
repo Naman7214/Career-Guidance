@@ -1,162 +1,18 @@
-2024-03-04 19:04:05,559 INFO:werkzeug: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
-2024-03-04 19:04:05,597 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 19:04:11,852 WARNING:werkzeug: * Debugger is active!
-2024-03-04 19:04:11,860 INFO:werkzeug: * Debugger PIN: 144-615-435
-2024-03-04 19:04:13,108 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:04:13] "GET / HTTP/1.1" 200 -
-2024-03-04 19:04:13,335 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:04:13] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:04:17,629 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\globals.py', reloading
-2024-03-04 19:04:18,969 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 19:04:24,922 WARNING:werkzeug: * Debugger is active!
-2024-03-04 19:04:24,927 INFO:werkzeug: * Debugger PIN: 144-615-435
-2024-03-04 19:05:00,911 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:00] "GET / HTTP/1.1" 200 -
-2024-03-04 19:05:01,429 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:01] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:05:21,729 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:21] "GET / HTTP/1.1" 200 -
-2024-03-04 19:05:21,761 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:21] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:05:29,266 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:29] "GET / HTTP/1.1" 200 -
-2024-03-04 19:05:29,294 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:29] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:05:41,981 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:41] "GET / HTTP/1.1" 200 -
-2024-03-04 19:05:42,007 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:42] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:05:48,444 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:48] "GET / HTTP/1.1" 200 -
-2024-03-04 19:05:48,471 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:48] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:05:51,161 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:51] "GET / HTTP/1.1" 200 -
-2024-03-04 19:05:51,190 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:51] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:05:52,062 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:05:52] "GET /login HTTP/1.1" 200 -
-2024-03-04 19:06:38,657 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:06:38] "POST /login HTTP/1.1" 200 -
-2024-03-04 19:06:50,670 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:06:50] "[32mPOST /login HTTP/1.1[0m" 302 -
-2024-03-04 19:06:50,716 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:06:50] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:07:36,996 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:07:36] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:07:56,641 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:07:56] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:08:00,307 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:08:00] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 19:08:20,631 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\__init__.py', reloading
-2024-03-04 19:08:20,643 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\discuss_types.py', reloading
-2024-03-04 19:08:20,674 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\model_types.py', reloading
-2024-03-04 19:08:20,717 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\text_types.py', reloading
-2024-03-04 19:08:20,737 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\citation_types.py', reloading
-2024-03-04 19:08:20,750 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\content_types.py', reloading
-2024-03-04 19:08:20,824 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\google\\generativeai\\types\\generation_types.py', reloading
-2024-03-04 19:08:21,731 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 19:08:26,958 WARNING:werkzeug: * Debugger is active!
-2024-03-04 19:08:26,963 INFO:werkzeug: * Debugger PIN: 144-615-435
-2024-03-04 19:30:59,896 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:30:59] "GET / HTTP/1.1" 200 -
-2024-03-04 19:31:00,123 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:00] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:31:07,134 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:07] "[32mGET /logout HTTP/1.1[0m" 302 -
-2024-03-04 19:31:07,155 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:07] "GET /login HTTP/1.1" 200 -
-2024-03-04 19:31:09,050 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:09] "GET / HTTP/1.1" 200 -
-2024-03-04 19:31:09,117 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:09] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:31:17,637 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:17] "GET /login HTTP/1.1" 200 -
-2024-03-04 19:31:22,383 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:22] "[32mPOST /login HTTP/1.1[0m" 302 -
-2024-03-04 19:31:22,396 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:22] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:31:26,706 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:26] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 19:31:45,554 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:31:45] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 19:34:08,028 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:08] "GET /chat HTTP/1.1" 200 -
-2024-03-04 19:34:08,082 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:08] "GET /static/GuidoAI.png HTTP/1.1" 200 -
-2024-03-04 19:34:36,986 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:36] "GET /chat HTTP/1.1" 200 -
-2024-03-04 19:34:37,038 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:37] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 19:34:41,150 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:41] "GET /chat HTTP/1.1" 200 -
-2024-03-04 19:34:41,196 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:41] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 19:34:52,765 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:52] "GET /chat HTTP/1.1" 200 -
-2024-03-04 19:34:52,806 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:34:52] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 19:35:22,995 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:35:22] "GET / HTTP/1.1" 200 -
-2024-03-04 19:35:23,055 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:35:23] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:35:54,104 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:35:54] "GET / HTTP/1.1" 200 -
-2024-03-04 19:35:54,161 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:35:54] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:36:03,518 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:03] "GET / HTTP/1.1" 200 -
-2024-03-04 19:36:03,565 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:03] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:36:18,348 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:18] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:36:20,418 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:20] "[32mGET /logout HTTP/1.1[0m" 302 -
-2024-03-04 19:36:20,433 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:20] "GET /login HTTP/1.1" 200 -
-2024-03-04 19:36:49,154 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:49] "[32mPOST /login HTTP/1.1[0m" 302 -
-2024-03-04 19:36:49,194 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:49] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:36:53,851 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:53] "GET / HTTP/1.1" 200 -
-2024-03-04 19:36:53,923 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:36:53] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:37:00,431 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:00] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:37:02,409 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:02] "GET / HTTP/1.1" 200 -
-2024-03-04 19:37:02,458 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:02] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:37:36,243 INFO:werkzeug: * Detected change in 'D:\\MMCOE\\TE IT\\GUIDOAI Chatbot\\Career-Guidance\\app.py', reloading
-2024-03-04 19:37:37,126 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 19:37:45,080 WARNING:werkzeug: * Debugger is active!
-2024-03-04 19:37:45,089 INFO:werkzeug: * Debugger PIN: 144-615-435
-2024-03-04 19:37:45,214 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:45] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:37:47,339 INFO:werkzeug: * Detected change in 'C:\\Users\\Harshvardhan\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\app.py', reloading
-2024-03-04 19:37:47,439 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:47] "[35m[1mGET /logout HTTP/1.1[0m" 500 -
-2024-03-04 19:37:48,220 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 19:37:55,383 WARNING:werkzeug: * Debugger is active!
-2024-03-04 19:37:55,390 INFO:werkzeug: * Debugger PIN: 144-615-435
-2024-03-04 19:37:55,579 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:55] "GET /logout?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-2024-03-04 19:37:55,715 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:37:55] "GET /logout?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-2024-03-04 19:38:18,129 INFO:werkzeug: * Detected change in 'D:\\MMCOE\\TE IT\\GUIDOAI Chatbot\\Career-Guidance\\app.py', reloading
-2024-03-04 19:38:18,130 INFO:werkzeug: * Detected change in 'D:\\MMCOE\\TE IT\\GUIDOAI Chatbot\\Career-Guidance\\app.py', reloading
-2024-03-04 19:38:18,131 INFO:werkzeug: * Detected change in 'D:\\MMCOE\\TE IT\\GUIDOAI Chatbot\\Career-Guidance\\app.py', reloading
-2024-03-04 19:38:19,786 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 19:38:26,611 WARNING:werkzeug: * Debugger is active!
-2024-03-04 19:38:26,619 INFO:werkzeug: * Debugger PIN: 144-615-435
-2024-03-04 19:38:26,752 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:26] "GET / HTTP/1.1" 200 -
-2024-03-04 19:38:26,908 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:26] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:38:28,582 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:28] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:38:29,931 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:29] "[32mGET /logout HTTP/1.1[0m" 302 -
-2024-03-04 19:38:29,943 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:29] "GET / HTTP/1.1" 200 -
-2024-03-04 19:38:29,995 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:29] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:38:34,473 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:34] "GET /signup HTTP/1.1" 200 -
-2024-03-04 19:38:35,451 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:35] "GET / HTTP/1.1" 200 -
-2024-03-04 19:38:35,505 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:35] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 19:38:36,609 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:36] "GET /login HTTP/1.1" 200 -
-2024-03-04 19:38:44,765 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:44] "[32mPOST /login HTTP/1.1[0m" 302 -
-2024-03-04 19:38:44,773 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:38:44] "GET /options HTTP/1.1" 200 -
-2024-03-04 19:41:03,321 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:41:03] "[32mGET /logout HTTP/1.1[0m" 302 -
-2024-03-04 19:41:03,334 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:41:03] "GET / HTTP/1.1" 200 -
-2024-03-04 19:41:03,388 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 19:41:03] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
-2024-03-04 20:03:04,179 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2024-03-04 20:03:04,185 INFO:werkzeug:[33mPress CTRL+C to quit[0m
-2024-03-04 20:03:04,225 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 20:03:10,175 WARNING:werkzeug: * Debugger is active!
-2024-03-04 20:03:10,206 INFO:werkzeug: * Debugger PIN: 606-783-814
-2024-03-04 20:03:11,051 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:11] "GET /options HTTP/1.1" 200 -
-2024-03-04 20:03:12,948 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:12] "GET /skills HTTP/1.1" 200 -
-2024-03-04 20:03:17,267 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\app.py', reloading
-2024-03-04 20:03:17,269 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\templating.py', reloading
-2024-03-04 20:03:17,272 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\jinja2\\environment.py', reloading
-2024-03-04 20:03:17,274 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\werkzeug\\routing\\map.py', reloading
-2024-03-04 20:03:17,317 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:17] "[35m[1mGET /mock_chat HTTP/1.1[0m" 500 -
-2024-03-04 20:03:17,548 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:17] "GET /mock_chat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-2024-03-04 20:03:17,551 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:17] "GET /mock_chat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-2024-03-04 20:03:18,142 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 20:03:21,519 WARNING:werkzeug: * Debugger is active!
-2024-03-04 20:03:21,524 INFO:werkzeug: * Debugger PIN: 606-783-814
-2024-03-04 20:03:21,644 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:21] "GET /mock_chat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-2024-03-04 20:03:21,656 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:03:21] "[36mGET /mock_chat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
-2024-03-04 20:04:15,239 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:15] "GET /mock_chat HTTP/1.1" 200 -
-2024-03-04 20:04:15,273 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:15] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 20:04:17,334 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:17] "POST /chat_id HTTP/1.1" 200 -
-2024-03-04 20:04:17,363 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:17] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 20:04:18,492 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:18] "GET /mock_chat HTTP/1.1" 200 -
-2024-03-04 20:04:19,893 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:19] "POST /new_chat HTTP/1.1" 200 -
-2024-03-04 20:04:19,930 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:19] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 20:04:29,464 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:04:29] "POST /mock_chat_ajax HTTP/1.1" 200 -
-2024-03-04 20:05:34,819 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:05:34] "GET /mock_chat HTTP/1.1" 200 -
-2024-03-04 20:05:34,839 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:05:34] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 20:05:45,954 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:05:45] "POST /mock_chat_ajax HTTP/1.1" 200 -
-2024-03-04 20:06:43,646 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:06:43] "GET /options HTTP/1.1" 200 -
-2024-03-04 20:06:44,959 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:06:44] "GET /mock_chat HTTP/1.1" 200 -
-2024-03-04 20:06:44,982 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:06:44] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 20:06:47,419 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:06:47] "POST /new_chat HTTP/1.1" 200 -
-2024-03-04 20:06:47,453 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:06:47] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 20:08:29,790 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:08:29,793 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:08:29,793 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:08:31,308 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 20:10:19,442 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2024-03-04 20:10:19,443 INFO:werkzeug:[33mPress CTRL+C to quit[0m
-2024-03-04 20:10:19,470 INFO:werkzeug: * Restarting with watchdog (windowsapi)
-2024-03-04 20:10:22,333 WARNING:werkzeug: * Debugger is active!
-2024-03-04 20:10:22,342 INFO:werkzeug: * Debugger PIN: 606-783-814
-2024-03-04 20:10:22,391 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:10:22] "GET /mock_chat HTTP/1.1" 200 -
-2024-03-04 20:10:22,561 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:10:22] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
-2024-03-04 20:10:24,295 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:10:24] "POST /new_mock_chat HTTP/1.1" 200 -
-2024-03-04 20:10:24,316 INFO:werkzeug:127.0.0.1 - - [04/Mar/2024 20:10:24] "[31m[1mGET /mock_interview HTTP/1.1[0m" 405 -
-2024-03-04 20:10:53,080 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:10:53,081 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:10:53,082 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:10:53,082 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Career-Guidance\\app.py', reloading
-2024-03-04 20:10:54,355 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-26 21:58:45,039 INFO:app:Files stored with ids: [ObjectId('6602f7bdc60c3f8327957964')] for username: Harshvardhan
+2024-03-26 21:58:45,041 ERROR:app:Exception on /upload [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Career-Guidance/venv/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Career-Guidance/venv/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Career-Guidance/venv/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Career-Guidance/venv/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Career-Guidance/app.py", line 536, in upload_file
+    report = resume_report(os.path.join(app.config['UPLOAD_FOLDER'], f"{username}_document.jpg"))
+  File "/home/ubuntu/Career-Guidance/app.py", line 406, in resume_report
+    resume = PIL.Image.open(file_path)
+  File "/home/ubuntu/Career-Guidance/venv/lib/python3.10/site-packages/PIL/Image.py", line 3247, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_document.jpg'

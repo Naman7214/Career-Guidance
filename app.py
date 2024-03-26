@@ -20,18 +20,18 @@ import fitz
 
 
 app = Flask(__name__)
-GOOGLE_API_KEY = "AIzaSyCVKshD7_8qSRge-0Zs2-gFlTaIGXrFNB0"
+GOOGLE_API_KEY = "AIzaSyD7m-fFwAa_hYGSuON3PVmcEVVN4gHPG-o"
 app.secret_key = "EC7C2E214AFFCB4165A1856A62227"
 genai.configure(api_key=GOOGLE_API_KEY)
-# logging.basicConfig(filename='app.log', level=logging.INFO,
-#                     format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
+logging.basicConfig(filename='app.log', level=logging.INFO,
+                    format='%(asctime)s %(levelname)s:%(name)s:%(message)s')
 
-# uri = "mongodb+srv://Grimoires:aaPX19MOAMjkCa2I@guidodb.saqygc9.mongodb.net/?retryWrites=true&w=majority"
-# client = MongoClient(uri)
-# db = client['GuidoDB']
+uri = "mongodb+srv://Grimoires:aaPX19MOAMjkCa2I@guidodb.saqygc9.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(uri)
+db = client['GuidoDB']
 
-client = MongoClient('mongodb://localhost:27017/')
-db = client['career1']
+#client = MongoClient('mongodb://localhost:27017/')
+#db = client['career1']
 fs = GridFS(db)
 user_mock_history = db['user_mock_history']
 user_history = db['user_history']
