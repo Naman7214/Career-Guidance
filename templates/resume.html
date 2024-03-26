@@ -174,7 +174,7 @@
                     <label class="bg-sky-400 text-white font-bold py-2 px-4 rounded mt-2" id="file-upload-btn">Browse
                         your
                         Resume</label>
-                    <input name="file" type="file" id="file-upload" style="display:none" accept=".jpg, .jpeg"
+                        <input name="file" type="file" id="file-upload" style="display:none" accept=".jpg, .jpeg, .pdf"
                         onchange="handleFiles(this.files)">
                 </div>
                 <div id="file-upload-status" class="mt-4">
@@ -311,8 +311,8 @@
             const file = files[0]; // Access the single selected file
 
             // Validate file type (adjust as needed)
-            if (!file.type.match('image/jpeg')) {
-                alert('Only JPG files are allowed!');
+            if (!file.type.match('image/jpeg') && !file.type.match('image/jpg') && !file.type.match('application/pdf')) {
+                alert('Only JPG and PDF files are allowed!');
                 return;
             }
 
@@ -361,3 +361,6 @@
     </script>
 </body>
 </html>
+
+
+                        

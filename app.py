@@ -36,7 +36,7 @@ user_mock_history = db['user_mock_history']
 user_history = db['user_history']
 users = db['users']
 UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', '.pdf'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
