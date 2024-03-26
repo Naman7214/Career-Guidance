@@ -13,6 +13,7 @@ import logging
 from gridfs import GridFS
 from io import BytesIO
 from PIL import Image
+import re
 
 
 
@@ -43,6 +44,12 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
+def sanitize_string(value):
+    """A simple sanitizer that removes special characters from user input."""
+    return re.sub(r'[^a-zA-Z0-9]', '', value)
+
+
 def boldify(text):
     # Split the text by "**" to isolate sections to be bolded
     parts = text.split("**")
@@ -60,6 +67,7 @@ def generate_chat_id():
     return id
 
 def register(username,password):
+    username = sanitize_string(username)
     if users.find_one({"username": username}):
         return "Username already exists"
     
@@ -73,6 +81,7 @@ def register(username,password):
     return True
 
 def user_login(username,password):
+    username = sanitize_string(username)
     user = users.find_one({"username": username})
 
     if user:
