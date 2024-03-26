@@ -14,7 +14,9 @@ from gridfs import GridFS
 from io import BytesIO
 from PIL import Image
 import re
-
+from wand.image import Image as WandImage
+from wand.color import Color
+from flask import current_app
 
 
 
@@ -168,28 +170,65 @@ def delete_mock_chat_history(chat_id):
     else:
         return f"Not deleted Sucessfully or the file does not exists"
 
+  # PyMuPDF is a commonly used library to work with PDFs
+
 def store_documents(username, files):
     file_ids = []
 
     for file in files:
         content_type = file.content_type
         if content_type.startswith('image'):
-            # If it's an image, store it directly
-            image_id = fs.put(file.stream, content_type=content_type)
-            file_ids.append(image_id)
+            try:
+                file.stream.seek(0)
+                image = Image.open(file.stream)
+                file.stream.seek(0)
+                image_id = fs.put(file.stream, content_type=content_type)
+                file_ids.append(image_id)
+            except IOError as e:
+                print(f"Error processing image file: {e}")
+        elif content_type == 'application/pdf':
+            try:
+                file.stream.seek(0)
+                with WandImage(file=file.stream, resolution=300) as pdf:
+                    pdf_images = []
+                    for i, page in enumerate(pdf.sequence):
+                        with WandImage(page) as img:
+                            img.format = 'png'
+                            pil_image = Image.open(BytesIO(img.make_blob('png')))
+                            pdf_images.append(pil_image)
+
+                    # Combine images into one
+                    total_height = sum(i.height for i in pdf_images)
+                    max_width = max(i.width for i in pdf_images)
+                    combined_image = Image.new('RGB', (max_width, total_height))
+
+                    y_offset = 0
+                    for img in pdf_images:
+                        combined_image.paste(img, (0, y_offset))
+                        y_offset += img.height
+
+                    # Save combined image to a byte stream and store in GridFS
+                    image_stream = BytesIO()
+                    combined_image.save(image_stream, format='PNG')
+                    image_stream.seek(0)
+                    image_id = fs.put(image_stream, content_type='image/png')
+                    file_ids.append(image_id)
+            except Exception as e:
+                print(f"Error processing PDF file: {e}")
         else:
-            # Convert non-image documents to JPG format before storing
-            image_stream = convert_to_jpg(file.stream)
-            image_id = fs.put(image_stream, content_type='image/jpeg')
-            file_ids.append(image_id)
+            print(f"Unsupported file type: {content_type}")
 
-    db.mycol.update_one(
-        {'username': username},
-        {'$addToSet': {'document_file_ids': {'$each': file_ids}}},
-        upsert=True
-    )
+    if file_ids:
+        db.mycol.update_one(
+            {'username': username},
+            {'$addToSet': {'document_file_ids': {'$each': file_ids}}},
+            upsert=True
+        )
+        print("Files stored with ids:", file_ids, "for username:", username)
+    else:
+        print("No valid files were provided.")
 
-    print("Files stored with ids:", file_ids, "for username:", username)
+
 
 
 def retrieve_documents(username):
