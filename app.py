@@ -14,8 +14,6 @@ from gridfs import GridFS
 from io import BytesIO
 from PIL import Image
 import re
-from wand.image import Image as WandImage
-from wand.color import Color
 from flask import current_app
 import fitz
 
