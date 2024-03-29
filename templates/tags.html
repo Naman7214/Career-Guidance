@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Tags</h1>
+    <img src="{{ image_url }}" alt="Uploaded Document" style="max-width: 100%; height: auto;">
     <ul>
         {% for tag in tags %}
             <li><a href="/redirect/{{ tag }}">{{ tag }}</a></li>

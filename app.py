@@ -18,6 +18,8 @@ from flask import current_app
 import fitz
 from bson import ObjectId
 import ast
+from flask import send_from_directory
+
 
 
 
@@ -404,12 +406,12 @@ Backend
 DevOps
 Full-Stack
 Android
-PostgreSQL
-AI-and-Data-Scientist
+PostgreSQL-DBA
+AI-Data-Scientist
 Blockchain
 QA
 Software-Architect
-ASP.NET-Core
+ASPNET-Core
 C++
 Flutter
 Cyber-Security
@@ -417,7 +419,7 @@ UX-Design
 React-Native
 Game-Developer
 Technical-Writer
-Data-Structures-&-Algorithms
+Datastructures-and-Algorithms
 MLOps
 
 Skill-based-Roadmaps
@@ -426,7 +428,7 @@ React
 Angular
 Vue
 JavaScript
-Node.js
+NodeJS
 TypeScript
 Python
 SQL
@@ -436,24 +438,17 @@ Spring-Boot
 Go-Roadmap
 Rust
 GraphQL
-Design-and-Architecture
-Design-System
-AWS
+Software-Design-Architecture
+System-Design
 Code-Review
 Docker
 Kubernetes
 MongoDB
 Prompt-Engineering
-Backend-Performance
-Frontend-Performance
-API-Security
-Code-Reviews
-AWS
-
 
 analyze my resume ad give me maximum 5 tags that match the above given input and are most relevant to the analysis
 NOTE: strictly do not give the tags which are not in the input and give the output in form of array.dont give tags that are not in the above input.
-NOTE:Machine learning and AI should not be included in the tags/output instead of that give AI-and-Data-Scientist .
+NOTE:Machine learning and AI should not be included in the tags/output instead of that give AI-Data-Scientist
 
     
     
@@ -894,12 +889,21 @@ def upload_for_tags():
 def tags():
     username = session.get('username')
     print(username)
-    img = PIL.Image.open(os.path.join(app.config['UPLOAD_FOLDER'], f"{username}_document.jpg"))
+    image_filename = f"{username}_document.jpg"
+    img = PIL.Image.open(os.path.join(app.config['UPLOAD_FOLDER'], image_filename))
     tags = generate_tags(img)
     tags = ast.literal_eval(tags)
 
-    return render_template('tags.html', tags= tags)
+    # Create the URL for the image
+    image_url = url_for('uploaded_file', filename=image_filename)
 
+    return render_template('tags.html', tags=tags, image_url=image_url)
+
+
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/redirect/<tag>')
 def redirect_to_tag(tag):

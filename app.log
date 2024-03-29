@@ -506,3 +506,34 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-29 19:23:11,209 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:11] "[32mGET /redirect/Python HTTP/1.1[0m" 302 -
 2024-03-29 19:23:25,879 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:25] "[32mGET /redirect/AI-and-Data-Scientist HTTP/1.1[0m" 302 -
 2024-03-29 19:23:52,181 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:52] "[32mGET /redirect/Node.js HTTP/1.1[0m" 302 -
+2024-03-29 19:33:33,728 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-29 19:33:33,728 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-29 19:33:33,745 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:33:47,701 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:33:47,713 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:34:00,304 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,305 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,306 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,306 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,552 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,553 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,554 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,554 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,728 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,729 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,730 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,731 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,881 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,883 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:00,885 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:34:01,629 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:34:16,038 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:34:16,045 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:34:16,078 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:16] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:34:16,084 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:16] "GET /options HTTP/1.1" 200 -
+2024-03-29 19:34:34,101 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:34] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:34:44,071 INFO:app:Files stored with ids: ['6606ca7afd984cf8e9a1dd9b'] for username: Naman
+2024-03-29 19:34:44,544 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:44] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:34:51,305 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:51] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:34:51,434 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:51] "GET /uploads/Naman_document.jpg HTTP/1.1" 200 -
