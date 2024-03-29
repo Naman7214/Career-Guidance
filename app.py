@@ -234,7 +234,7 @@ def retrieve_documents(username):
         for file_id in file_ids:
             file_document = fs.get(ObjectId(file_id))  # Convert file_id to ObjectId
             if file_document:
-                file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_document_{file_id}.jpg')
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_document.jpg')
 
                 # Convert document to JPG format
                 convert_and_save_as_jpg(file_document, file_path)
@@ -243,6 +243,7 @@ def retrieve_documents(username):
                 print(f"File with file_id {file_id} not found.")
     else:
         print("No files found for username:", username)
+
 
 
 
