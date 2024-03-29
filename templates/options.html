@@ -1,225 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Options Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 50px 0;
-      padding: 0;
-      background-color: black;
-      color: #333;
-      position: relative;
-      justify-content: flex-end;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership Options</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Customizations */
+  .background-image {
+    background-image: url('../static/mascot1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 700px;
+  }
+  .text-shadow {
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  }
+  .card-header {
+    min-height: 60px;
+  }
+  .card {
+    min-width: 275px; /* Adjust based on the longest list item */
+  }
+  /* Additional CSS to add to your existing styles */
+.card {
+  transition: transform 0.3s ease-in-out;
+}
 
-    .container {
-      max-width: 400px;
-      margin: 120px 60px 25px;
-      background: #232121;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border: 3px solid #007bff;
-      animation: borderAnimation 5s linear infinite;
-      position: relative;
-      left: 700px;
-      height: 500px;
-    }
+.card:hover {
+  transform: scale(1.15);
+}
 
-    h1 {
-      color: #fff;
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 36px;
-    }
+.card button {
+  transition: background-color 0.3s ease-in-out;
+}
 
-    .options {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 20px;
-      margin top: 30px;
-    }
+.card button:hover {
+  background-color: #1a202c; /* Adjust the color as needed */
+}
 
-    .option {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #007bff;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      width: 18rem;
-      text-align: center;
-      margin-bottom: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-size: 20px;
-      font-family: "Roboto", sans-serif;
-    }
+.card button:hover ~ .border-t-8 {
+  border-color: #37ff00; /* Adjust the color to match the button hover color */
+}
 
-    .option:hover {
-      background-color: #0056b3;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .options-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      /* Ensures container takes up full viewport height */
-      padding: 20px;
-    }
-
-    @keyframes borderAnimation {
-      0% {
-        border-color: #8dc4ff;
-      }
-
-      25% {
-        border-color: #4f7bff;
-      }
-
-      50% {
-        border-color: #2c00dd;
-      }
-
-      75% {
-        border-color: #4f7bff;
-      }
-
-      100% {
-        border-color: #8dc4ff;
-      }
-    }
-
-    .guido-text {
-      position: fixed;
-      /* Changed to fixed to make it viewport-relative */
-      top: 10px;
-      /* Adjusted to ensure it stays within view */
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 40px;
-      color: transparent;
-      background: linear-gradient(to right, #007bff, #ffd700);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      z-index: 1;
-    }
-
-    .logout {
-      position: absolute;
-      top: -100px;
-      right: 10px;
-    }
-
-    .logout a {
-      font-size: large;
-      background-color: rgba(255, 0, 0, 0);
-      color: white;
-      border: 2px solid white;
-      border-radius: 5px;
-      padding: 5px;
-      text-decoration: none;
-    }
-
-    .logout a:hover {
-      background-color: #fff;
-      color: black;
-      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
-    }
-
-    .image-container-background {
-      position: absolute;
-      left: 100px;
-      bottom: 0px;
-      margin: 60px 60px 25px;
-      height: 600px;
-      width: 600px;
-      background-color: black;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-
-    .image-container {
-      height: 100%;
-    }
-
-    .cartoon-image {
-      height: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-
-
-    
-
-    .animated-mascot {
-      animation: floatAnimation 3s cubic-bezier(0.28, 0.84, 0.42, 1) infinite, borderAnimation 5s linear infinite;
-    }
-
-    @keyframes floatAnimation {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-  </style>
+</style>
 </head>
+<body class="font-'Open Sans' bg-black text-white">
+<div class=" min-h-screen flex items-center justify-center">
+  <div class="w-full md:w-2/3 lg:w-1/2">
+    <div class="text-center mb-10">
+      <h1 class="text-5xl font-bold" style="background-image: linear-gradient(to right, #4299E1, #FFCD37); -webkit-background-clip: text; color: transparent;"><a href="/">GuidoAI</a></h1>
+    </div>
+    <div class="flex flex-col md:flex-row md:-mx-2 justify-center gap-x-9"> <!-- gap-x-4 adds horizontal gap -->
 
-<body>
-  <div class="guido-text"><a href="/">GuidoAI</a></div>
-  <!-- Ensured link inherits color and no underline -->
-  <div class="logout">
-    <a href="/logout">Logout</a>
-  </div>
-  <div class="container">
-    <h1>Choose Your Path</h1>
-    <div class="options">
-      <a class="option" href="{{ url_for('chat') }}">Continue to Chat</a>
-      <a class="option" href="{{ url_for('skills') }}">Continue to Resume Analysis</a>
-      <a class="option" href="{{ url_for('mock_option') }}">Continue to Mock Interview</a>
+      <!-- Card 1 -->
+      <div class="md:w-1/3 px-2 mb-4 md:mb-0 flex justify-center ">
+        <div class="rounded overflow-hidden shadow-lg bg-gray-200 p-6 border-t-8 border-blue-500 card ">
+          <h2 class="font-bold text-xl mb-2 text-black card-header">GuidoAI Chatbot</h2>
+          <ul class="list-disc pl-5 text-gray-700 mb-6">
+            <li class="mb-2">Start your career by chat</li>
+            <li class="mb-2">Voice input for ease</li>
+            <li class="mb-2">Look for previous chats</li>
+            <li>Free to use</li>
+          </ul>
+          <a href="{{url_for('chat')}}">
+          <button class="bg-blue-500 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded-full w-full">
+            Start Chatting
+          </button>
+        </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="md:w-1/3 px-2 mb-4 md:mb-0 flex justify-center">
+        <div class="rounded overflow-hidden shadow-lg bg-gray-200 p-6 border-t-8 border-blue-500 card">
+          <h2 class="font-bold text-xl mb-2 text-black card-header">Skill gap analysis using Resume</h2>
+          <ul class="list-disc pl-5 text-gray-700 mb-6">
+            <li class="mb-2">Choose your career goal</li>
+            <li class="mb-2">Upload your resume</li>
+            <li class="mb-2">Wait for report generation</li>
+            <li>Free to use</li>
+          </ul>
+          <a href="{{url_for('skills')}}">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full">
+            Upload Resume
+          </button>
+        </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="md:w-1/3 px-2 mb-4 md:mb-0 flex justify-center">
+        <div class="rounded overflow-hidden shadow-lg bg-gray-200 p-6 border-t-8 border-blue-500 card">
+          <h2 class="font-bold text-xl mb-2 text-black card-header">GuidoAI Mock Interview</h2>
+          <ul class="list-disc pl-5 text-gray-700 mb-6">
+            <li class="mb-2">Choose your career goal</li>
+            <li class="mb-2">Start a chat</li>
+            <li class="mb-2">Well designed environment</li>
+            <li>Free to use</li>
+          </ul>
+          <a href="{{url_for('mock_option')}}">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full">
+            Initialize Interview
+          </button>
+        </a>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="image-container-background">
-    <div class="image-container animated-mascot">
-      <img class="cartoon-image" src="/static/mascot3.png" alt="Cartoon" />
-    </div>
-  </div>
-  <script>
-    console.group("%c Developers Information", 'color: red; font-size: 22px;');
-    console.log('%c This is our Career Guidance Chatbot - GuidoAI', 'color: green; font-size: 18px;');
-    console.log('%c We are team Grimoires!!', 'color: blue; font-size: 16px;');
-    console.groupEnd();
-
-    console.group("%c Team members:", 'color: yellow; font-size: 22px')
-    console.log("%c Dhanashri Patil", 'color: orange; font-size: 16px')
-    console.log("%c Isha Velankar", 'color: orange; font-size: 16px')
-    console.log("%c Naman Agnihotri", 'color: orange; font-size: 16px')
-    console.log("%c Harshvardan Grandhi", 'color: orange; font-size: 16px')
-    console.groupEnd();
-  </script>
+</div>
 </body>
-
 </html>
-z
