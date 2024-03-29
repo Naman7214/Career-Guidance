@@ -685,3 +685,11 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-30 00:37:38,952 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:38] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
 2024-03-30 00:37:44,973 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:44] "GET /tags HTTP/1.1" 200 -
 2024-03-30 00:37:45,112 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:45] "GET /uploads/Harshvardhan_document.jpg HTTP/1.1" 200 -
+2024-03-30 04:11:28,225 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 04:11:28,226 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 04:11:28,247 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 04:11:42,541 WARNING:werkzeug: * Debugger is active!
+2024-03-30 04:11:42,549 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 04:11:42,581 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 04:11:42] "GET /options HTTP/1.1" 200 -
+2024-03-30 04:12:02,352 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 04:12:02] "GET /options HTTP/1.1" 200 -
