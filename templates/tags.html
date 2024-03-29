@@ -4,10 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tags</title>
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: Arial, sans-serif; /* Font style */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff; /* Blue color for the heading */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #007bff; /* Blue border for the image */
+        }
+
+        ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px; /* Space between list items */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: #007bff; /* Blue color for links */
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3; /* Darker blue when hovering over links */
+        }
+    </style>
 </head>
 <body>
     <h1>Tags</h1>
-    <img src="{{ image_url }}" alt="Uploaded Document" style="max-width: 100%; height: auto;">
+    <img src="{{ image_url }}" alt="Uploaded Document">
     <ul>
         {% for tag in tags %}
             <li><a href="/redirect/{{ tag }}">{{ tag }}</a></li>

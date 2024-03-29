@@ -537,3 +537,27 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-29 19:34:44,544 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:44] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
 2024-03-29 19:34:51,305 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:51] "GET /tags HTTP/1.1" 200 -
 2024-03-29 19:34:51,434 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:34:51] "GET /uploads/Naman_document.jpg HTTP/1.1" 200 -
+2024-03-29 19:41:07,252 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-29 19:41:07,253 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-29 19:41:07,264 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:41:21,437 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:41:21,443 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:41:21,479 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:41:21] "GET /options HTTP/1.1" 200 -
+2024-03-29 19:41:23,138 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:41:23] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:41:35,798 INFO:app:Files stored with ids: ['6606cc15de93377a0a0f57f6'] for username: Naman
+2024-03-29 19:41:36,659 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:41:36] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:43:06,248 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:43:06] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:43:17,488 INFO:app:Files stored with ids: ['6606cc7cde93377a0a0f57fb'] for username: Naman
+2024-03-29 19:43:18,082 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:43:18] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:44:00,750 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:00] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:44:00,852 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:00] "GET /uploads/Naman_document.jpg HTTP/1.1" 200 -
+2024-03-29 19:44:08,827 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:08] "[32mGET /redirect/AI-Data-Scientist HTTP/1.1[0m" 302 -
+2024-03-29 19:44:12,412 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:12] "[32mGET /redirect/PostgreSQL-DBA HTTP/1.1[0m" 302 -
+2024-03-29 19:44:14,946 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:14] "[32mGET /redirect/Software-Architect HTTP/1.1[0m" 302 -
+2024-03-29 19:44:17,754 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:17] "[32mGET /redirect/Datastructures-and-Algorithms HTTP/1.1[0m" 302 -
+2024-03-29 19:44:20,307 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:20] "[32mGET /redirect/MLOps HTTP/1.1[0m" 302 -
+2024-03-29 19:44:30,575 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:30] "[32mGET /redirect/AI-Data-Scientist HTTP/1.1[0m" 302 -
+2024-03-29 19:44:32,994 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:32] "[32mGET /redirect/PostgreSQL-DBA HTTP/1.1[0m" 302 -
+2024-03-29 19:44:34,934 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:34] "[32mGET /redirect/Software-Architect HTTP/1.1[0m" 302 -
+2024-03-29 19:44:36,952 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:36] "[32mGET /redirect/Datastructures-and-Algorithms HTTP/1.1[0m" 302 -
