@@ -41,7 +41,11 @@
       <div class="space-x-4">
         <a href="#" class="hover:underline">About Us</a>
         <a href="#" class="hover:underline">FAQ</a>
+        {% if 'username' not in session %}
         <a href="/signup" class="px-6 py-2 border rounded">Sign up</a>
+        {% else %}
+        <a href="/logout" class="px-6 py-2 border rounded">Logout</a>
+        {% endif %}
       </div>
     </nav>
 
