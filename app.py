@@ -17,6 +17,8 @@ import re
 from flask import current_app
 import fitz
 from bson import ObjectId
+import ast
+
 
 
 
@@ -391,6 +393,74 @@ Don't start with this "[Interviewer]:" don't include this.
     return prompt
 
 
+
+def getpromptfortags():
+
+    Prompt = [
+    """
+    Role based Roadmaps:
+Frontend
+Backend
+DevOps
+Full-Stack
+Android
+PostgreSQL
+AI-and-Data-Scientist
+Blockchain
+QA
+Software-Architect
+ASP.NET-Core
+C++
+Flutter
+Cyber-Security
+UX-Design
+React-Native
+Game-Developer
+Technical-Writer
+Data-Structures-&-Algorithms
+MLOps
+
+Skill-based-Roadmaps
+Computer-Science
+React
+Angular
+Vue
+JavaScript
+Node.js
+TypeScript
+Python
+SQL
+System-Design
+Java
+Spring-Boot
+Go-Roadmap
+Rust
+GraphQL
+Design-and-Architecture
+Design-System
+AWS
+Code-Review
+Docker
+Kubernetes
+MongoDB
+Prompt-Engineering
+Backend-Performance
+Frontend-Performance
+API-Security
+Code-Reviews
+AWS
+
+
+analyze my resume ad give me maximum 5 tags that match the above given input and are most relevant to the analysis
+NOTE: strictly do not give the tags which are not in the input and give the output in form of array.dont give tags that are not in the above input.
+NOTE:Machine learning and AI should not be included in the tags/output instead of that give AI-and-Data-Scientist .
+
+    
+    
+    """
+]
+    return Prompt
+
 def send_chat(message, history):
     model = genai.GenerativeModel('gemini-pro')
     
@@ -414,8 +484,19 @@ def resume_report(file_path):
     return boldify(response.text)
     # return response.text
 
-
-
+def generate_tags(img):
+    prompt = getpromptfortags()
+    model = genai.GenerativeModel('gemini-pro-vision')
+    tags = model.generate_content([prompt[0],img])
+    print(tags.candidates[0].content.parts)
+    while not tags.candidates or not tags.candidates[0].content.parts:
+        # Retry the generation if the response is empty or the parts are empty/None
+        tags = model.generate_content([prompt[0], img])
+    tags = tags.candidates[0].content.parts
+    tags = [part.text for part in tags if part.text]
+    print(tags)
+    # Your implementation to generate tags
+    return tags[0]
 
 
 
@@ -775,8 +856,55 @@ def mock_chat_ajax():
     save_user_mock_history(session['chat_id'],username, history)
     return jsonify({'status': 'success', 'response': response}), 200
 
+@app.route('/upload_for_tags', methods=['POST', 'GET'])
+def upload_for_tags():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        
+        files = request.files.getlist('file')
+        if not files:
+            flash('No selected file')
+            return redirect(request.url)
+
+        username = session.get('username', 'default_user')
+
+        # Assuming you have implementations of store_documents and retrieve_documents functions
+        # Call store_documents function to store the documents in MongoDB
+        store_documents(username, files)
+
+        # Call retrieve_documents function to retrieve and save the documents in the uploads folder
+        retrieve_documents(username)
+
+        # Perform any additional operations if needed
+        
+        return redirect(url_for('tags'))
+
+    # Handle GET requests or any other case where POST data is not available
+    return render_template('upload.html')
 
 
+
+
+@app.route('/tags')
+def tags():
+    username = session.get('username')
+    print(username)
+    img = PIL.Image.open(os.path.join(app.config['UPLOAD_FOLDER'], f"{username}_document.jpg"))
+    tags = generate_tags(img)
+    tags = ast.literal_eval(tags)
+
+    return render_template('tags.html', tags= tags)
+
+
+@app.route('/redirect/<tag>')
+def redirect_to_tag(tag):
+    lowercase_tag = tag.lower()
+    return redirect(f"https://roadmap.sh/{lowercase_tag}")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
+    <style>
+        .uploaddiv {
+            border: 4px solid #007bff;
+            /* Blue border color */
+            animation: borderAnimation 5s linear infinite;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                border-color: #8dc4ff;
+            }
+
+            25% {
+                border-color: rgb(56 189 248);
+                ;
+            }
+
+            50% {
+                border-color: #2c00dd;
+            }
+
+            75% {
+                border-color: rgb(56 189 248);
+                ;
+            }
+
+            100% {
+                border-color: #8dc4ff;
+            }
+        }
+
+        .guido-text {
+            position: absolute;
+            top: 4em;
+            left: 16.5em;
+            /* transform: translateX(-50%); */
+            font-size: 40px;
+            /* Increased font size */
+            color: transparent;
+            background: linear-gradient(to right, #007bff, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+            /* Ensure the text is rendered above the container */
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1c1e26;
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-900 h-screen overflow-hidden">
+    <div class="guido-text" id="heading"><a href="/">GuidoAI</a></div>
+    <div class="flex items-center justify-center h-full" id="boxx">
+        <!-- Mascot div -->
+        <!-- Upload div -->
+        <form name="form1" id="form1" action="/upload_for_tags" method="POST" enctype="multipart/form-data"
+            class="w-full max-w-lg" style="z-index: 10;">
+            <div class="bg-zinc-800 p-6 rounded shadow-lg w-full h-full uploaddiv"
+                style="margin-left: -5%; z-index: 10;">
+                <div class="border-dashed border-2 border-gray-200 p-6 rounded flex flex-col items-center justify-center"
+                    id="drop-zone">
+                    <p class="text-gray-500">Drop your Resume</p>
+                    <p class="text-sm text-gray-500">Or</p>
+                    <label class="bg-sky-400 text-white font-bold py-2 px-4 rounded mt-2" id="file-upload-btn">Browse
+                        your
+                        Resume</label>
+                    <input name="file" type="file" id="file-upload" style="display:none" accept=".jpg, .jpeg, .pdf"
+                        onchange="handleFiles(this.files)">
+                </div>
+                <div id="file-upload-status" class="mt-4">
+
+                </div>
+                <button type="submit"
+                    class="bg-sky-400 w-full text-white font-bold py-2 px-4 rounded mt-4 upload-resume-btn">Upload
+                    Resume</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let fileSelected = false;
+    
+        function simulateUploadProgress(progressBar) {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = `${progress}%`;
+                if (progress >= 100) clearInterval(interval);
+            }, 500); // Simulate upload progress
+        }
+    
+        function handleFiles(files) {
+            const statusContainer = document.getElementById('file-upload-status');
+            statusContainer.innerHTML = ''; // Clear previous upload statuses
+    
+            // Check if only one file is selected
+            if (files.length > 1) {
+                alert('Only one file can be uploaded!');
+                return;
+            }
+    
+            const file = files[0]; // Access the single selected file
+    
+            // Validate file type (adjust as needed)
+            if (!file.type.match('image/jpeg') && !file.type.match('image/jpg') && !file.type.match('application/pdf')) {
+                alert('Only JPG and PDF files are allowed!');
+                return;
+            }
+    
+            const fileId = `file-${Date.now()}`; // Create unique file ID
+            const fileName = document.createElement('p');
+            fileName.textContent = file.name;
+            fileName.className = "text-white";
+    
+            const fileRemoveIcon = document.createElement('i');
+            fileRemoveIcon.className = "fas fa-times text-gray-400 cursor-pointer";
+            fileRemoveIcon.onclick = function () { removeFile(fileId); };
+    
+            const progressBarContainer = document.createElement('div');
+            progressBarContainer.className = "bg-gray-200 rounded h-2";
+    
+            const progressBar = document.createElement('div');
+            progressBar.className = "bg-sky-400 h-2 rounded";
+            progressBar.style.width = '0%'; // Initial progress bar width
+    
+            progressBarContainer.appendChild(progressBar);
+    
+            const fileStatus = document.createElement('div');
+            fileStatus.className = 'flex justify-between items-center py-2';
+            fileStatus.id = fileId;
+            fileStatus.appendChild(fileName);
+            fileStatus.appendChild(fileRemoveIcon);
+    
+            statusContainer.appendChild(fileStatus);
+            statusContainer.appendChild(progressBarContainer);
+    
+            // Dummy function to simulate upload progress
+            simulateUploadProgress(progressBar);
+        }
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            // Click event for file upload button
+            document.getElementById('file-upload-btn').addEventListener('click', function () {
+                document.getElementById('file-upload').click();
+            });
+    
+            // Change event for file input
+            document.getElementById('file-upload').addEventListener('change', function (e) {
+                if (this.files.length > 0) {
+                    fileSelected = true;
+                    handleFiles(this.files); // Call handleFiles when a file is selected
+                }
+            });
+    
+            // Drag over event for the drop zone
+            const dropZone = document.getElementById('drop-zone');
+            dropZone.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.dataTransfer.dropEffect = 'copy';
+            });
+    
+            // Drop event for the drop zone
+            dropZone.addEventListener('drop', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    document.getElementById('file-upload').files = files;
+                    fileSelected = true;
+                    handleFiles(files); // Update to handle file display or upload logic
+                }
+            });
+    
+            // Form submission event
+            document.getElementById('form1').addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent traditional form submission
+    
+                if (!fileSelected) {
+                    alert('Please select a file to upload.');
+                    return;
+                }
+                this.submit(); // Proceed with the form submission
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

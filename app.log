@@ -116,3 +116,393 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-29 15:03:25,503 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 15:03:25] "GET /static/GuidoAI.png HTTP/1.1" 200 -
 2024-03-29 15:03:25,507 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 15:03:25] "GET /static/delete.png HTTP/1.1" 200 -
 2024-03-29 15:03:26,078 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 15:03:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-03-29 16:59:44,064 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-29 16:59:44,064 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-29 16:59:44,081 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 16:59:57,934 WARNING:werkzeug: * Debugger is active!
+2024-03-29 16:59:57,944 INFO:werkzeug: * Debugger PIN: 108-974-420
+2024-03-29 17:00:15,360 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:15] "GET /login HTTP/1.1" 200 -
+2024-03-29 17:00:15,664 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-03-29 17:00:17,566 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:17] "GET / HTTP/1.1" 200 -
+2024-03-29 17:00:17,670 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:17] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-29 17:00:19,603 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:19] "GET /login HTTP/1.1" 200 -
+2024-03-29 17:00:22,184 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-29 17:00:22,195 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:22] "GET /options HTTP/1.1" 200 -
+2024-03-29 17:00:27,111 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:27] "GET /mock_option HTTP/1.1" 200 -
+2024-03-29 17:00:53,229 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:53] "GET /options HTTP/1.1" 200 -
+2024-03-29 17:00:55,220 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:00:55] "GET /tags HTTP/1.1" 200 -
+2024-03-29 17:01:24,230 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:24,230 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:24,232 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:24,232 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:25,760 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 17:01:39,627 WARNING:werkzeug: * Debugger is active!
+2024-03-29 17:01:39,632 INFO:werkzeug: * Debugger PIN: 108-974-420
+2024-03-29 17:01:55,568 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:55,574 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:55,575 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:01:56,531 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 17:02:11,069 WARNING:werkzeug: * Debugger is active!
+2024-03-29 17:02:11,074 INFO:werkzeug: * Debugger PIN: 108-974-420
+2024-03-29 17:02:11,109 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:02:11] "GET /tags HTTP/1.1" 200 -
+2024-03-29 17:02:11,112 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:02:11] "GET /options HTTP/1.1" 200 -
+2024-03-29 17:02:19,569 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:19,576 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:19,577 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:19,577 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:19,997 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:20,000 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:20,000 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:20,000 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:20,970 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 17:02:35,491 WARNING:werkzeug: * Debugger is active!
+2024-03-29 17:02:35,496 INFO:werkzeug: * Debugger PIN: 108-974-420
+2024-03-29 17:02:42,928 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:42,934 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:42,935 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:02:43,956 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 17:03:14,707 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-29 17:03:14,707 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-29 17:03:14,717 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 17:03:28,586 WARNING:werkzeug: * Debugger is active!
+2024-03-29 17:03:28,591 INFO:werkzeug: * Debugger PIN: 108-974-420
+2024-03-29 17:04:27,291 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:04:27] "GET /tags HTTP/1.1" 200 -
+2024-03-29 17:04:29,770 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:04:29] "[32mGET /redirect/Computer%20Science HTTP/1.1[0m" 302 -
+2024-03-29 17:04:48,194 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:04:48] "[32mGET /redirect/Backend HTTP/1.1[0m" 302 -
+2024-03-29 17:04:52,635 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:04:52] "[32mGET /redirect/Frontend HTTP/1.1[0m" 302 -
+2024-03-29 17:05:42,721 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:05:42,722 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:05:42,723 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:05:44,155 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 17:05:59,144 WARNING:werkzeug: * Debugger is active!
+2024-03-29 17:05:59,150 INFO:werkzeug: * Debugger PIN: 108-974-420
+2024-03-29 17:05:59,193 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:05:59] "GET /tags HTTP/1.1" 200 -
+2024-03-29 17:06:02,655 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:06:02] "[32mGET /redirect/Computer-Science HTTP/1.1[0m" 302 -
+2024-03-29 17:11:45,431 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:11:45] "[32mGET /redirect/Backend HTTP/1.1[0m" 302 -
+2024-03-29 17:11:49,451 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:11:49] "[32mGET /redirect/Frontend HTTP/1.1[0m" 302 -
+2024-03-29 17:11:52,480 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 17:11:52] "[32mGET /redirect/Computer-Science HTTP/1.1[0m" 302 -
+2024-03-29 17:27:16,401 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:27:16,401 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:27:16,407 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:27:16,408 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 17:27:17,395 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:43:49,154 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-29 18:43:49,155 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-29 18:43:49,177 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:44:02,822 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:44:02,831 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 18:44:02,902 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:02] "GET / HTTP/1.1" 200 -
+2024-03-29 18:44:03,081 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:03] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-29 18:44:03,670 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-03-29 18:44:05,523 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:05] "GET /login HTTP/1.1" 200 -
+2024-03-29 18:44:07,685 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:07] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-29 18:44:07,696 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:07] "GET /options HTTP/1.1" 200 -
+2024-03-29 18:44:09,625 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:09] "[31m[1mGET /upload_for_tags HTTP/1.1[0m" 405 -
+2024-03-29 18:44:37,758 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\os.py', reloading
+2024-03-29 18:44:38,860 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:44:53,423 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:44:53,428 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 18:44:55,801 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:55] "GET /options HTTP/1.1" 200 -
+2024-03-29 18:44:57,618 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:44:57] "[31m[1mGET /upload_for_tags HTTP/1.1[0m" 405 -
+2024-03-29 18:45:06,573 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:45:06,574 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:45:06,574 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:45:06,575 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:45:06,969 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:45:21,075 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:45:21,081 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 18:45:21,114 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:45:21] "GET /options HTTP/1.1" 200 -
+2024-03-29 18:45:25,484 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:45:25] "[31m[1mGET /upload_for_tags HTTP/1.1[0m" 405 -
+2024-03-29 18:46:40,409 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:46:40,416 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:46:40,417 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:46:40,418 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:46:41,790 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:46:56,317 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:46:56,323 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 18:46:56,364 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+2024-03-29 18:46:56,384 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:46:56] "[35m[1mGET /upload_for_tags HTTP/1.1[0m" 500 -
+2024-03-29 18:46:56,537 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:46:56] "GET /upload_for_tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-03-29 18:46:56,538 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:46:56] "GET /upload_for_tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-03-29 18:46:56,580 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:46:56] "GET /upload_for_tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-03-29 18:46:56,605 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:46:56] "[36mGET /upload_for_tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 18:46:58,248 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:47:11,916 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:47:11,922 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 18:47:11,948 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:47:11] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 18:50:43,951 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:50:43] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 18:52:22,624 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:52:22] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 18:58:08,729 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:08] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 18:58:17,798 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:17] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 18:58:17,820 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:17] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 18:58:17,992 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:17] "GET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-03-29 18:58:17,993 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:17] "GET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-03-29 18:58:18,013 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:18] "GET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-03-29 18:58:18,055 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 18:58:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 18:58:40,499 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:58:40,500 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:58:40,501 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:58:40,501 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 18:58:41,326 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:59:04,183 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:59:04,190 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 18:59:36,253 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PIL\\__init__.py', reloading
+2024-03-29 18:59:37,386 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 18:59:51,773 WARNING:werkzeug: * Debugger is active!
+2024-03-29 18:59:51,781 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:00:15,477 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:00:15,479 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:00:15,480 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:00:16,855 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:00:30,688 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:00:30,695 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:00:33,853 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:00:33,854 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:00:33,854 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:00:35,437 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:00:49,364 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:00:49,370 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:00:49,403 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:49] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:00:49,406 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:49] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:00:58,920 INFO:app:Files stored with ids: ['6606c2914758db692583464f'] for username: Naman
+2024-03-29 19:00:59,402 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:59] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:00:59,427 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:59] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:00:59,566 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:59] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:00:59,567 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:59] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:00:59,584 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:00:59] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:01:20,145 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:20] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:01:41,457 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:41] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:01:46,823 INFO:app:Files stored with ids: ['6606c2c24758db6925834651'] for username: Naman
+2024-03-29 19:01:47,311 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:47] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:01:47,338 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:47] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:01:47,352 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:47] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:01:47,354 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:47] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:01:47,377 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:01:47] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:02:08,068 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:02:08,075 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:02:08,076 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:02:08,076 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:02:08,855 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:02:23,985 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:02:23,991 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:02:24,024 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:02:24] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:02:30,558 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:02:30] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:02:37,520 INFO:app:Files stored with ids: ['6606c2f496adca2066ccee30'] for username: Naman
+2024-03-29 19:02:37,993 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:02:37] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:02:49,800 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:02:49] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:02:54,115 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:02:54] "[32mGET /redirect/Computer-Science HTTP/1.1[0m" 302 -
+2024-03-29 19:02:57,222 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:02:57] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:03:03,443 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:03:03] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:03:10,093 INFO:app:Files stored with ids: ['6606c31596adca2066ccee32'] for username: Naman
+2024-03-29 19:03:10,548 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:03:10] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:03:15,318 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:03:15] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:03:40,265 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:03:40,272 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:03:40,272 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:03:41,721 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:03:55,871 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:03:55,876 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:03:55,909 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:03:55] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:04:01,872 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:04:01] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:04:08,455 INFO:app:Files stored with ids: ['6606c34f1437d301ed764ff2'] for username: Naman
+2024-03-29 19:04:08,883 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:04:08] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:04:14,945 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:04:14] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:05:13,471 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:05:13,472 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:05:13,472 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:05:13,473 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:05:13,849 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:05:13,850 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:05:14,609 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:05:28,904 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:05:28,910 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:05:28,941 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:28] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:05:35,537 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:35] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:05:42,720 INFO:app:Files stored with ids: ['6606c3ad65bee365a16ab6b4'] for username: Naman
+2024-03-29 19:05:43,184 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:43] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:05:49,406 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:49] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:05:49,544 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:49] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:05:49,546 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:49] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:05:49,561 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:05:49] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:06:28,257 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:06:28,257 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:06:28,258 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:06:29,257 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:06:43,218 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:06:43,223 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:06:43,256 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:06:43] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:06:50,611 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:06:50] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:06:57,918 INFO:app:Files stored with ids: ['6606c3f83fcd311d96d5b946'] for username: Naman
+2024-03-29 19:06:58,360 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:06:58] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:07:04,536 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:07:04] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:07:04,683 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:07:04] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:07:04,684 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:07:04] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:07:04,697 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:07:04] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:07:25,770 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:07:25,776 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:07:25,777 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:07:26,359 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:07:40,361 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:07:40,366 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:07:42,377 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:07:42,378 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:07:43,272 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:07:57,325 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:07:57,331 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:07:57,364 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:07:57] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:08:04,427 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:04] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:08:11,545 INFO:app:Files stored with ids: ['6606c442d872836312a450d1'] for username: Naman
+2024-03-29 19:08:12,022 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:12] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:08:18,328 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:18] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:08:18,474 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:08:18,475 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:08:18,489 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:08:44,874 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:08:44] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:09:00,296 INFO:app:Files stored with ids: ['6606c473d872836312a450d3'] for username: Naman
+2024-03-29 19:09:00,787 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:09:00] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:09:06,263 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:09:06] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:10:52,642 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:10:52,643 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:10:52,643 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:10:52,644 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:10:52,655 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\ast.py', reloading
+2024-03-29 19:10:54,242 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:11:08,084 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:11:08,089 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:11:09,015 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:11:09,016 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:11:09,016 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:11:09,017 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:11:09,808 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:11:23,724 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:11:23,729 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:11:23,760 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:11:23] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:11:50,650 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:11:50] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:11:59,434 INFO:app:Files stored with ids: ['6606c52633c59c32b1bac49a'] for username: Naman
+2024-03-29 19:11:59,972 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:11:59] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:12:05,809 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:05] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:12:05,958 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:05] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:12:05,959 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:05] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:12:05,974 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:05] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:12:10,937 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:10] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:12:20,516 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:20] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:12:28,980 INFO:app:Files stored with ids: ['6606c54433c59c32b1bac49c'] for username: Naman
+2024-03-29 19:12:29,516 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:29] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:12:38,662 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:38] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:12:38,676 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:38] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:12:38,678 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:38] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:12:38,694 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:12:38] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:12:56,697 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:12:56,698 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:12:56,699 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:12:57,309 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:13:12,338 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:13:12,343 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:13:12,374 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:12] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:13:21,507 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:21] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:13:33,401 INFO:app:Files stored with ids: ['6606c583ad3a574b10c25b73'] for username: Naman
+2024-03-29 19:13:34,062 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:34] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:13:41,160 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:41] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:13:41,311 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:41] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:13:41,312 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:41] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:13:41,325 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:13:41] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:14:09,779 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:14:09,780 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:14:09,781 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:14:10,659 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:14:24,814 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:14:24,819 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:14:30,011 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:14:30,017 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:14:30,017 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:14:31,592 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:14:45,538 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:14:45,542 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:14:45,574 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:14:45] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:14:45,576 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:14:45] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:14:54,623 INFO:app:Files stored with ids: ['6606c5d5a28f98de0a37ad8a'] for username: Naman
+2024-03-29 19:14:55,185 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:14:55] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:15:01,926 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:01] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:15:02,077 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:02] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:15:02,078 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:02] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:15:02,086 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:02] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:15:16,415 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:15:16,416 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:15:16,418 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:15:16,419 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:15:17,389 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:15:31,737 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:15:31,742 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:15:31,775 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:31] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:15:31,777 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:31] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:15:44,710 INFO:app:Files stored with ids: ['6606c6073fd92ff27ddb1f50'] for username: Naman
+2024-03-29 19:15:45,257 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:45] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:15:51,835 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:51] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:15:51,983 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:51] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:15:51,984 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:51] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:15:52,000 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:15:52] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:17:24,113 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:24,114 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:24,114 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:24,114 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:24,800 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:17:39,496 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:17:39,500 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:17:48,626 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:48,629 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:48,631 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:48,631 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:17:49,327 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:18:03,029 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:18:03,033 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:18:12,697 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:18:12,702 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:18:12,702 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:18:12,703 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:18:13,642 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:18:27,332 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:18:27,337 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:18:27,367 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:18:27] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:18:36,067 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:18:36] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:18:44,826 INFO:app:Files stored with ids: ['6606c6bb0f97d9647e966b6a'] for username: Naman
+2024-03-29 19:18:45,290 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:18:45] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:19:19,584 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:19:19] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:19:19,729 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:19:19] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:19:19,730 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:19:19] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:19:19,747 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:19:19] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:19:51,614 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:19:51,616 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:19:51,617 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:19:51,617 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:19:53,013 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:20:09,009 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:20:09,015 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:20:09,045 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:20:09] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:20:19,987 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:20:19] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:20:30,542 INFO:app:Files stored with ids: ['6606c72239c21b037fea208c'] for username: Naman
+2024-03-29 19:20:31,234 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:20:31] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:21:24,865 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:21:24] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-29 19:21:25,008 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:21:25] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-29 19:21:25,009 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:21:25] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-29 19:21:25,026 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:21:25] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-29 19:21:57,639 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:21:57,646 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:21:57,647 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-29 19:21:59,135 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-29 19:22:13,719 WARNING:werkzeug: * Debugger is active!
+2024-03-29 19:22:13,725 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-29 19:22:13,755 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:22:13] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:22:16,726 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:22:16] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-29 19:22:30,067 INFO:app:Files stored with ids: ['6606c79c8ed46896045a2e48'] for username: Naman
+2024-03-29 19:22:30,761 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:22:30] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-29 19:22:52,546 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:22:52] "GET /tags HTTP/1.1" 200 -
+2024-03-29 19:22:55,579 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:22:55] "[32mGET /redirect/AI-and-Data-Scientist HTTP/1.1[0m" 302 -
+2024-03-29 19:23:00,083 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:00] "[32mGET /redirect/React HTTP/1.1[0m" 302 -
+2024-03-29 19:23:02,797 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:02] "[32mGET /redirect/Node.js HTTP/1.1[0m" 302 -
+2024-03-29 19:23:05,947 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:05] "[32mGET /redirect/TypeScript HTTP/1.1[0m" 302 -
+2024-03-29 19:23:11,209 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:11] "[32mGET /redirect/Python HTTP/1.1[0m" 302 -
+2024-03-29 19:23:25,879 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:25] "[32mGET /redirect/AI-and-Data-Scientist HTTP/1.1[0m" 302 -
+2024-03-29 19:23:52,181 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:23:52] "[32mGET /redirect/Node.js HTTP/1.1[0m" 302 -
