@@ -561,3 +561,127 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-29 19:44:32,994 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:32] "[32mGET /redirect/PostgreSQL-DBA HTTP/1.1[0m" 302 -
 2024-03-29 19:44:34,934 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:34] "[32mGET /redirect/Software-Architect HTTP/1.1[0m" 302 -
 2024-03-29 19:44:36,952 INFO:werkzeug:127.0.0.1 - - [29/Mar/2024 19:44:36] "[32mGET /redirect/Datastructures-and-Algorithms HTTP/1.1[0m" 302 -
+2024-03-30 00:14:21,373 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 00:14:21,375 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 00:14:21,396 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:16:31,508 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 00:16:31,508 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 00:16:31,527 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:16:45,886 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:16:45,894 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:16:45,929 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:16:45] "GET /login HTTP/1.1" 200 -
+2024-03-30 00:16:49,906 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:16:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 00:16:49,918 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:16:49] "GET /options HTTP/1.1" 200 -
+2024-03-30 00:16:56,675 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:16:56] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:17:44,117 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:17:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 00:17:44,124 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:17:44] "GET /options HTTP/1.1" 200 -
+2024-03-30 00:18:55,786 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:18:55] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:19:12,861 INFO:app:Files stored with ids: ['66070d271dfee05cfc047a85'] for username: Naman
+2024-03-30 00:19:13,390 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:19:13] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:20:09,060 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 00:20:09,067 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:09] "GET /options HTTP/1.1" 200 -
+2024-03-30 00:20:37,812 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:37] "GET / HTTP/1.1" 200 -
+2024-03-30 00:20:37,924 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:37] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 00:20:46,543 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:46] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-30 00:20:46,552 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:46] "GET /login HTTP/1.1" 200 -
+2024-03-30 00:20:49,312 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:49] "GET / HTTP/1.1" 200 -
+2024-03-30 00:20:49,328 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:20:49] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 00:21:00,288 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:00] "GET /login HTTP/1.1" 200 -
+2024-03-30 00:21:04,151 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:04] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 00:21:04,163 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:04] "GET /options HTTP/1.1" 200 -
+2024-03-30 00:21:06,555 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:06] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:21:18,317 INFO:app:Files stored with ids: ['66070da31dfee05cfc047a87'] for username: Harshvardhan
+2024-03-30 00:21:18,437 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:18] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:21:18,452 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\app.py', reloading
+2024-03-30 00:21:18,456 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PIL\\Image.py', reloading
+2024-03-30 00:21:18,475 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:18] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-30 00:21:18,507 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-30 00:21:18,508 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-30 00:21:18,533 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:18] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-30 00:21:19,914 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:21:34,472 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:21:34,478 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:21:34,513 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:21:34] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:24:13,035 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pymongo\\results.py', reloading
+2024-03-30 00:24:13,042 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pymongo\\write_concern.py', reloading
+2024-03-30 00:24:13,048 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pymongo\\compression_support.py', reloading
+2024-03-30 00:24:13,059 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pymongo\\ssl_support.py', reloading
+2024-03-30 00:24:13,886 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:24:28,116 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:24:28,120 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:24:33,736 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:24:33,738 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:24:33,740 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:24:34,689 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:24:49,272 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:24:49,278 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:24:49,316 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:24:49] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:24:59,148 INFO:app:Files stored with ids: ['66070e81e96527d9c63bd71b'] for username: Harshvardhan
+2024-03-30 00:24:59,215 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:24:59] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:24:59,248 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:24:59] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-30 00:24:59,400 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:24:59] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-30 00:24:59,401 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:24:59] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-30 00:24:59,419 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:24:59] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-30 00:29:09,896 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:29:09,899 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:29:09,900 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:29:11,699 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:29:27,204 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:29:27,212 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:29:27,253 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:29:27] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:29:28,776 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:29:28] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:29:39,729 INFO:app:Files stored with ids: ['66070f9a387ce5a7c159e3f9'] for username: Harshvardhan
+2024-03-30 00:29:40,295 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:29:40] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:30:40,358 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:30:40] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:30:48,968 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:30:48] "GET /tags HTTP/1.1" 200 -
+2024-03-30 00:30:54,421 INFO:app:Files stored with ids: ['66070fe5387ce5a7c159e3fc'] for username: Harshvardhan
+2024-03-30 00:30:54,881 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:30:54] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:33:44,023 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:33:44,024 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:33:44,025 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:33:44,025 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:33:45,143 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:34:18,265 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 00:34:18,265 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 00:34:18,276 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:34:32,033 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:34:32,038 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:34:32,064 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:34:32] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:34:45,354 INFO:app:Files stored with ids: ['660710ccd37e78fb9f383bb9'] for username: Harshvardhan
+2024-03-30 00:34:45,694 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:34:45] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:34:52,037 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\ast.py', reloading
+2024-03-30 00:34:52,073 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:34:52] "[35m[1mGET /tags HTTP/1.1[0m" 500 -
+2024-03-30 00:34:52,290 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:34:52] "[36mGET /tags?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-30 00:34:52,297 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:34:52] "[36mGET /tags?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-30 00:34:53,067 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:35:06,799 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:35:06,803 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:35:06,884 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:35:06] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-30 00:35:06,891 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:35:06] "[36mGET /tags?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-30 00:35:17,753 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:35:17,754 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:35:17,755 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:35:17,756 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 00:35:18,537 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:35:32,440 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:35:32,445 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:35:32,477 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:35:32] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:35:46,018 INFO:app:Files stored with ids: ['66071108f8b6b1f51aa72e7a'] for username: Harshvardhan
+2024-03-30 00:35:46,505 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:35:46] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:35:57,467 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:35:57] "GET /tags HTTP/1.1" 200 -
+2024-03-30 00:35:57,598 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:35:57] "GET /uploads/Harshvardhan_document.jpg HTTP/1.1" 200 -
+2024-03-30 00:36:22,117 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:36:22] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:37:12,930 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 00:37:12,930 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 00:37:12,940 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 00:37:26,673 WARNING:werkzeug: * Debugger is active!
+2024-03-30 00:37:26,679 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 00:37:26,722 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:26] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 00:37:38,574 INFO:app:Files stored with ids: ['660711792664d4e1b27dd6fe'] for username: Harshvardhan
+2024-03-30 00:37:38,952 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:38] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 00:37:44,973 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:44] "GET /tags HTTP/1.1" 200 -
+2024-03-30 00:37:45,112 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 00:37:45] "GET /uploads/Harshvardhan_document.jpg HTTP/1.1" 200 -

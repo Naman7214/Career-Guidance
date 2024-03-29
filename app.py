@@ -223,8 +223,14 @@ def store_documents(username, files):
             current_app.logger.error(f"Unsupported file type: {content_type}")
 
     if file_ids:
-        # Update user document with new file_ids
-        db.mycol.update_one({'username': username}, {'$set': {'document_file_ids': file_ids}})
+        # Check if user record exists, if not create a new one
+        user_record = db.mycol.find_one({'username': username})
+        if user_record:
+            # Update existing user document with new file_ids
+            db.mycol.update_one({'username': username}, {'$set': {'document_file_ids': file_ids}})
+        else:
+            # Create a new user document with file_ids
+            db.mycol.insert_one({'username': username, 'document_file_ids': file_ids})
         current_app.logger.info(f"Files stored with ids: {file_ids} for username: {username}")
     else:
         current_app.logger.error("No valid files were provided.")
@@ -449,7 +455,7 @@ Prompt-Engineering
 analyze my resume ad give me maximum 5 tags that match the above given input and are most relevant to the analysis
 NOTE: strictly do not give the tags which are not in the input and give the output in form of array.dont give tags that are not in the above input.
 NOTE:Machine learning and AI should not be included in the tags/output instead of that give AI-Data-Scientist
-
+Also you have to generate tags given a proper resume.
     
     
     """
@@ -481,12 +487,15 @@ def resume_report(file_path):
 
 def generate_tags(img):
     prompt = getpromptfortags()
+    count = 0
     model = genai.GenerativeModel('gemini-pro-vision')
     tags = model.generate_content([prompt[0],img])
     print(tags.candidates[0].content.parts)
     while not tags.candidates or not tags.candidates[0].content.parts:
         # Retry the generation if the response is empty or the parts are empty/None
         tags = model.generate_content([prompt[0], img])
+        count = count + 1
+        print(count)
     tags = tags.candidates[0].content.parts
     tags = [part.text for part in tags if part.text]
     print(tags)
