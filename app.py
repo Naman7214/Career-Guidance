@@ -16,6 +16,7 @@ from PIL import Image
 import re
 from flask import current_app
 import fitz
+from bson import ObjectId
 
 
 
@@ -182,7 +183,7 @@ def store_documents(username, files):
                 image = Image.open(file.stream)
                 file.stream.seek(0)
                 image_id = fs.put(file.stream, content_type=content_type)
-                file_ids.append(image_id)
+                file_ids.append(str(image_id))  # Convert ObjectId to string for storage
             except IOError as e:
                 current_app.logger.error(f"Error processing image file: {e}")
         elif content_type == 'application/pdf':
@@ -211,19 +212,18 @@ def store_documents(username, files):
                 combined_image.save(image_stream, format='PNG')
                 image_stream.seek(0)
                 image_id = fs.put(image_stream, content_type='image/png')
-                file_ids.append(image_id)
+                file_ids.append(str(image_id))  # Convert ObjectId to string for storage
             except Exception as e:
                 current_app.logger.error(f"Error processing PDF file: {e}")
         else:
             current_app.logger.error(f"Unsupported file type: {content_type}")
 
     if file_ids:
-        # Optionally, update user document with new file_ids
+        # Update user document with new file_ids
+        db.mycol.update_one({'username': username}, {'$set': {'document_file_ids': file_ids}})
         current_app.logger.info(f"Files stored with ids: {file_ids} for username: {username}")
     else:
         current_app.logger.error("No valid files were provided.")
-
-
 
 
 def retrieve_documents(username):
@@ -232,15 +232,18 @@ def retrieve_documents(username):
     if document and 'document_file_ids' in document:
         file_ids = document['document_file_ids']
         for file_id in file_ids:
-            file_document = fs.get(file_id)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_document.jpg')
+            file_document = fs.get(ObjectId(file_id))  # Convert file_id to ObjectId
+            if file_document:
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{username}_document_{file_id}.jpg')
 
-            # Convert document to JPG format
-            convert_and_save_as_jpg(file_document, file_path)
-        
-        print("Files retrieved and saved as JPG for username:", username)
+                # Convert document to JPG format
+                convert_and_save_as_jpg(file_document, file_path)
+                print("File retrieved and saved as JPG:", file_path)
+            else:
+                print(f"File with file_id {file_id} not found.")
     else:
         print("No files found for username:", username)
+
 
 
 def convert_to_jpg(source_stream):
