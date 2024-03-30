@@ -879,3 +879,81 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-30 14:04:11,231 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:11] "GET /report HTTP/1.1" 200 -
 2024-03-30 14:04:28,234 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:28] "GET /report HTTP/1.1" 200 -
 2024-03-30 14:04:35,123 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:35] "GET /report HTTP/1.1" 200 -
+2024-03-30 15:06:58,014 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 15:06:58,016 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 15:06:58,042 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 15:07:12,011 WARNING:werkzeug: * Debugger is active!
+2024-03-30 15:07:12,023 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 15:07:12,071 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:07:12] "GET /login HTTP/1.1" 200 -
+2024-03-30 15:07:13,345 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:07:13] "GET / HTTP/1.1" 200 -
+2024-03-30 15:07:13,567 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:07:13] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 15:07:15,182 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:07:15] "GET /faq HTTP/1.1" 200 -
+2024-03-30 15:07:45,935 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:07:45] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-30 15:07:45,945 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:07:45] "GET /login HTTP/1.1" 200 -
+2024-03-30 15:08:24,996 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 15:08:25,011 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:25] "GET /options HTTP/1.1" 200 -
+2024-03-30 15:08:27,456 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:27] "GET /chat HTTP/1.1" 200 -
+2024-03-30 15:08:27,480 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:27] "[36mGET /static/delete.png HTTP/1.1[0m" 304 -
+2024-03-30 15:08:27,482 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:27] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
+2024-03-30 15:08:38,438 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:38] "POST /new_chat HTTP/1.1" 200 -
+2024-03-30 15:08:42,120 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:42] "GET /chating HTTP/1.1" 200 -
+2024-03-30 15:08:42,142 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:42] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
+2024-03-30 15:08:42,147 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:08:42] "[36mGET /static/delete.png HTTP/1.1[0m" 304 -
+2024-03-30 15:09:14,760 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:09:14] "POST /chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:09:55,313 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:09:55] "POST /chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:10:21,403 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:10:21] "POST /chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:10:44,757 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:10:44] "POST /chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:11:06,094 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:06] "POST /chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:11:13,170 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:13] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-30 15:11:13,183 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:13] "GET /login HTTP/1.1" 200 -
+2024-03-30 15:11:16,066 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 15:11:16,072 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:16] "GET /options HTTP/1.1" 200 -
+2024-03-30 15:11:19,488 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:19] "GET /skills HTTP/1.1" 200 -
+2024-03-30 15:11:30,125 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:30] "[32mPOST /skills HTTP/1.1[0m" 302 -
+2024-03-30 15:11:30,139 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:30] "GET /resume HTTP/1.1" 200 -
+2024-03-30 15:11:30,171 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:30] "[36mGET /static/mascot1.png HTTP/1.1[0m" 304 -
+2024-03-30 15:11:40,783 INFO:app:Files stored with ids: ['6607de533c0838dea658213b'] for username: Harshvardhan
+2024-03-30 15:11:49,558 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:49] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2024-03-30 15:11:49,576 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:11:49] "GET /report HTTP/1.1" 200 -
+2024-03-30 15:12:04,607 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:04] "GET /report HTTP/1.1" 200 -
+2024-03-30 15:12:17,413 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:17] "GET /mock_option HTTP/1.1" 200 -
+2024-03-30 15:12:26,652 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:26] "[32mPOST /mock_option HTTP/1.1[0m" 302 -
+2024-03-30 15:12:26,773 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:26] "GET /mock_chat HTTP/1.1" 200 -
+2024-03-30 15:12:26,793 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:26] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
+2024-03-30 15:12:26,799 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:26] "[36mGET /static/delete.png HTTP/1.1[0m" 304 -
+2024-03-30 15:12:30,557 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:30] "POST /new_mock_chat HTTP/1.1" 200 -
+2024-03-30 15:12:32,874 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:32] "GET /mock_interview HTTP/1.1" 200 -
+2024-03-30 15:12:32,900 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:32] "[36mGET /static/GuidoAI.png HTTP/1.1[0m" 304 -
+2024-03-30 15:12:32,902 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:32] "[36mGET /static/delete.png HTTP/1.1[0m" 304 -
+2024-03-30 15:12:32,938 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:32] "[35m[1mGET /static/video.mp4 HTTP/1.1[0m" 206 -
+2024-03-30 15:12:33,084 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:33] "[35m[1mGET /static/video.mp4 HTTP/1.1[0m" 206 -
+2024-03-30 15:12:33,170 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:33] "[35m[1mGET /static/video.mp4 HTTP/1.1[0m" 206 -
+2024-03-30 15:12:33,178 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:12:33] "[35m[1mGET /static/video.mp4 HTTP/1.1[0m" 206 -
+2024-03-30 15:13:05,151 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:13:05] "[35m[1mGET /static/video.mp4 HTTP/1.1[0m" 206 -
+2024-03-30 15:13:06,767 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:13:06] "POST /mock_chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:13:44,071 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:13:44] "POST /mock_chat_ajax HTTP/1.1" 200 -
+2024-03-30 15:14:08,449 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:08] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-30 15:14:08,457 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:08] "GET /login HTTP/1.1" 200 -
+2024-03-30 15:14:14,206 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 15:14:14,214 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:14] "GET /options HTTP/1.1" 200 -
+2024-03-30 15:14:18,138 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:18] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 15:14:36,080 INFO:app:Files stored with ids: ['6607df023c0838dea658213d'] for username: Harshvardhan
+2024-03-30 15:14:36,614 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:36] "[32mPOST /upload_for_tags HTTP/1.1[0m" 302 -
+2024-03-30 15:14:41,235 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:41] "GET /tags HTTP/1.1" 200 -
+2024-03-30 15:14:41,249 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:41] "GET /uploads/Harshvardhan_document.jpg HTTP/1.1" 200 -
+2024-03-30 15:14:44,243 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:44] "[32mGET /redirect/AI-Data-Scientist HTTP/1.1[0m" 302 -
+2024-03-30 15:14:52,530 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:52] "[32mGET /redirect/React HTTP/1.1[0m" 302 -
+2024-03-30 15:14:58,712 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:14:58] "GET /upload_for_tags HTTP/1.1" 200 -
+2024-03-30 15:15:00,140 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:00] "GET / HTTP/1.1" 200 -
+2024-03-30 15:15:00,165 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:00] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 15:15:01,866 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:01] "GET /faq HTTP/1.1" 200 -
+2024-03-30 15:15:05,547 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:05] "GET / HTTP/1.1" 200 -
+2024-03-30 15:15:05,565 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:05] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 15:15:07,012 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:07] "GET /aboutus HTTP/1.1" 200 -
+2024-03-30 15:15:19,361 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-30 15:15:19,371 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:15:19] "GET /login HTTP/1.1" 200 -
+2024-03-30 15:16:50,949 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:16:50] "GET / HTTP/1.1" 200 -
+2024-03-30 15:16:50,967 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:16:50] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 15:16:57,819 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:16:57] "GET /aboutus HTTP/1.1" 200 -
+2024-03-30 15:17:00,624 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 15:17:00] "GET /aboutus HTTP/1.1" 200 -

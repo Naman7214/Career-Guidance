@@ -514,6 +514,11 @@ def aboutus():
     # Your logic to render the about us page
     return render_template('about.html')
 
+@app.route('/faq')
+def faq():
+    # Your logic to render the about us page
+    return render_template('faq.html')
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
