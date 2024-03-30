@@ -509,6 +509,10 @@ def index():
     session.pop('chat_id', None)
     return render_template('layout.html')
 
+@app.route('/aboutus')
+def aboutus():
+    # Your logic to render the about us page
+    return render_template('about.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():

@@ -800,3 +800,61 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-30 12:36:16,560 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:16] "GET /report HTTP/1.1" 200 -
 2024-03-30 12:36:26,825 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:26] "GET /skills HTTP/1.1" 200 -
 2024-03-30 12:36:28,764 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:28] "GET /login HTTP/1.1" 200 -
+2024-03-30 12:42:40,473 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 12:42:40,474 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 12:42:40,522 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 12:42:55,058 WARNING:werkzeug: * Debugger is active!
+2024-03-30 12:42:55,069 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 12:42:55,876 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:42:55] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-30 12:42:55,889 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:42:55] "GET /options HTTP/1.1" 200 -
+2024-03-30 12:42:57,500 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:42:57] "GET /skills HTTP/1.1" 200 -
+2024-03-30 12:43:04,576 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:43:04] "[32mPOST /skills HTTP/1.1[0m" 302 -
+2024-03-30 12:43:04,598 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:43:04] "GET /resume HTTP/1.1" 200 -
+2024-03-30 12:43:04,729 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:43:04] "[36mGET /static/mascot1.png HTTP/1.1[0m" 304 -
+2024-03-30 12:43:12,147 INFO:app:Files stored with ids: ['6607bb87750ae1689e843b9a'] for username: Harshvardhan
+2024-03-30 12:43:21,385 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:43:21] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2024-03-30 12:43:21,392 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:43:21] "GET /report HTTP/1.1" 200 -
+2024-03-30 12:43:37,162 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:43:37] "GET /report HTTP/1.1" 200 -
+2024-03-30 13:05:54,542 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:05:54,559 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:05:56,256 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 13:08:21,424 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 13:08:21,424 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 13:08:21,447 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 13:08:35,432 WARNING:werkzeug: * Debugger is active!
+2024-03-30 13:08:35,441 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 13:09:08,206 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:09:08,208 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:09:08,209 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:09:08,209 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:09:09,495 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 13:09:24,503 WARNING:werkzeug: * Debugger is active!
+2024-03-30 13:09:24,510 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 13:10:57,165 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:10:57,166 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:10:57,168 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:10:57,169 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\OneDrive\\Desktop\\Projetcs\\Hackathons\\TechFiesta\\Career-Guidance\\app.py', reloading
+2024-03-30 13:10:58,400 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 13:11:14,829 WARNING:werkzeug: * Debugger is active!
+2024-03-30 13:11:14,835 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 13:14:28,461 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:28] "GET /skills HTTP/1.1" 200 -
+2024-03-30 13:14:31,019 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:31] "GET / HTTP/1.1" 200 -
+2024-03-30 13:14:31,168 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:31] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 13:14:32,526 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\app.py', reloading
+2024-03-30 13:14:32,529 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\flask\\templating.py', reloading
+2024-03-30 13:14:32,531 INFO:werkzeug: * Detected change in 'C:\\Users\\Naman Agihotri\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\jinja2\\environment.py', reloading
+2024-03-30 13:14:32,562 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:32] "[35m[1mGET /aboutus HTTP/1.1[0m" 500 -
+2024-03-30 13:14:32,585 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:32] "GET /aboutus?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-03-30 13:14:32,589 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:32] "GET /aboutus?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-03-30 13:14:32,607 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:32] "GET /aboutus?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-03-30 13:14:32,690 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:32] "[36mGET /aboutus?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-30 13:14:33,903 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 13:14:49,135 WARNING:werkzeug: * Debugger is active!
+2024-03-30 13:14:49,143 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 13:14:49,188 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:49] "GET / HTTP/1.1" 200 -
+2024-03-30 13:14:49,298 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:49] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 13:14:54,121 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:54] "GET /aboutus HTTP/1.1" 200 -
+2024-03-30 13:15:21,020 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:15:21] "GET / HTTP/1.1" 200 -
+2024-03-30 13:15:21,040 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:15:21] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
