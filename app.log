@@ -858,3 +858,24 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-30 13:14:54,121 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:14:54] "GET /aboutus HTTP/1.1" 200 -
 2024-03-30 13:15:21,020 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:15:21] "GET / HTTP/1.1" 200 -
 2024-03-30 13:15:21,040 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 13:15:21] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
+2024-03-30 14:00:30,248 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 14:00:30,250 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 14:00:30,269 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 14:00:44,939 WARNING:werkzeug: * Debugger is active!
+2024-03-30 14:00:44,961 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 14:02:47,382 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:02:47] "GET /options HTTP/1.1" 200 -
+2024-03-30 14:02:50,500 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:02:50] "GET /skills HTTP/1.1" 200 -
+2024-03-30 14:02:57,786 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:02:57] "[32mPOST /skills HTTP/1.1[0m" 302 -
+2024-03-30 14:02:57,803 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:02:57] "GET /resume HTTP/1.1" 200 -
+2024-03-30 14:02:57,974 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:02:57] "[36mGET /static/mascot1.png HTTP/1.1[0m" 304 -
+2024-03-30 14:03:07,153 INFO:app:Files stored with ids: ['6607ce416635ce62403f2a62'] for username: Harshvardhan
+2024-03-30 14:03:17,008 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:03:17] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2024-03-30 14:03:17,018 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:03:17] "GET /report HTTP/1.1" 200 -
+2024-03-30 14:03:32,038 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:03:32] "GET /report HTTP/1.1" 200 -
+2024-03-30 14:03:50,487 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:03:50] "GET /report HTTP/1.1" 200 -
+2024-03-30 14:03:50,962 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:03:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-03-30 14:04:01,318 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:01] "GET /report HTTP/1.1" 200 -
+2024-03-30 14:04:11,231 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:11] "GET /report HTTP/1.1" 200 -
+2024-03-30 14:04:28,234 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:28] "GET /report HTTP/1.1" 200 -
+2024-03-30 14:04:35,123 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 14:04:35] "GET /report HTTP/1.1" 200 -
