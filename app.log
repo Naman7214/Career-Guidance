@@ -784,3 +784,19 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads/Harshvardhan_do
 2024-03-30 04:41:46,545 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 04:41:46] "GET / HTTP/1.1" 200 -
 2024-03-30 04:41:46,589 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 04:41:46] "[36mGET /static/mascot.png HTTP/1.1[0m" 304 -
 2024-03-30 04:42:01,104 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 04:42:01] "GET /options HTTP/1.1" 200 -
+2024-03-30 12:35:29,042 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-30 12:35:29,044 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2024-03-30 12:35:29,145 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+2024-03-30 12:35:44,559 WARNING:werkzeug: * Debugger is active!
+2024-03-30 12:35:44,569 INFO:werkzeug: * Debugger PIN: 619-843-348
+2024-03-30 12:35:44,602 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:35:44] "GET /skills HTTP/1.1" 200 -
+2024-03-30 12:35:44,604 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:35:44] "GET /skills HTTP/1.1" 200 -
+2024-03-30 12:35:52,980 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:35:52] "[32mPOST /skills HTTP/1.1[0m" 302 -
+2024-03-30 12:35:52,992 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:35:52] "GET /resume HTTP/1.1" 200 -
+2024-03-30 12:35:53,162 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:35:53] "[36mGET /static/mascot1.png HTTP/1.1[0m" 304 -
+2024-03-30 12:36:03,544 INFO:app:Files stored with ids: ['6607b9da7856636925f630e3'] for username: Harshvardhan
+2024-03-30 12:36:16,547 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:16] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2024-03-30 12:36:16,560 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:16] "GET /report HTTP/1.1" 200 -
+2024-03-30 12:36:26,825 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:26] "GET /skills HTTP/1.1" 200 -
+2024-03-30 12:36:28,764 INFO:werkzeug:127.0.0.1 - - [30/Mar/2024 12:36:28] "GET /login HTTP/1.1" 200 -
