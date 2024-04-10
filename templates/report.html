@@ -94,7 +94,7 @@
             animation: borderAnimation 5s linear infinite;
             transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
             /* transform: rotateX('-90deg'); */
-            transform: scale3d(1.05, 1.05, 1);
+            /* transform: scale3d(1.05, 1.05, 1); */
 
         }
 
@@ -114,7 +114,7 @@
 
 <body>
     <div class="container">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid gap-4">
             {% if report != 'Unknown' %}
 
             {{ report | safe }}

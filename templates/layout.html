@@ -39,8 +39,8 @@
     <nav class="flex justify-between items-center px-10 py-4">
       <div class="text-4xl font-bold"></div>
       <div class="space-x-4">
-        <a href="#" class="hover:underline">About Us</a>
-        <a href="#" class="hover:underline">FAQ</a>
+        <a href="{{url_for('aboutus')}}" class="hover:underline">About Us</a>
+        <a href="{{url_for('faq')}}" class="hover:underline">FAQ</a>
         {% if 'username' not in session %}
         <a href="/signup" class="px-6 py-2 border rounded">Sign up</a>
         {% else %}
